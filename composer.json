@@ -1,7 +1,7 @@
 {
-    "name": "laravel/laravel",
+    "name": "MobMin/digital_atlas",
     "type": "project",
-    "description": "The Laravel Framework.",
+    "description": "This tool provides a detailed overview of the digital landscape for the countries of the world.",
     "keywords": [
         "framework",
         "laravel"
