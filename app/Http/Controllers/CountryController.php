@@ -21,7 +21,9 @@
  */
 namespace App\Http\Controllers;
 
+use App\Models\Country;
 use Illuminate\Http\Request;
+
 /**
  * Our Country controller
  */
@@ -34,7 +36,7 @@ class CountryController extends Controller
      */
     public function index()
     {
-        return view('welcome');
+        return view('countries/index');
     }
 
     /**
@@ -45,6 +47,10 @@ class CountryController extends Controller
      */
     public function show($slug)
     {
-        return $slug;
+        $country = Country::where('slug', $slug)->first();
+        if ($country == null) {
+            abort(404);
+        }
+        return view('countries/show', ['country' => $country]);
     }
 }
