@@ -21,6 +21,8 @@
  */
 use Illuminate\Foundation\Inspiring;
 use Illuminate\Support\Facades\Artisan;
+use Symfony\Component\Process\Exception\ProcessFailedException;
+use Symfony\Component\Process\Process;
 
 /*
 |--------------------------------------------------------------------------
@@ -32,3 +34,8 @@ use Illuminate\Support\Facades\Artisan;
 | simple approach to interacting with each command's IO methods.
 |
 */
+Artisan::command('lint', function () {
+    $process = new Process(['./vendor/bin/phpcs', '.']);
+    $process->run();
+    echo $process->getOutput();
+})->describe('Run syntax linting on all developed code.');
