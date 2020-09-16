@@ -22,6 +22,7 @@
 namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class DatabaseSeeder extends Seeder
 {
@@ -32,6 +33,8 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // User::factory(10)->create();
+        // Create the countries table
+        $sql = database_path('sql' . DIRECTORY_SEPARATOR . 'countries.sql');
+        DB::unprepared(file_get_contents($sql));
     }
 }
