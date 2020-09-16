@@ -19,32 +19,36 @@
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
  */
-namespace App\Http\Controllers;
+namespace Database\Factories;
 
-use Illuminate\Http\Request;
-/**
- * Our Country controller
- */
-class CountryController extends Controller
+use App\Models\Country;
+use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Str;
+
+class CountryFactory extends Factory
 {
     /**
-     * Show all countries
+     * The name of the factory's corresponding model.
      *
-     * @return Response
+     * @var string
      */
-    public function index()
-    {
-        return view('welcome');
-    }
+    protected $model = Country::class;
 
     /**
-     * Show a specific country
+     * Define the model's default state.
      *
-     * @param  string $slug The country slug
-     * @return Response
+     * @return array
      */
-    public function show($slug)
+    public function definition()
     {
-        return $slug;
+        $name = $this->faker->name;
+        $slug = Str::slug($name, '-');
+        return [
+            'name'  =>  $name,
+            'slug'  =>  $slug,
+            'alpha_two_code' => Str::substr(Str::lower($name), 0, 2),
+            'alpha_three_code' => Str::substr(Str::lower($name), 0, 3),
+            'numeric_code'  => $this->faker->numberBetween(1, 999),
+        ];
     }
 }

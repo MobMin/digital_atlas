@@ -19,32 +19,14 @@
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
  */
-namespace App\Http\Controllers;
+namespace App\Models;
 
-use Illuminate\Http\Request;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
 /**
- * Our Country controller
+ * A Country Model
  */
-class CountryController extends Controller
+class Country extends Model
 {
-    /**
-     * Show all countries
-     *
-     * @return Response
-     */
-    public function index()
-    {
-        return view('welcome');
-    }
-
-    /**
-     * Show a specific country
-     *
-     * @param  string $slug The country slug
-     * @return Response
-     */
-    public function show($slug)
-    {
-        return $slug;
-    }
+    use HasFactory;
 }

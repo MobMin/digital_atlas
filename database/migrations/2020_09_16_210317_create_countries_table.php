@@ -19,32 +19,36 @@
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
  */
-namespace App\Http\Controllers;
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
-use Illuminate\Http\Request;
-/**
- * Our Country controller
- */
-class CountryController extends Controller
+class CreateCountriesTable extends Migration
 {
     /**
-     * Show all countries
+     * Run the migrations.
      *
-     * @return Response
+     * @return void
      */
-    public function index()
+    public function up()
     {
-        return view('welcome');
+        Schema::create('countries', function (Blueprint $table) {
+            $table->id();
+            $table->string('name', 255);
+            $table->string('slug', 255)->unique();
+            $table->string('alpha_two_code', 2)->unique();
+            $table->string('alpha_three_code', 3)->unique();
+            $table->smallInteger('numeric_code')->unique();
+        });
     }
 
     /**
-     * Show a specific country
+     * Reverse the migrations.
      *
-     * @param  string $slug The country slug
-     * @return Response
+     * @return void
      */
-    public function show($slug)
+    public function down()
     {
-        return $slug;
+        Schema::dropIfExists('countries');
     }
 }
