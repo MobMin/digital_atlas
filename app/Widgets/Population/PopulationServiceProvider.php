@@ -43,5 +43,8 @@ class PopulationServiceProvider extends ServiceProvider
     {
         $this->loadMigrationsFrom(__DIR__ . DIRECTORY_SEPARATOR . 'Migrations');
         $this->loadViewsFrom(__DIR__ . DIRECTORY_SEPARATOR . 'Views', 'widget-population');
+        if ($this->app->runningInConsole()) {
+            $this->commands([Commands\ImportPopulationData::class]);
+        }
     }
 }

@@ -21,6 +21,7 @@
  */
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 
 class CreatePopulationTable extends Migration
@@ -34,11 +35,12 @@ class CreatePopulationTable extends Migration
     {
         Schema::create('population', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('total_population');
-            $table->bigInteger('population_men');
-            $table->bigInteger('population_women');
-            $table->integer('population_density');
-            $table->timestamps();
+            $table->bigInteger('total');
+            $table->bigInteger('men');
+            $table->bigInteger('women');
+            $table->integer('density');
+            $table->smallInteger('year_reported');
+            $table->timestamp('created_at')->useCurrent();
         });
         Schema::table('population', function (Blueprint $table) {
             $table->foreignId('country_id')->constrained()->onDelete('cascade');
