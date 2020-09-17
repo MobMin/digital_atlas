@@ -41,7 +41,7 @@ class PopulationServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->loadMigrationsFrom(__DIR__ . DIRECTORY_SEPARATOR . 'migrations');
-        $this->loadViewsFrom(__DIR__ . DIRECTORY_SEPARATOR . 'views', 'widget-population');
+        $this->loadMigrationsFrom(__DIR__ . DIRECTORY_SEPARATOR . 'Migrations');
+        $this->loadViewsFrom(__DIR__ . DIRECTORY_SEPARATOR . 'Views', 'widget-population');
     }
 }
