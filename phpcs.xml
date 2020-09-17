@@ -10,4 +10,6 @@
     <exclude-pattern>database/</exclude-pattern>
     <exclude-pattern>storage/</exclude-pattern>
     <exclude-pattern>node_modules/</exclude-pattern>
+    <exclude-pattern>app/Widgets/**/Views/</exclude-pattern>
+    <exclude-pattern>app/Widgets/**/Migrations/</exclude-pattern>
 </ruleset>
