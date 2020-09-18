@@ -10903,9 +10903,21 @@ body {
   padding-top: 5rem;
 }
 
+/* Widget code
+ */
+
 .widget h3 {
   font-size: 1.25rem;
   color: #7094cf;
   text-transform: uppercase;
+}
+
+.widget p.credit {
+  font-size: 0.8rem;
+  text-align: center;
+}
+
+canvas {
+  margin: 1rem 0;
 }
 

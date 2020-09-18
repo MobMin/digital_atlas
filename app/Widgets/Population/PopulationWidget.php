@@ -43,9 +43,23 @@ class PopulationWidget extends AbstractWidget
     {
         $country = func_get_arg(0);
         $current = Models\Population::current($country['id']);
+        $stats = Models\Population::select('year_reported', 'total')
+            ->where('country_id', $country['id'])
+            ->orderBy('year_reported', 'ASC')
+            ->get();
+
+        $statLabels = [];
+        $statData = [];
+        foreach ($stats as $stat) {
+            $statLabels[] = strval($stat->year_reported);
+            $statData[] = $stat->total;
+        }
+
         return view('widget-population::population_widget', [
             'config' => $this->config,
             'current' => $current,
+            'statLabels' => $statLabels,
+            'statData' => $statData,
         ]);
     }
 
