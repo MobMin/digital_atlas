@@ -54,12 +54,17 @@ class PopulationWidget extends AbstractWidget
             $statLabels[] = strval($stat->year_reported);
             $statData[] = $stat->total;
         }
+        $lineColor = config('widgets.population.graph.line_color');
+        if ($lineColor == null) {
+            $lineColor = '#000000';
+        }
 
         return view('widget-population::population_widget', [
-            'config' => $this->config,
-            'current' => $current,
-            'statLabels' => $statLabels,
-            'statData' => $statData,
+            'config'        => $this->config,
+            'current'       => $current,
+            'statLabels'    => $statLabels,
+            'statData'      => $statData,
+            'lineColor'     => $lineColor,
         ]);
     }
 

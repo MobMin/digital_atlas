@@ -80,7 +80,11 @@ class ImportPopulationData extends Command
         $thisYear = date('Y') - 1;
         $earliestYear = $thisYear-4;
         $this->info('Importing population data.');
-        $file = base_path('data' . DIRECTORY_SEPARATOR . 'widget-population.csv');
+        $report = config('widgets.population.report_filename');
+        if ($report == null) {
+            $report = 'widget-population.csv';
+        }
+        $file = base_path('data' . DIRECTORY_SEPARATOR . $report);
         if (!file_exists($file)) {
             $this->error('Missing file: ' . $file);
             return 0;

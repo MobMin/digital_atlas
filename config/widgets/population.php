@@ -19,35 +19,14 @@
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
  */
-namespace App\Widgets\Population;
-
-use Illuminate\Support\ServiceProvider;
-
-class PopulationServiceProvider extends ServiceProvider
-{
-    /**
-     * Register services.
-     *
-     * @return void
-     */
-    public function register()
-    {
-    }
-
-    /**
-     * Bootstrap services.
-     *
-     * @return void
-     */
-    public function boot()
-    {
-        $this->loadMigrationsFrom(__DIR__ . DIRECTORY_SEPARATOR . 'Migrations');
-        $this->loadViewsFrom(__DIR__ . DIRECTORY_SEPARATOR . 'Views', 'widget-population');
-        $this->publishes([
-            __DIR__  . DIRECTORY_SEPARATOR . 'Config.php' => config_path('widgets' . DIRECTORY_SEPARATOR . 'population.php'),
-        ]);
-        if ($this->app->runningInConsole()) {
-            $this->commands([Commands\ImportPopulationData::class]);
-        }
-    }
-}
+/**
+ * Configuration for the Population widget
+ *
+ * @var array
+ */
+return [
+    'report_filename' => 'widget-population.csv',
+    'graph' => [
+        'line_color' => '#7094cf'
+    ]
+];

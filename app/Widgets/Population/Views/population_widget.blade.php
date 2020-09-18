@@ -23,7 +23,7 @@ $(function() {
                 "label":  "Population",
                 "data": @json($statData),
                 "fill": false,
-                "borderColor": "rgb(75, 192, 192)",
+                "borderColor": "{{$lineColor}}",
                 "lineTension": 0.1
             }]
         },
