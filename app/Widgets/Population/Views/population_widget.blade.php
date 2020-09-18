@@ -3,11 +3,11 @@
 <h4>{{ $current->year_reported }} Stats</h4>
 <dl class="row">
     <dt class="col-sm-3">Total</dt>
-    <dd class="col-sm-9">{{ number_format($current->total) }}</dd>
+    <dd class="col-sm-9">{{ number_format($current->total) }} <span class="text-dark">({{ $current->readable_total }})</span></dd>
     <dt class="col-sm-3">Men</dt>
-    <dd class="col-sm-9">{{ number_format($current->men) }}</dd>
+    <dd class="col-sm-9">{{ number_format($current->men) }} <span class="text-dark">({{ $current->readable_men }})</span></dd>
     <dt class="col-sm-3">Women</dt>
-    <dd class="col-sm-9">{{ number_format($current->women) }}</dd>
+    <dd class="col-sm-9">{{ number_format($current->women) }} <span class="text-dark">({{ $current->readable_women }})</span></dd>
     <dt class="col-sm-3">Density</dt>
     <dd class="col-sm-9">{{ number_format($current->density) }}</dd>
 </dl>
