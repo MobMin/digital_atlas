@@ -42,6 +42,7 @@ class JoshuaProjectServiceProvider extends ServiceProvider
     public function boot()
     {
         $ds = DIRECTORY_SEPARATOR;
+        $this->loadMigrationsFrom(__DIR__ . $ds . 'Migrations');
         $this->loadViewsFrom(__DIR__ . $ds . 'Views', 'widget-joshua-project');
     }
 }
