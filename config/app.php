@@ -197,6 +197,7 @@ return [
          * Widget Service Providers
          */
         App\Widgets\Population\PopulationServiceProvider::class,
+        App\Widgets\JoshuaProject\JoshuaProjectServiceProvider::class,
     ],
 
     /*
