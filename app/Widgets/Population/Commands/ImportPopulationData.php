@@ -33,6 +33,12 @@ use Illuminate\Support\Facades\DB;
 class ImportPopulationData extends Command
 {
     /**
+     * A multiplier provided by the UN that all stats should be mulltiplied by
+     *
+     * @var integer
+     */
+    protected $populationMultiplier = 1000;
+    /**
      * The name and signature of the console command.
      *
      * @var string
@@ -98,11 +104,14 @@ class ImportPopulationData extends Command
 
             $numericCode = intval($row[0]);
             if (array_key_exists($numericCode, $countries)) {
+                $popMen = round(floatval($row[6]) * $this->populationMultiplier);
+                $popWomen = round(floatval($row[7]) * $this->populationMultiplier);
+                $popTotal = round(floatval($row[8]) * $this->populationMultiplier);
                 $data[] = [
-                    'men' => $this->roundStringToInt($row[6]),
-                    'women' => $this->roundStringToInt($row[7]),
-                    'total' => $this->roundStringToInt($row[8]),
-                    'density' => $this->roundStringToInt($row[9]),
+                    'men' => intval($popMen),
+                    'women' => intval($popWomen),
+                    'total' => intval($popTotal),
+                    'density' => intval(round(floatval($row[9]))),
                     'year_reported' => $year,
                     'country_id' => $countries[$numericCode],
                 ];
@@ -116,18 +125,5 @@ class ImportPopulationData extends Command
         Population::insert($data);
         $this->info('Import is complete.');
         return 0;
-    }
-
-    /**
-     * Converts a string to float, rounds it, and then converts to int
-     *
-     * @param  string $string   The string to convert
-     * @return int              The rounded value
-     *
-     * @access public
-     */
-    public function roundStringToInt($string)
-    {
-        return intval(round(floatval($string)));
     }
 }
