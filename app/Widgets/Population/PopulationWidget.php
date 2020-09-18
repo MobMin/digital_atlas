@@ -48,4 +48,18 @@ class PopulationWidget extends AbstractWidget
             'current' => $current,
         ]);
     }
+
+    /**
+     * Async and reloadable widgets are wrapped in container.
+     * You can customize it by overriding this method.
+     *
+     * @return array
+     */
+    public function container()
+    {
+        return [
+            'element'       => 'div',
+            'attributes'    => 'class="widget col-6 col-md-2"',
+        ];
+    }
 }
