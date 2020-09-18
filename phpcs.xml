@@ -3,11 +3,13 @@
     <description>The PSR2 coding standard.</description>
     <rule ref="PSR2"/>
     <file>app/</file>
-    <exclude-pattern>public/index.php</exclude-pattern>
+    <exclude-pattern>public/</exclude-pattern>
     <exclude-pattern>bootstrap/cache/</exclude-pattern>
     <exclude-pattern>vendor</exclude-pattern>
     <exclude-pattern>resources</exclude-pattern>
     <exclude-pattern>database/</exclude-pattern>
     <exclude-pattern>storage/</exclude-pattern>
     <exclude-pattern>node_modules/</exclude-pattern>
+    <exclude-pattern>app/Widgets/**/Views/</exclude-pattern>
+    <exclude-pattern>app/Widgets/**/Migrations/</exclude-pattern>
 </ruleset>

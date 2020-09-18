@@ -19,19 +19,36 @@
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
  */
-use App\Http\Controllers\CountryController;
-use Illuminate\Support\Facades\Route;
+namespace App\Widgets\Population;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+use Illuminate\Support\ServiceProvider;
 
-Route::get('/', [CountryController::class, 'index']);
-Route::get('countries/{slug}', [CountryController::class, 'show'])->where('slug', '[a-zA-Z\-]+');
+class PopulationServiceProvider extends ServiceProvider
+{
+    /**
+     * Register services.
+     *
+     * @return void
+     */
+    public function register()
+    {
+    }
+
+    /**
+     * Bootstrap services.
+     *
+     * @return void
+     */
+    public function boot()
+    {
+        $ds = DIRECTORY_SEPARATOR;
+        $this->loadMigrationsFrom(__DIR__ . $ds . 'Migrations');
+        $this->loadViewsFrom(__DIR__ . $ds . 'Views', 'widget-population');
+        $this->publishes([
+            __DIR__  . $ds . 'Config.php' => config_path('widgets' . $ds . 'population.php'),
+        ]);
+        if ($this->app->runningInConsole()) {
+            $this->commands([Commands\ImportPopulationData::class]);
+        }
+    }
+}

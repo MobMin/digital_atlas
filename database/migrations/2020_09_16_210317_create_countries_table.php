@@ -19,19 +19,36 @@
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
  */
-use App\Http\Controllers\CountryController;
-use Illuminate\Support\Facades\Route;
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+class CreateCountriesTable extends Migration
+{
+    /**
+     * Run the migrations.
+     *
+     * @return void
+     */
+    public function up()
+    {
+        Schema::create('countries', function (Blueprint $table) {
+            $table->id();
+            $table->string('name', 255);
+            $table->string('slug', 255)->unique();
+            $table->string('alpha_two_code', 2)->unique();
+            $table->string('alpha_three_code', 3)->unique();
+            $table->smallInteger('numeric_code')->unique();
+        });
+    }
 
-Route::get('/', [CountryController::class, 'index']);
-Route::get('countries/{slug}', [CountryController::class, 'show'])->where('slug', '[a-zA-Z\-]+');
+    /**
+     * Reverse the migrations.
+     *
+     * @return void
+     */
+    public function down()
+    {
+        Schema::dropIfExists('countries');
+    }
+}

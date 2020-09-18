@@ -19,19 +19,36 @@
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
  */
-use App\Http\Controllers\CountryController;
-use Illuminate\Support\Facades\Route;
+namespace Database\Factories;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+use App\Models\Country;
+use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Str;
 
-Route::get('/', [CountryController::class, 'index']);
-Route::get('countries/{slug}', [CountryController::class, 'show'])->where('slug', '[a-zA-Z\-]+');
+class CountryFactory extends Factory
+{
+    /**
+     * The name of the factory's corresponding model.
+     *
+     * @var string
+     */
+    protected $model = Country::class;
+
+    /**
+     * Define the model's default state.
+     *
+     * @return array
+     */
+    public function definition()
+    {
+        $name = $this->faker->name;
+        $slug = Str::slug($name, '-');
+        return [
+            'name'  =>  $name,
+            'slug'  =>  $slug,
+            'alpha_two_code' => Str::substr(Str::lower($name), 0, 2),
+            'alpha_three_code' => Str::substr(Str::lower($name), 0, 3),
+            'numeric_code'  => $this->faker->numberBetween(1, 999),
+        ];
+    }
+}

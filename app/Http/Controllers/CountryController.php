@@ -19,19 +19,38 @@
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
  */
-use App\Http\Controllers\CountryController;
-use Illuminate\Support\Facades\Route;
+namespace App\Http\Controllers;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+use App\Models\Country;
+use Illuminate\Http\Request;
 
-Route::get('/', [CountryController::class, 'index']);
-Route::get('countries/{slug}', [CountryController::class, 'show'])->where('slug', '[a-zA-Z\-]+');
+/**
+ * Our Country controller
+ */
+class CountryController extends Controller
+{
+    /**
+     * Show all countries
+     *
+     * @return Response
+     */
+    public function index()
+    {
+        return view('countries/index');
+    }
+
+    /**
+     * Show a specific country
+     *
+     * @param  string $slug The country slug
+     * @return Response
+     */
+    public function show($slug)
+    {
+        $country = Country::where('slug', $slug)->first();
+        if ($country == null) {
+            abort(404);
+        }
+        return view('countries/show', ['country' => $country]);
+    }
+}

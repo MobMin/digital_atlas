@@ -1,13 +1,3 @@
-CREATE TABLE IF NOT EXISTS `countries` (
-    `id` int(11) NOT NULL AUTO_INCREMENT,
-    `name` varchar(255) NOT NULL,
-    `slug` varchar(255) NOT NULL,
-    `alpha_two_code` char(2) NOT NULL,
-    `alpha_three_code` char(3) NOT NULL,
-    `numeric_code` int(6) DEFAULT NULL,
-    PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1;
-CREATE UNIQUE INDEX `countries_slug` ON countries(`slug`);
 INSERT INTO `countries` (`name`, `slug`, `alpha_two_code`, `alpha_three_code`, `numeric_code`) VALUES
 ('Afghanistan', 'afghanistan', 'AF', 'AFG', 4),
 ('Albania', 'albania', 'AL', 'ALB', 8),

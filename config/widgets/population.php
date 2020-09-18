@@ -19,19 +19,14 @@
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
  */
-use App\Http\Controllers\CountryController;
-use Illuminate\Support\Facades\Route;
-
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-
-Route::get('/', [CountryController::class, 'index']);
-Route::get('countries/{slug}', [CountryController::class, 'show'])->where('slug', '[a-zA-Z\-]+');
+/**
+ * Configuration for the Population widget
+ *
+ * @var array
+ */
+return [
+    'report_filename' => 'widget-population.csv',
+    'graph' => [
+        'line_color' => '#7094cf'
+    ]
+];
