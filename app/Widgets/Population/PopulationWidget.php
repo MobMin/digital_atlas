@@ -42,10 +42,10 @@ class PopulationWidget extends AbstractWidget
     public function run()
     {
         $country = func_get_arg(0);
-        $population = Models\Population::where('country_id', $country['id'])->first();
+        $current = Models\Population::current($country['id']);
         return view('widget-population::population_widget', [
             'config' => $this->config,
-            'population' => $population,
+            'current' => $current,
         ]);
     }
 }

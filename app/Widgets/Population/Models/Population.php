@@ -34,4 +34,19 @@ class Population extends Model
      * @var string
      */
     protected $table = 'population';
+
+    /**
+     * A scope to get the current population
+     *
+     * @param  object   $query      The query object
+     * @param  integer  $countryId  The country id
+     * @return object               The current population
+     */
+    public function scopeCurrent($query, $countryId)
+    {
+        return $query
+            ->where('country_id', $countryId)
+            ->orderBy('year_reported', 'DESC')
+            ->first();
+    }
 }
