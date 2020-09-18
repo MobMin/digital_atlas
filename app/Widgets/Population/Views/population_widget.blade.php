@@ -36,8 +36,20 @@ $(function() {
                 }
             },
             "scales": {
+                "xAxes": [
+                    {
+                        "scaleLabel": {
+                            "display": true,
+                            "labelString": "Year"
+                        }
+                    }
+                ],
                 "yAxes": [
                     {
+                        "scaleLabel": {
+                            "display": true,
+                            "labelString": "People"
+                        },
                         "ticks": {
                             "beginAtZero": false,
                             "callback": function(value, index, values) {
