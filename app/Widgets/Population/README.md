@@ -18,6 +18,7 @@ This package only works with the Digital Atlas.  To install:
 App\Widgets\Population\PopulationServiceProvider::class
 ```
 3. In terminal, migrate the database with `php artisan migrate`
+4. Added the widget to the view file using `@asyncWidget('App\Widgets\Population\PopulationWidget', [], $country)`.
 
 ## Configuration
 
