@@ -41,10 +41,11 @@ class PopulationServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-        $this->loadMigrationsFrom(__DIR__ . DIRECTORY_SEPARATOR . 'Migrations');
-        $this->loadViewsFrom(__DIR__ . DIRECTORY_SEPARATOR . 'Views', 'widget-population');
+        $ds = DIRECTORY_SEPARATOR;
+        $this->loadMigrationsFrom(__DIR__ . $ds . 'Migrations');
+        $this->loadViewsFrom(__DIR__ . $ds . 'Views', 'widget-population');
         $this->publishes([
-            __DIR__  . DIRECTORY_SEPARATOR . 'Config.php' => config_path('widgets' . DIRECTORY_SEPARATOR . 'population.php'),
+            __DIR__  . $ds . 'Config.php' => config_path('widgets' . $ds . 'population.php'),
         ]);
         if ($this->app->runningInConsole()) {
             $this->commands([Commands\ImportPopulationData::class]);
