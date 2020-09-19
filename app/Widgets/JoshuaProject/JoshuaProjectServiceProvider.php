@@ -22,6 +22,7 @@
 namespace App\Widgets\JoshuaProject;
 
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Console\Scheduling\Schedule;
 
 class JoshuaProjectServiceProvider extends ServiceProvider
 {
@@ -44,5 +45,14 @@ class JoshuaProjectServiceProvider extends ServiceProvider
         $ds = DIRECTORY_SEPARATOR;
         $this->loadMigrationsFrom(__DIR__ . $ds . 'Migrations');
         $this->loadViewsFrom(__DIR__ . $ds . 'Views', 'widget-joshua-project');
+        $this->publishes([
+            __DIR__  . $ds . 'Config.php' => config_path('widgets' . $ds . 'joshua_project.php'),
+        ]);
+        $this->callAfterResolving(Schedule::class, function (Schedule $schedule) {
+            $schedule->command('import:joshuaproject:data')->weekly();
+        });
+        if ($this->app->runningInConsole()) {
+            $this->commands([Commands\ImportJoshuaProjectData::class]);
+        }
     }
 }
