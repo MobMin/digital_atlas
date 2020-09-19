@@ -20,14 +20,15 @@ class CreateJpdataTable extends Migration
             $table->integer('total_unreached');
             $table->integer('jp_scale');
             $table->boolean('in_1040')->default(false);
-            $table->decimal('percent_buddhist');
-            $table->decimal('percent_christian');
-            $table->decimal('percent_evangelical');
-            $table->decimal('percent_hindu');
-            $table->decimal('percent_islam');
-            $table->decimal('percent_ethnic_religion');
-            $table->decimal('percent_other_religion');
-            $table->timestamps();
+            $table->decimal('percent_buddhist', 8, 3);
+            $table->decimal('percent_christian', 8, 3);
+            $table->decimal('percent_evangelical', 8, 3);
+            $table->decimal('percent_hindu', 8, 3);
+            $table->decimal('percent_islam', 8, 3);
+            $table->decimal('percent_ethnic_religion', 8, 3);
+            $table->decimal('percent_other_religion', 8, 3);
+            $table->decimal('percent_non_religious', 8, 3);
+            $table->timestamp('created_at')->useCurrent();
         });
         Schema::table('jpdata', function (Blueprint $table) {
             $table->foreignId('country_id')->constrained()->onDelete('cascade');
