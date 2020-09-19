@@ -28,6 +28,7 @@ class CreateJpdataTable extends Migration
             $table->decimal('percent_ethnic_religion', 8, 3);
             $table->decimal('percent_other_religion', 8, 3);
             $table->decimal('percent_non_religious', 8, 3);
+            $table->string('rog3', 3);
             $table->timestamp('created_at')->useCurrent();
         });
         Schema::table('jpdata', function (Blueprint $table) {

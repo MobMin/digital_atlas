@@ -21,10 +21,11 @@
  */
 namespace App\Widgets\JoshuaProject;
 
+use App\Widgets\JoshuaProject\Models\JPData;
 use Arrilot\Widgets\AbstractWidget;
 
 /**
- * A widget displaying UN population data
+ * A widget displaying Joshua Project data
  */
 class JoshuaProjectWidget extends AbstractWidget
 {
@@ -42,8 +43,10 @@ class JoshuaProjectWidget extends AbstractWidget
     public function run()
     {
         $country = func_get_arg(0);
+        $data = JPData::where('country_id', $country['id'])->first();
         return view('widget-joshua-project::joshua_project_widget', [
-            'config'        => $this->config,
+            'config'        =>  $this->config,
+            'data'          =>  $data,
         ]);
     }
 
@@ -57,7 +60,7 @@ class JoshuaProjectWidget extends AbstractWidget
     {
         return [
             'element'       => 'div',
-            'attributes'    => 'class="widget col-6 col-md-2"',
+            'attributes'    => 'class="widget col-6 col-md-3"',
         ];
     }
 }

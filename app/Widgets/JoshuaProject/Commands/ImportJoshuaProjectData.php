@@ -108,6 +108,7 @@ class ImportJoshuaProjectData extends Command
                     'percent_ethnic_religion'   =>  $this->prepareFloat($country['PercentEthnicReligions']),
                     'percent_other_religion'    =>  $this->prepareFloat($country['PercentOtherSmall']),
                     'percent_non_religious'     =>  $this->prepareFloat($country['PercentNonReligious']),
+                    'rog3'                      =>  $country['ROG3'],
                     'country_id'                => $countries[$iso],
                 ];
             }
