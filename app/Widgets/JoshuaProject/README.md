@@ -19,8 +19,9 @@ This package only works with the Digital Atlas.  To install:
 App\Widgets\JoshuaProject\JoshuaProjectServiceProvider::class
 ```
 3. In terminal, migrate the database with `php artisan migrate`
-4. Added the widget to the view file using `@asyncWidget('App\Widgets\JoshuaProject\JoshuaProjectWidget', [], $country)`.
-5. Make sure to get an API key, and set it in the configuration file.
+4. Add the widget to the view file using `@asyncWidget('App\Widgets\JoshuaProject\JoshuaProjectWidget', [], $country)`.
+5. Create the configuration file as described below.
+6. Make sure to get an API key, and set it in the configuration file.
 
 ## Configuration
 
