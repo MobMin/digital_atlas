@@ -7,6 +7,7 @@ This [Joshua Project](https://joshuaproject.net/) widget was designed for the Di
 It uses the following PHP libraries:
 
 - [arrilot/laravel-widgets](https://github.com/arrilot/laravel-widgets)
+- [guzzlehttp/guzzle](http://docs.guzzlephp.org/en/stable/)
 
 ## Install
 
@@ -19,6 +20,7 @@ App\Widgets\JoshuaProject\JoshuaProjectServiceProvider::class
 ```
 3. In terminal, migrate the database with `php artisan migrate`
 4. Added the widget to the view file using `@asyncWidget('App\Widgets\JoshuaProject\JoshuaProjectWidget', [], $country)`.
+5. Make sure to get an API key, and set it in the configuration file.
 
 ## Configuration
 
