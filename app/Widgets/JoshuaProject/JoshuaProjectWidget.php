@@ -43,10 +43,23 @@ class JoshuaProjectWidget extends AbstractWidget
     public function run()
     {
         $country = func_get_arg(0);
+        $colors = config('widgets.joshua_project.graph_colors');
+        if ($colors == null) {
+            $colors = [
+                'buddhism'      => '#003f5c',
+                'christian'     => '#374c80',
+                'hinduism'      => '#7a5195',
+                'islam'         => '#bc5090',
+                'ethnic'        => '#ef5675',
+                'other'         => '#ff764a',
+                'non-religious' => '#ffa600',
+            ];
+        }
         $data = JPData::where('country_id', $country['id'])->first();
         return view('widget-joshua-project::joshua_project_widget', [
             'config'        =>  $this->config,
             'data'          =>  $data,
+            'colors'        =>  $colors,
         ]);
     }
 

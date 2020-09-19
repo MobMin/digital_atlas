@@ -39,5 +39,17 @@ return [
          * database.  If it is lower, you will miss some country data.
          */
         'total_countries'   =>  300,
-    ]
+    ],
+    /**
+     * Colors for the pie graph
+     */
+    'graph_colors' => [
+        'buddhism'      => '#003f5c',
+        'christian'     => '#374c80',
+        'hinduism'      => '#7a5195',
+        'islam'         => '#bc5090',
+        'ethnic'        => '#ef5675',
+        'other'         => '#ff764a',
+        'non-religious' => '#ffa600',
+    ],
 ];

@@ -18,11 +18,12 @@
     <dt class="col-sm-6">Main Religion</dt>
     <dd class="col-sm-6">{{ $data->primary_religion }}</dd>
 </dl>
+<canvas id="jpdata-chart" width="400" height="400" styles="width: 100%; height: auto;"></canvas>
 <table class="table table-striped">
     <caption>Religion Percentages</caption>
     <tbody>
         <tr>
-            <td>Buddhist</td>
+            <td>Buddhism</td>
             <td>{{ $data->percent_buddhist }}%</td>
         </tr>
         <tr>
@@ -30,7 +31,7 @@
             <td>{{ $data->percent_christian }}% ({{ $data->percent_evangelical }}%)</td>
         </tr>
         <tr>
-            <td>Hindu</td>
+            <td>Hinduism</td>
             <td>{{ $data->percent_hindu }}%</td>
         </tr>
         <tr>
@@ -52,3 +53,22 @@
     </tbody>
 </table>
 <p class="credit">Data provided by <a href="https://joshuaproject.net/countries/{{ $data['rog3'] }}" target="_blank" rel="nofollow">Joshua Project</a></p>
+<script type="text/javascript">
+$(function() {
+    var jpDataChart = $('#jpdata-chart');
+    new Chart(jpDataChart, {
+        "type": "doughnut",
+        "data": {
+            "labels": ["Buddhism", "Christian", "Hinduism", "Islam", "Ethnic", "Other", "Non-Religious"],
+            "datasets": [
+                {
+                    "backgroundColor": ["{{ $colors['buddhism'] }}", "{{ $colors['christian'] }}", "{{ $colors['hinduism'] }}", "{{ $colors['islam'] }}", "{{ $colors['ethnic'] }}", "{{ $colors['other'] }}", "{{ $colors['non-religious'] }}"],
+                    "data": [{{ $data->percent_buddhist }}, {{ $data->percent_christian }}, {{ $data->percent_hindu }}, {{ $data->percent_islam }}, {{ $data->percent_ethnic_religion }}, {{ $data->percent_other_religion }}, {{ $data->percent_non_religious }}]
+                }
+            ]
+        },
+        "options": {
+        }
+    });
+});
+</script>
