@@ -5,10 +5,14 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta name="description" content="">
         <meta name="author" content="Mobile Ministry Forum">
-        <title>Data Atlas</title>
+        <title>Digital Atlas</title>
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     </head>
-    <body>
+    @if (Request::path() == '/')
+        <body class="home">
+    @else
+        <body class="pages">
+    @endif
         <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
             <a class="navbar-brand" href="/">Digital Atlas <small>brought to you by MMF</small></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
@@ -21,19 +25,39 @@
                         <a class="nav-link" href="/">Home</a>
                     </li>
                 </ul>
-                <form class="form-inline my-2 my-lg-0">
-                    <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-secondary my-2 my-sm-0" type="submit">Go</button>
-                </form>
+                @if (Request::path() != '/')
+                    <form id="search-form" class="form-inline my-2 my-lg-0" autocomplete="off">
+                        <input autocomplete="false" name="hidden" type="text" class="d-none">
+                        <input class="form-control" id="search-countries" type="text" placeholder="Search" aria-label="Search">
+                        <div class="dropdown-menu">
+                            <i class="no-results d-none">Sorry, no mathes found!</i>
+                            <div class="list-autocomplete"></div>
+                        </div>
+                    </form>
+                @endif
             </div>
         </nav>
 
         <main role="main" class="container-fluid">
 
-            <div class="content">@yield('content')</div>
+            @if (Request::path() == '/')
+            	<div class="content home">
+            @else
+                <div class="content">
+            @endif
+                @yield('content')
+            </div>
 
         </main><!-- /.container -->
+
+        <footer class="footer">
+            <p>
+                Brought to you by <a href="https://mobileministryforum.org/">Mobile Ministry Forum</a>
+                @yield('extra-footer')
+            </p>
+        </footer>
         <script type="text/javascript" src="{{ asset('js/app.js') }}"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js" integrity="sha512-s+xg36jbIujB2S2VKfpGmlC3T5V2TF3lY48DX7u2r9XzGzgPsa6wTpOQA7J9iffvdeBN0q9tKzRxVxw1JviZPg==" crossorigin="anonymous"></script>
+        @yield('extra-js')
     </body>
 </html>

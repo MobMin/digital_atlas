@@ -36,7 +36,9 @@ class CountryController extends Controller
      */
     public function index()
     {
-        return view('countries/index');
+        $photos = config('home_photos');
+        $random = array_rand($photos);
+        return view('countries/index', ['photo' => $photos[$random]]);
     }
 
     /**
@@ -52,5 +54,16 @@ class CountryController extends Controller
             abort(404);
         }
         return view('countries/show', ['country' => $country]);
+    }
+
+    public function fetch(Request $request)
+    {
+        $query = $request->get('query');
+        if ($query) {
+            $countries = Country::where('name', 'LIKE', "%{$query}%")->get();
+        } else {
+            $countries = Country::get();
+        }
+        return response()->json($countries);
     }
 }
