@@ -36,7 +36,9 @@ class CountryController extends Controller
      */
     public function index()
     {
-        return view('countries/index');
+        $photos = config('home_photos');
+        $random = array_rand($photos);
+        return view('countries/index', ['photo' => $photos[$random]]);
     }
 
     /**

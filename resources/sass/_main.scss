@@ -1,6 +1,31 @@
 body {
     padding-top: 5rem;
 }
+.home h1 {
+    color: #ffffff;
+    text-align: center;
+}
+footer {
+    background-color: theme-color('dark');
+    text-align: center;
+    padding: 1.5rem 0 .85rem;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+
+    p {
+        color: #ffffff;
+        font-style: italic;
+        font-size: .85rem;
+        margin: 0px;
+    }
+    a {
+        color: theme-color('secondary');
+    }
+    a:hover, a:visited {
+        color: #ffffff;
+    }
+}
 /* Widget code
  */
 .widget {

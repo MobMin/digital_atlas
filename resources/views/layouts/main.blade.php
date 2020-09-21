@@ -21,19 +21,35 @@
                         <a class="nav-link" href="/">Home</a>
                     </li>
                 </ul>
-                <form class="form-inline my-2 my-lg-0">
-                    <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-secondary my-2 my-sm-0" type="submit">Go</button>
-                </form>
+                @if (Request::path() != '/')
+                    <form class="form-inline my-2 my-lg-0">
+                        <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-secondary my-2 my-sm-0" type="submit">Go</button>
+                    </form>
+                @endif
             </div>
         </nav>
 
         <main role="main" class="container-fluid">
 
-            <div class="content">@yield('content')</div>
+            @if (Request::path() == '/')
+            	<div class="content home">
+            @else
+                <div class="content">
+            @endif
+                @yield('content')
+            </div>
 
         </main><!-- /.container -->
+
+        <footer class="footer">
+            <p>
+                Brought to you by <a href="https://mobileministryforum.org/">Mobile Ministry Forum</a>
+                @yield('extra-footer')
+            </p>
+        </footer>
         <script type="text/javascript" src="{{ asset('js/app.js') }}"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js" integrity="sha512-s+xg36jbIujB2S2VKfpGmlC3T5V2TF3lY48DX7u2r9XzGzgPsa6wTpOQA7J9iffvdeBN0q9tKzRxVxw1JviZPg==" crossorigin="anonymous"></script>
+        @yield('extra-js')
     </body>
 </html>
