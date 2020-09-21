@@ -4,6 +4,7 @@
     <rule ref="PSR2"/>
     <file>app/</file>
     <exclude-pattern>public/</exclude-pattern>
+    <exclude-pattern>config/home_photos.php</exclude-pattern>
     <exclude-pattern>bootstrap/cache/</exclude-pattern>
     <exclude-pattern>vendor</exclude-pattern>
     <exclude-pattern>resources</exclude-pattern>

@@ -56,6 +56,12 @@ class CountryController extends Controller
         return view('countries/show', ['country' => $country]);
     }
 
+    /**
+     * Fetch all the countries for a specific query
+     *
+     * @param  Request $request The request object
+     * @return Response         The JSON response
+     */
     public function fetch(Request $request)
     {
         $query = $request->get('query');
