@@ -34,4 +34,5 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [CountryController::class, 'index']);
+Route::get('countries/fetch', [CountryController::class, 'fetch']);
 Route::get('countries/{slug}', [CountryController::class, 'show'])->where('slug', '[a-zA-Z\-]+');

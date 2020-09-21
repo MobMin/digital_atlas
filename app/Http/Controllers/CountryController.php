@@ -55,4 +55,15 @@ class CountryController extends Controller
         }
         return view('countries/show', ['country' => $country]);
     }
+
+    public function fetch(Request $request)
+    {
+        $query = $request->get('query');
+        if ($query) {
+            $countries = Country::where('name', 'LIKE', "%{$query}%")->get();
+        } else {
+            $countries = Country::get();
+        }
+        return response()->json($countries);
+    }
 }

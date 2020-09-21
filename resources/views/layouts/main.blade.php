@@ -8,7 +8,11 @@
         <title>Digital Atlas</title>
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     </head>
-    <body>
+    @if (Request::path() == '/')
+        <body class="home">
+    @else
+        <body class="pages">
+    @endif
         <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
             <a class="navbar-brand" href="/">Digital Atlas <small>brought to you by MMF</small></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
@@ -22,9 +26,13 @@
                     </li>
                 </ul>
                 @if (Request::path() != '/')
-                    <form class="form-inline my-2 my-lg-0">
-                        <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
-                        <button class="btn btn-secondary my-2 my-sm-0" type="submit">Go</button>
+                    <form id="search-form" class="form-inline my-2 my-lg-0" autocomplete="off">
+                        <input autocomplete="false" name="hidden" type="text" class="d-none">
+                        <input class="form-control" id="search-countries" type="text" placeholder="Search" aria-label="Search">
+                        <div class="dropdown-menu">
+                            <i class="no-results d-none">Sorry, no mathes found!</i>
+                            <div class="list-autocomplete"></div>
+                        </div>
                     </form>
                 @endif
             </div>

@@ -1,16 +1,21 @@
 body {
     padding-top: 5rem;
 }
-.home h1 {
-    color: #ffffff;
-    text-align: center;
+.home {
+    h1 {
+        color: #ffffff;
+        text-align: center;
+    }
+
+    footer {
+        position: absolute;
+        bottom: 0;
+    }
 }
 footer {
     background-color: theme-color('dark');
     text-align: center;
     padding: 1.5rem 0 .85rem;
-    position: absolute;
-    bottom: 0;
     width: 100%;
 
     p {
@@ -42,4 +47,16 @@ footer {
 }
 canvas {
     margin: 1rem 0;
+}
+/*
+    Search Form
+ */
+form#search-form {
+    .dropdown-menu {
+        width: 100%;
+    }
+    .no-results {
+        padding-left: 1.25rem;
+        padding-right: 1.25rem;
+    }
 }
