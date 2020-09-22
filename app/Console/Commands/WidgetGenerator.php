@@ -37,7 +37,7 @@ class WidgetGenerator extends Command
      * @var string
      */
     protected $signature = 'project:make:widget
-        {name : Name for your widget. (Must be unique and snake_case.)}';
+        {name : Name for your widget. Must be unique!}';
 
     /**
      * The console command description.
@@ -79,13 +79,15 @@ class WidgetGenerator extends Command
      * @param  string $widget The requested widget name
      * @return void
      *
-     * @access private
+     * @access protected
      */
-    private function generate(string $widget)
+    protected function generate(string $widget)
     {
         $ds = DIRECTORY_SEPARATOR;
         $studly = Str::studly($widget);
         $snake = Str::snake($widget);
+        $kebab = Str::kebab($widget);
+        $titlized = Str::titlizeSnake($snake);
         $widgetPath = app_path('Widgets' . $ds . $studly);
         Storage::disk('widgets')->makeDirectory($studly);
         Storage::disk('widgets')->makeDirectory($studly . $ds . 'Commands');
@@ -94,8 +96,52 @@ class WidgetGenerator extends Command
         Storage::disk('widgets')->makeDirectory($studly . $ds . 'Translations');
         Storage::disk('widgets')->makeDirectory($studly . $ds . 'Translations' . $ds . 'en');
         Storage::disk('widgets')->makeDirectory($studly . $ds . 'Views');
-        Storage::disk('widgets')->put($studly . $ds . 'Views' . $ds . $snake . '.blade.php', '');
+        Storage::disk('widgets')->put(
+            $studly . $ds . 'Views' . $ds . $snake . '_widget.blade.php',
+            '<h3>' . $titlized . '</h3>'
+        );
         File::copy(base_path('COPYING'), $widgetPath . $ds . 'COPYING');
+        $readMeTemplate = Storage::disk('stubs')->get('README.stub');
+        $readMe = str_replace(
+            ['{{titlizedName}}', '{{studlyName}}', '{{snakeName}}', '{{kebabName}}'],
+            [$titlized, $studly, $snake, $kebab],
+            $readMeTemplate
+        );
+        Storage::disk('widgets')->put($studly . $ds . 'README.md', $readMe);
+        $configTemplate = Storage::disk('stubs')->get('Config.stub');
+        $configContent = str_replace(
+            ['{{titlizedName}}', '{{studlyName}}', '{{snakeName}}', '{{kebabName}}'],
+            [$titlized, $studly, $snake, $kebab],
+            $configTemplate
+        );
+        Storage::disk('widgets')->put($studly . $ds . 'Config.php', $configContent);
+        $providerTemplate = Storage::disk('stubs')->get('WidgetServiceProvider.stub');
+        $providerContent = str_replace(
+            ['{{titlizedName}}', '{{studlyName}}', '{{snakeName}}', '{{kebabName}}'],
+            [$titlized, $studly, $snake, $kebab],
+            $providerTemplate
+        );
+        Storage::disk('widgets')->put($studly . $ds . $studly . 'ServiceProvider.php', $providerContent);
+        $widgetTemplate = Storage::disk('stubs')->get('Widget.stub');
+        $widgetContent = str_replace(
+            ['{{titlizedName}}', '{{studlyName}}', '{{snakeName}}', '{{kebabName}}'],
+            [$titlized, $studly, $snake, $kebab],
+            $widgetTemplate
+        );
+        Storage::disk('widgets')->put($studly . $ds . $studly . 'Widget.php', $widgetContent);
+        $transTemplate = Storage::disk('stubs')->get('Translation.stub');
+        $transContent = str_replace(
+            ['{{titlizedName}}', '{{studlyName}}', '{{snakeName}}', '{{kebabName}}'],
+            [$titlized, $studly, $snake, $kebab],
+            $transTemplate
+        );
+        Storage::disk('widgets')->put(
+            $studly . $ds . 'Translations' . $ds . 'en' . $ds . 'widget.php',
+            $transContent
+        );
+        $this->info('Your widget has been created.  You will find the base code in app/Widgets/ directory.');
+        $this->info('Before getting started, please follow the install instructions in README.md.');
+        $this->info('Happy Coding!');
     }
 
     /**
@@ -104,9 +150,9 @@ class WidgetGenerator extends Command
      * @param  string $widget The requested widget name
      * @return boolean        Does it exist?
      *
-     * @access private
+     * @access protected
      */
-    private function exists(string $widget)
+    protected function exists(string $widget)
     {
         $exists = false;
         $name = Str::studly($widget);

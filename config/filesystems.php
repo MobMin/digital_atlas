@@ -69,7 +69,12 @@ return [
 
         'base' => [
             'driver' => 'local',
-            'root' => base_path(),
+            'root' => resource_path(),
+        ],
+
+        'stubs' => [
+            'driver' => 'local',
+            'root' => resource_path('stubs'),
         ],
 
         'widgets' => [
