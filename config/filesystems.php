@@ -67,6 +67,16 @@ return [
             'root' => storage_path('app'),
         ],
 
+        'base' => [
+            'driver' => 'local',
+            'root' => base_path(),
+        ],
+
+        'widgets' => [
+            'driver' => 'local',
+            'root' => base_path('app' . DIRECTORY_SEPARATOR . 'Widgets'),
+        ],
+
         'public' => [
             'driver' => 'local',
             'root' => storage_path('app/public'),
