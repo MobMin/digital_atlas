@@ -44,6 +44,7 @@ class PopulationServiceProvider extends ServiceProvider
         $ds = DIRECTORY_SEPARATOR;
         $this->loadMigrationsFrom(__DIR__ . $ds . 'Migrations');
         $this->loadViewsFrom(__DIR__ . $ds . 'Views', 'widget-population');
+        $this->loadTranslationsFrom(__DIR__ . $ds . 'Translations', 'widget-population');
         $this->publishes([
             __DIR__  . $ds . 'Config.php' => config_path('widgets' . $ds . 'population.php'),
         ]);
