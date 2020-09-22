@@ -1,17 +1,17 @@
-<h3>Population</h3>
+<h3>{{ ucfirst(trans('widget-population::widget.population')) }}</h3>
 <canvas id="population-chart" width="400" height="400" styles="width: 100%; height: auto;"></canvas>
-<h4>{{ $current->year_reported }} Stats</h4>
+<h4>{{ $current->year_reported }} {{ ucfirst(trans('widget-population::widget.stats')) }}</h4>
 <dl class="row">
-    <dt class="col-sm-3">Total</dt>
+    <dt class="col-sm-3">{{ ucfirst(trans('widget-population::widget.total')) }}</dt>
     <dd class="col-sm-9">{{ number_format($current->total) }} <span class="text-dark">({{ $current->readable_total }})</span></dd>
-    <dt class="col-sm-3">Men</dt>
+    <dt class="col-sm-3">{{ ucfirst(trans('widget-population::widget.men')) }}</dt>
     <dd class="col-sm-9">{{ number_format($current->men) }} <span class="text-dark">({{ $current->readable_men }})</span></dd>
-    <dt class="col-sm-3">Women</dt>
+    <dt class="col-sm-3">{{ ucfirst(trans('widget-population::widget.women')) }}</dt>
     <dd class="col-sm-9">{{ number_format($current->women) }} <span class="text-dark">({{ $current->readable_women }})</span></dd>
-    <dt class="col-sm-3">Density</dt>
+    <dt class="col-sm-3">{{ ucfirst(trans('widget-population::widget.density')) }}</dt>
     <dd class="col-sm-9">{{ number_format($current->density) }}</dd>
 </dl>
-<p class="credit">Data provided by <a href="https://www.un.org/" target="_blank" rel="nofollow">United Nations</a></p>
+<p class="credit">{{ ucfirst(trans('widget-population::widget.provided_by')) }} <a href="https://www.un.org/" target="_blank" rel="nofollow">{{ trans('widget-population::widget.united_nations') }}</a></p>
 <script type="text/javascript">
 $(function() {
     var popChart = $('#population-chart');
@@ -20,7 +20,7 @@ $(function() {
         "data": {
             "labels": @json($statLabels),
             "datasets": [{
-                "label":  "Population",
+                "label":  "{{ ucfirst(trans('widget-population::widget.population')) }}",
                 "data": @json($statData),
                 "fill": false,
                 "borderColor": "{{$lineColor}}",
