@@ -23,6 +23,7 @@
  * Localization strings for the widget.
  */
 return [
+    'missing_data'      =>  'Sorry, no data was found.',
     'population'        =>  'population',
     'stats'             =>  'stats',
     'total'             =>  'total',
