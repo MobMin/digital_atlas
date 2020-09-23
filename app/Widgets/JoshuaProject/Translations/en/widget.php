@@ -23,6 +23,7 @@
  * Localization strings for the widget.
  */
 return [
+    'missing_data'          =>  'Sorry, no data was found.',
     'people_groups'         =>  'people groups',
     'religion'              =>  'religion',
     'main_religion'         =>  'main religion',
