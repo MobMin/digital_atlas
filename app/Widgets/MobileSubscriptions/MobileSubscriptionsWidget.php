@@ -74,7 +74,7 @@ class MobileSubscriptionsWidget extends AbstractWidget
      */
     public function container()
     {
-        $attrs = 'class="widget col-6 col-md-2 widget-mobile-subscriptions"' .
+        $attrs = 'class="widget col-6 col-md-3 widget-mobile-subscriptions"' .
             'data-widget-name="Mobile Subscriptions"';
         return [
             'element'       => 'div',
