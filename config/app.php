@@ -199,6 +199,7 @@ return [
         App\Widgets\Population\PopulationServiceProvider::class,
         App\Widgets\JoshuaProject\JoshuaProjectServiceProvider::class,
         App\Widgets\MobileSubscriptions\MobileSubscriptionsServiceProvider::class,
+        App\Widgets\InternetUsage\InternetUsageServiceProvider::class,
     ],
 
     /*

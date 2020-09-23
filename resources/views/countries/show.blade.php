@@ -12,6 +12,9 @@
         <div class="col-12 col-md-6 col-xl-3 float-left">
             @asyncWidget('App\Widgets\MobileSubscriptions\MobileSubscriptionsWidget', [], $country)
         </div>
+        <div class="col-12 col-md-6 col-xl-3 float-left">
+            @asyncWidget('App\Widgets\InternetUsage\InternetUsageWidget', [], $country)
+        </div>
         <div class="clearfix"></div>
     </div>
 @stop
