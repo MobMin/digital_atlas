@@ -20,6 +20,7 @@
  */
 namespace App\Widgets\InternetUsage;
 
+use App\Widgets\InternetUsage\Models\InternetUsage;
 use Arrilot\Widgets\AbstractWidget;
 
 /**
@@ -41,8 +42,27 @@ class InternetUsageWidget extends AbstractWidget
     public function run()
     {
         $country = func_get_arg(0);
+        $current = InternetUsage::current($country['id']);
+        $stats = InternetUsage::select('year_reported', 'percentage')
+            ->where('country_id', $country['id'])
+            ->orderBy('year_reported', 'ASC')
+            ->get();
+        $statLabels = [];
+        $statData = [];
+        foreach ($stats as $stat) {
+            $statLabels[] = strval($stat->year_reported);
+            $statData[] = $stat->percentage;
+        }
+        $lineColor = config('widgets.internet_usage.graph.line_color');
+        if ($lineColor == null) {
+            $lineColor = '#000000';
+        }
         return view('internet-usage::internet_usage_widget', [
             'config'    =>  $this->config,
+            'current'   =>  $current,
+            'statLabels'    => $statLabels,
+            'statData'      => $statData,
+            'lineColor'     => $lineColor,
         ]);
     }
 

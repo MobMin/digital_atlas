@@ -23,7 +23,9 @@
  * Localization strings for the Internet Usage widget.
  */
 return [
+    'missing_data'      =>  'Sorry, no data was found.',
     'title'             =>  'Internet Usage',
+    'percentage'        =>  'Percentage',
     'provided_by'       =>  'data provided by',
     'provider'          =>  'World Bank',
 ];
