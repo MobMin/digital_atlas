@@ -1,4 +1,4 @@
-<div class="card">
+<div class="card m-3">
     @if(!$current->exists())
         <div class="card-body">
             <h3 class="card-title">Mobile Subscriptions</h3>
