@@ -96,9 +96,15 @@ class WidgetGenerator extends Command
         Storage::disk('widgets')->makeDirectory($studly . $ds . 'Translations');
         Storage::disk('widgets')->makeDirectory($studly . $ds . 'Translations' . $ds . 'en');
         Storage::disk('widgets')->makeDirectory($studly . $ds . 'Views');
+        $viewTemplate = Storage::disk('stubs')->get('WidgetView.stub');
+        $viewContent = str_replace(
+            ['{{titlizedName}}', '{{studlyName}}', '{{snakeName}}', '{{kebabName}}'],
+            [$titlized, $studly, $snake, $kebab],
+            $viewTemplate
+        );
         Storage::disk('widgets')->put(
             $studly . $ds . 'Views' . $ds . $snake . '_widget.blade.php',
-            '<h3>' . $titlized . '</h3>'
+            $viewContent
         );
         File::copy(base_path('COPYING'), $widgetPath . $ds . 'COPYING');
         $readMeTemplate = Storage::disk('stubs')->get('README.stub');
