@@ -78,7 +78,7 @@ class PopulationWidget extends AbstractWidget
     {
         return [
             'element'       => 'div',
-            'attributes'    => 'class="widget col-6 col-md-2"',
+            'attributes'    => 'class="widget col-6 col-md-2 widget-population" data-widget-name="Population"',
         ];
     }
 }
