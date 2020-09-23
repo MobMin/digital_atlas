@@ -105,7 +105,7 @@ class ImportInternetUsageData extends Command
             }
             $combined = array_filter(array_combine($headers, $row));
             // Remove the first items becomes they are not date columns
-            $combined = array_slice($combined, 4);
+            $combined = array_slice($combined, 4, null, true);
             if (empty($combined)) {
                 continue;
             }
