@@ -93,7 +93,7 @@ class ImportMobileSubscriptionsData extends Command
             if ($count < $this->headerRow) {
                 $count++;
                 continue;
-            } else if ($count == $this->headerRow) {
+            } elseif ($count == $this->headerRow) {
                 $headers = $row;
                 $count++;
                 continue;
