@@ -15,7 +15,7 @@ class CreateInternetUsageTable extends Migration
     {
         Schema::create('internet_usage', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('percentage');
+            $table->decimal('percentage', 8, 3);
             $table->smallInteger('year_reported');
             $table->timestamp('created_at')->useCurrent();
         });

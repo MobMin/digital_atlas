@@ -52,7 +52,7 @@ class InternetUsageServiceProvider extends ServiceProvider
         });
         if ($this->app->runningInConsole()) {
             // Add commands for artisan here
-            // $this->commands([]);
+            $this->commands([Commands\ImportInternetUsageData::class]);
         }
     }
 }
