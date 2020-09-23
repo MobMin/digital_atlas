@@ -5,7 +5,7 @@
             <p>{{ trans('mobile-subscriptions::widget.missing_data') }}</p>
         </div>
     @else
-        <canvas id="mobile-subscriptions-chart" class="card-img-top" height="400" styles="width: 80%; height: auto;"></canvas>
+        <canvas id="mobile-subscriptions-chart" class="card-img-top" height="400" styles="width: 100%; height: auto;"></canvas>
         <div class="card-body">
             <h3 class="card-title">{{ $current->year_reported }} {{ ucfirst(trans('mobile-subscriptions::widget.title')) }}</h3>
             <dl class="row">
