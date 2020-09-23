@@ -7,11 +7,11 @@
     <h4>{{ $current->year_reported }} {{ ucfirst(trans('widget-population::widget.stats')) }}</h4>
     <dl class="row">
         <dt class="col-sm-3">{{ ucfirst(trans('widget-population::widget.total')) }}</dt>
-        <dd class="col-sm-9">{{ number_format($current->total) }} <span class="text-dark">({{ $current->readable_total }})</span></dd>
+        <dd class="col-sm-9">{{ number_format($current->total) }} <span class="text-dark">(@readableInt($current->total))</span></dd>
         <dt class="col-sm-3">{{ ucfirst(trans('widget-population::widget.men')) }}</dt>
-        <dd class="col-sm-9">{{ number_format($current->men) }} <span class="text-dark">({{ $current->readable_men }})</span></dd>
+        <dd class="col-sm-9">{{ number_format($current->men) }} <span class="text-dark">(@readableInt($current->men))</span></dd>
         <dt class="col-sm-3">{{ ucfirst(trans('widget-population::widget.women')) }}</dt>
-        <dd class="col-sm-9">{{ number_format($current->women) }} <span class="text-dark">({{ $current->readable_women }})</span></dd>
+        <dd class="col-sm-9">{{ number_format($current->women) }} <span class="text-dark">(@readableInt($current->women))</span></dd>
         <dt class="col-sm-3">{{ ucfirst(trans('widget-population::widget.density')) }}</dt>
         <dd class="col-sm-9">{{ number_format($current->density) }}</dd>
     </dl>

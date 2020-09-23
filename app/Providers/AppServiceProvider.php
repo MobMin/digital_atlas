@@ -21,6 +21,7 @@
  */
 namespace App\Providers;
 
+use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Support\Str;
 
@@ -43,6 +44,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        Blade::directive('readableInt', function ($data) {
+            return "<?php echo App\Providers\Library\ReadableFormat::fromInt(intval($data)); ?>";
+        });
         Str::macro('titlizeSnake', function ($value) {
             return Str::title(str_replace('_', ' ', $value));
         });
