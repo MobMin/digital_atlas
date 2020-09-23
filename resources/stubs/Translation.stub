@@ -7,7 +7,7 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * Year of Prayer API is distributed in the hope that it will be useful,
+ * Digital Atlas is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
@@ -19,32 +19,8 @@
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
  */
-namespace App\Providers;
-
-use Illuminate\Support\ServiceProvider;
-use Illuminate\Support\Str;
-
-class AppServiceProvider extends ServiceProvider
-{
-    /**
-     * Register any application services.
-     *
-     * @return void
-     */
-    public function register()
-    {
-        //
-    }
-
-    /**
-     * Bootstrap any application services.
-     *
-     * @return void
-     */
-    public function boot()
-    {
-        Str::macro('titlizeSnake', function ($value) {
-            return Str::title(str_replace('_', ' ', $value));
-        });
-    }
-}
+/**
+ * Localization strings for the {{titlizedName}} widget.
+ */
+return [
+];

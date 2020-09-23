@@ -3,6 +3,7 @@
     <description>The PSR2 coding standard.</description>
     <rule ref="PSR2"/>
     <file>app/</file>
+    <exclude-pattern>stubs/</exclude-pattern>
     <exclude-pattern>public/</exclude-pattern>
     <exclude-pattern>config/home_photos.php</exclude-pattern>
     <exclude-pattern>bootstrap/cache/</exclude-pattern>
