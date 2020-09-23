@@ -25,4 +25,7 @@
  */
 return [
     'report_filename' => 'widget-mobile-subscriptions.csv',
+    'graph' => [
+        'line_color' => '#000000'
+    ]
 ];

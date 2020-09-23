@@ -21,6 +21,7 @@
 namespace App\Widgets\MobileSubscriptions;
 
 use Arrilot\Widgets\AbstractWidget;
+use App\Widgets\MobileSubscriptions\Models\MobileSubscription;
 
 /**
  * A widget displaying Mobile Subscriptions data
@@ -41,8 +42,27 @@ class MobileSubscriptionsWidget extends AbstractWidget
     public function run()
     {
         $country = func_get_arg(0);
+        $current = MobileSubscription::current($country['id']);
+        $stats = MobileSubscription::select('year_reported', 'total')
+            ->where('country_id', $country['id'])
+            ->orderBy('year_reported', 'ASC')
+            ->get();
+        $statLabels = [];
+        $statData = [];
+        foreach ($stats as $stat) {
+            $statLabels[] = strval($stat->year_reported);
+            $statData[] = $stat->total;
+        }
+        $lineColor = config('widgets.mobile_subscriptions.graph.line_color');
+        if ($lineColor == null) {
+            $lineColor = '#000000';
+        }
         return view('mobile-subscriptions::mobile_subscriptions_widget', [
             'config'    =>  $this->config,
+            'current'   =>  $current,
+            'statLabels'    => $statLabels,
+            'statData'      => $statData,
+            'lineColor'     => $lineColor,
         ]);
     }
 
@@ -54,9 +74,11 @@ class MobileSubscriptionsWidget extends AbstractWidget
      */
     public function container()
     {
+        $attrs = 'class="widget col-6 col-md-2 widget-mobile-subscriptions"' .
+            'data-widget-name="Mobile Subscriptions"';
         return [
             'element'       => 'div',
-            'attributes'    => 'class="widget col-6 col-md-3 widget-mobile-subscriptions" data-widget-name="Mobile Subscriptions"',
+            'attributes'    => $attrs,
         ];
     }
 

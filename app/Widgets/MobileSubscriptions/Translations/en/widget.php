@@ -23,4 +23,9 @@
  * Localization strings for the Mobile Subscriptions widget.
  */
 return [
+    'missing_data'      =>  'Sorry, no data was found.',
+    'title'             =>  'Mobile Subscriptions',
+    'total'             =>  'Total Subscriptions',
+    'provided_by'       =>  'data provided by',
+    'provider'          =>  'World Bank',
 ];

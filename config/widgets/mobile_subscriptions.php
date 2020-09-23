@@ -18,31 +18,14 @@
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
  */
-namespace App\Widgets\MobileSubscriptions\Models;
-
-use Illuminate\Database\Eloquent\Model;
-
-class MobileSubscription extends Model
-{
-    /**
-     * The table associated with the model.
-     *
-     * @var string
-     */
-    protected $table = 'mobile_subscriptions';
-
-    /**
-     * A scope to get the current mobile subscriptions
-     *
-     * @param  object   $query      The query object
-     * @param  integer  $countryId  The country id
-     * @return object               The current mobile subscriptions
-     */
-    public function scopeCurrent($query, $countryId)
-    {
-        return $query
-            ->where('country_id', $countryId)
-            ->orderBy('year_reported', 'DESC')
-            ->first();
-    }
-}
+/**
+ * Configuration for the Mobile Subscriptions widget
+ *
+ * @var array
+ */
+return [
+    'report_filename' => 'widget-mobile-subscriptions.csv',
+    'graph' => [
+        'line_color' => '#7094cf'
+    ]
+];
