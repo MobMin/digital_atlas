@@ -81,7 +81,7 @@ class WidgetMigrationGenerator extends Command
             '--path'    =>  $path,
         ];
         foreach ($this->options() as $key => $val) {
-            if($val) {
+            if ($val) {
                 $options['--' . $key] = $val;
             }
         }
