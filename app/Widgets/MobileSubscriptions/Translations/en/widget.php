@@ -19,36 +19,13 @@
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
  */
-namespace App\Providers;
-
-use Illuminate\Support\Facades\Blade;
-use Illuminate\Support\ServiceProvider;
-use Illuminate\Support\Str;
-
-class AppServiceProvider extends ServiceProvider
-{
-    /**
-     * Register any application services.
-     *
-     * @return void
-     */
-    public function register()
-    {
-        //
-    }
-
-    /**
-     * Bootstrap any application services.
-     *
-     * @return void
-     */
-    public function boot()
-    {
-        Blade::directive('readableInt', function ($data) {
-            return "<?php echo App\Providers\Library\ReadableFormat::fromInt(intval($data)); ?>";
-        });
-        Str::macro('titlizeSnake', function ($value) {
-            return Str::title(str_replace('_', ' ', $value));
-        });
-    }
-}
+/**
+ * Localization strings for the Mobile Subscriptions widget.
+ */
+return [
+    'missing_data'      =>  'Sorry, no data was found.',
+    'title'             =>  'Mobile Subscriptions',
+    'total'             =>  'Total Subscriptions',
+    'provided_by'       =>  'data provided by',
+    'provider'          =>  'World Bank',
+];

@@ -56,7 +56,7 @@ class {{studlyName}}Widget extends AbstractWidget
     {
         return [
             'element'       => 'div',
-            'attributes'    => 'class="widget col-6 col-md-3 widget-{{kebabName}}" data-widget-name="{{titlizedName}}"',
+            'attributes'    => 'class="widget widget-{{kebabName}}" data-widget-name="{{titlizedName}}"',
         ];
     }
 

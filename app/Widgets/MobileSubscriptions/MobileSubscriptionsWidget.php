@@ -15,18 +15,18 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
- * @author Johnathan Pulos <johnathan@missionaldigerati.org>
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
  */
-namespace App\Widgets\Population;
+namespace App\Widgets\MobileSubscriptions;
 
 use Arrilot\Widgets\AbstractWidget;
+use App\Widgets\MobileSubscriptions\Models\MobileSubscription;
 
 /**
- * A widget displaying UN population data
+ * A widget displaying Mobile Subscriptions data
  */
-class PopulationWidget extends AbstractWidget
+class MobileSubscriptionsWidget extends AbstractWidget
 {
     /**
      * The configuration array.
@@ -42,26 +42,24 @@ class PopulationWidget extends AbstractWidget
     public function run()
     {
         $country = func_get_arg(0);
-        $current = Models\Population::current($country['id']);
-        $stats = Models\Population::select('year_reported', 'total')
+        $current = MobileSubscription::current($country['id']);
+        $stats = MobileSubscription::select('year_reported', 'total')
             ->where('country_id', $country['id'])
             ->orderBy('year_reported', 'ASC')
             ->get();
-
         $statLabels = [];
         $statData = [];
         foreach ($stats as $stat) {
             $statLabels[] = strval($stat->year_reported);
             $statData[] = $stat->total;
         }
-        $lineColor = config('widgets.population.graph.line_color');
+        $lineColor = config('widgets.mobile_subscriptions.graph.line_color');
         if ($lineColor == null) {
             $lineColor = '#000000';
         }
-
-        return view('widget-population::population_widget', [
-            'config'        => $this->config,
-            'current'       => $current,
+        return view('mobile-subscriptions::mobile_subscriptions_widget', [
+            'config'    =>  $this->config,
+            'current'   =>  $current,
             'statLabels'    => $statLabels,
             'statData'      => $statData,
             'lineColor'     => $lineColor,
@@ -76,9 +74,21 @@ class PopulationWidget extends AbstractWidget
      */
     public function container()
     {
+        $attrs = 'class="widget widget-mobile-subscriptions"' .
+            'data-widget-name="Mobile Subscriptions"';
         return [
             'element'       => 'div',
-            'attributes'    => 'class="widget widget-population" data-widget-name="Population"',
+            'attributes'    => $attrs,
         ];
+    }
+
+    /**
+     * Text displayed when your widget is loading async.
+     *
+     * @return string
+     */
+    public function placeholder()
+    {
+        return 'Loading...';
     }
 }

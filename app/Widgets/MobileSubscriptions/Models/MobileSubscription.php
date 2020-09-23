@@ -15,40 +15,34 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
- * @author Johnathan Pulos <johnathan@missionaldigerati.org>
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
  */
-namespace App\Providers;
+namespace App\Widgets\MobileSubscriptions\Models;
 
-use Illuminate\Support\Facades\Blade;
-use Illuminate\Support\ServiceProvider;
-use Illuminate\Support\Str;
+use Illuminate\Database\Eloquent\Model;
 
-class AppServiceProvider extends ServiceProvider
+class MobileSubscription extends Model
 {
     /**
-     * Register any application services.
+     * The table associated with the model.
      *
-     * @return void
+     * @var string
      */
-    public function register()
-    {
-        //
-    }
+    protected $table = 'mobile_subscriptions';
 
     /**
-     * Bootstrap any application services.
+     * A scope to get the current mobile subscriptions
      *
-     * @return void
+     * @param  object   $query      The query object
+     * @param  integer  $countryId  The country id
+     * @return object               The current mobile subscriptions
      */
-    public function boot()
+    public function scopeCurrent($query, $countryId)
     {
-        Blade::directive('readableInt', function ($data) {
-            return "<?php echo App\Providers\Library\ReadableFormat::fromInt(intval($data)); ?>";
-        });
-        Str::macro('titlizeSnake', function ($value) {
-            return Str::title(str_replace('_', ' ', $value));
-        });
+        return $query
+            ->where('country_id', $countryId)
+            ->orderBy('year_reported', 'DESC')
+            ->first();
     }
 }

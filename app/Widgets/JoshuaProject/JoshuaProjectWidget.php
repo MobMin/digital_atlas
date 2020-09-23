@@ -73,7 +73,7 @@ class JoshuaProjectWidget extends AbstractWidget
     {
         return [
             'element'       => 'div',
-            'attributes'    => 'class="widget col-6 col-md-3 widget-joshua-project" data-widget-name="Joshua Project"',
+            'attributes'    => 'class="widget widget-joshua-project" data-widget-name="Joshua Project"',
         ];
     }
 }

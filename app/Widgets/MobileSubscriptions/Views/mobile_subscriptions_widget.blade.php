@@ -1,39 +1,33 @@
 <div class="card m-3">
     @if(!$current->exists())
         <div class="card-body">
-            <h3 class="card-title">{{ ucfirst(trans('widget-population::widget.population')) }}</h3>
-            <p>{{ trans('widget-population::widget.missing_data') }}</p>
+            <h3 class="card-title">Mobile Subscriptions</h3>
+            <p>{{ trans('mobile-subscriptions::widget.missing_data') }}</p>
         </div>
     @else
-        <canvas id="population-chart" class="card-img-top" height="400" styles="width: 100%; height: auto;"></canvas>
+        <canvas id="mobile-subscriptions-chart" class="card-img-top" height="400" styles="width: 100%; height: auto;"></canvas>
         <div class="card-body">
-            <h3 class="card-title">{{ $current->year_reported }} {{ ucfirst(trans('widget-population::widget.stats')) }}</h3>
+            <h3 class="card-title">{{ $current->year_reported }} {{ ucfirst(trans('mobile-subscriptions::widget.title')) }}</h3>
             <dl class="row">
-                <dt class="col-sm-3">{{ ucfirst(trans('widget-population::widget.total')) }}</dt>
-                <dd class="col-sm-9">{{ number_format($current->total) }} <span class="text-dark">(@readableInt($current->total))</span></dd>
-                <dt class="col-sm-3">{{ ucfirst(trans('widget-population::widget.men')) }}</dt>
-                <dd class="col-sm-9">{{ number_format($current->men) }} <span class="text-dark">(@readableInt($current->men))</span></dd>
-                <dt class="col-sm-3">{{ ucfirst(trans('widget-population::widget.women')) }}</dt>
-                <dd class="col-sm-9">{{ number_format($current->women) }} <span class="text-dark">(@readableInt($current->women))</span></dd>
-                <dt class="col-sm-3">{{ ucfirst(trans('widget-population::widget.density')) }}</dt>
-                <dd class="col-sm-9">{{ number_format($current->density) }}</dd>
+                <dt class="col-sm-5">{{ ucfirst(trans('mobile-subscriptions::widget.total')) }}</dt>
+                <dd class="col-sm-7">{{ number_format($current->total) }} <span class="text-dark">(@readableInt($current->total))</span></dd>
             </dl>
         </div>
     @endif
     <div class="card-footer text-muted">
-        <p class="credit">{{ ucfirst(trans('widget-population::widget.provided_by')) }} <a href="https://www.un.org/" target="_blank" rel="nofollow">{{ trans('widget-population::widget.united_nations') }}</a></p>
+        <p class="credit">{{ ucfirst(trans('mobile-subscriptions::widget.provided_by')) }} <a href="https://data.worldbank.org/indicator/IT.CEL.SETS" target="_blank" rel="nofollow">{{ trans('mobile-subscriptions::widget.provider') }}</a></p>
     </div>
 </div>
 <script type="text/javascript">
 $(function() {
 @if($current->exists())
-    var popChart = $('#population-chart');
-    new Chart(popChart, {
+    var mobileSubsChart = $('#mobile-subscriptions-chart');
+    new Chart(mobileSubsChart, {
         "type": "line",
         "data": {
             "labels": @json($statLabels),
             "datasets": [{
-                "label":  "{{ ucfirst(trans('widget-population::widget.population')) }}",
+                "label":  "{{ ucfirst(trans('mobile-subscriptions::widget.title')) }}",
                 "data": @json($statData),
                 "fill": false,
                 "borderColor": "{{$lineColor}}",

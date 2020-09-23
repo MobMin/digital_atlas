@@ -15,40 +15,44 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
- * @author Johnathan Pulos <johnathan@missionaldigerati.org>
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
  */
-namespace App\Providers;
+namespace App\Widgets\MobileSubscriptions;
 
-use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
-use Illuminate\Support\Str;
 
-class AppServiceProvider extends ServiceProvider
+class MobileSubscriptionsServiceProvider extends ServiceProvider
 {
     /**
-     * Register any application services.
+     * Register services.
      *
      * @return void
      */
     public function register()
     {
-        //
     }
 
     /**
-     * Bootstrap any application services.
+     * Bootstrap services.
      *
      * @return void
      */
     public function boot()
     {
-        Blade::directive('readableInt', function ($data) {
-            return "<?php echo App\Providers\Library\ReadableFormat::fromInt(intval($data)); ?>";
+        $ds = DIRECTORY_SEPARATOR;
+        $this->loadMigrationsFrom(__DIR__ . $ds . 'Migrations');
+        $this->loadViewsFrom(__DIR__ . $ds . 'Views', 'mobile-subscriptions');
+        $this->loadTranslationsFrom(__DIR__ . $ds . 'Translations', 'mobile-subscriptions');
+        $this->publishes([
+            __DIR__  . $ds . 'Config.php' => config_path('widgets' . $ds . 'mobile_subscriptions.php'),
+        ]);
+        $this->callAfterResolving(Schedule::class, function (Schedule $schedule) {
+            // Schedule your cron
         });
-        Str::macro('titlizeSnake', function ($value) {
-            return Str::title(str_replace('_', ' ', $value));
-        });
+        if ($this->app->runningInConsole()) {
+            // Add commands for artisan here
+            $this->commands([Commands\ImportMobileSubscriptionsData::class]);
+        }
     }
 }
