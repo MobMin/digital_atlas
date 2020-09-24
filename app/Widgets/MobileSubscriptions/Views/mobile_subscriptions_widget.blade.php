@@ -47,7 +47,7 @@ $(function() {
                     {
                         "scaleLabel": {
                             "display": true,
-                            "labelString": "Year"
+                            "labelString": "{{ ucwords(trans('mobile-subscriptions::widget.year')) }}"
                         }
                     }
                 ],
@@ -55,7 +55,7 @@ $(function() {
                     {
                         "scaleLabel": {
                             "display": true,
-                            "labelString": "People"
+                            "labelString": "{{ ucwords(trans('mobile-subscriptions::widget.subscriptions')) }}"
                         },
                         "ticks": {
                             "beginAtZero": false,

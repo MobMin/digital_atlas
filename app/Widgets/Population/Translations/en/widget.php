@@ -33,4 +33,6 @@ return [
     'density'           =>  'density',
     'provided_by'       =>  'data provided by',
     'united_nations'    =>  'United Nations',
+    'people'            =>  'people',
+    'year'              =>  'year',
 ];

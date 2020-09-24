@@ -53,7 +53,7 @@ $(function() {
                     {
                         "scaleLabel": {
                             "display": true,
-                            "labelString": "Year"
+                            "labelString": "{{ ucwords(trans('widget-population::widget.year')) }}"
                         }
                     }
                 ],
@@ -61,7 +61,7 @@ $(function() {
                     {
                         "scaleLabel": {
                             "display": true,
-                            "labelString": "People"
+                            "labelString": "{{ ucwords(trans('widget-population::widget.people')) }}"
                         },
                         "ticks": {
                             "beginAtZero": false,

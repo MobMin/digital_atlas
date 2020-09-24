@@ -47,7 +47,7 @@ $(function() {
                     {
                         "scaleLabel": {
                             "display": true,
-                            "labelString": "Year"
+                            "labelString": "{{ ucfirst(trans('internet-usage::widget.year')) }}"
                         }
                     }
                 ],
@@ -55,7 +55,7 @@ $(function() {
                     {
                         "scaleLabel": {
                             "display": true,
-                            "labelString": "People"
+                            "labelString": "{{ ucfirst(trans('internet-usage::widget.percentage')) }}"
                         },
                         "ticks": {
                             "beginAtZero": false,

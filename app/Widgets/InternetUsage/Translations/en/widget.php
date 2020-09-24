@@ -29,4 +29,5 @@ return [
     'percentage'        =>  'Percentage',
     'provided_by'       =>  'data provided by',
     'provider'          =>  'World Bank',
+    'year'              =>  'year',
 ];
