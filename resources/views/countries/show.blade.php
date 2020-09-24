@@ -7,13 +7,16 @@
             @asyncWidget('App\Widgets\JoshuaProject\JoshuaProjectWidget', [], $country)
         </div>
         <div class="col-12 col-md-6 col-xl-3 float-left">
-            @asyncWidget('App\Widgets\Population\PopulationWidget', [], $country)
-        </div>
-        <div class="col-12 col-md-6 col-xl-3 float-left">
             @asyncWidget('App\Widgets\MobileSubscriptions\MobileSubscriptionsWidget', [], $country)
         </div>
         <div class="col-12 col-md-6 col-xl-3 float-left">
             @asyncWidget('App\Widgets\InternetUsage\InternetUsageWidget', [], $country)
+        </div>
+        <div class="col-12 col-md-6 col-xl-3 float-left">
+            @asyncWidget('App\Widgets\BroadbandSubscriptions\BroadbandSubscriptionsWidget', [], $country)
+        </div>
+        <div class="col-12 col-md-6 col-xl-3 float-left">
+            @asyncWidget('App\Widgets\Population\PopulationWidget', [], $country)
         </div>
         <div class="clearfix"></div>
     </div>
