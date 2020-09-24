@@ -23,6 +23,10 @@
  * Localization strings for the Broadband Subscriptions widget.
  */
 return [
-    'loading'   =>  'Loading...',
-    'title'     =>  'Broadband Subscriptions',
+    'loading'           =>  'Loading...',
+    'title'             =>  'Broadband Subscriptions',
+    'missing_data'      =>  'Sorry, no data was found.',
+    'total'             =>  'Total Subscriptions',
+    'provided_by'       =>  'data provided by',
+    'provider'          =>  'World Bank',
 ];

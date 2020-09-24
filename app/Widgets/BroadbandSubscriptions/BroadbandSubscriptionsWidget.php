@@ -20,6 +20,7 @@
  */
 namespace App\Widgets\BroadbandSubscriptions;
 
+use App\Widgets\BroadbandSubscriptions\Models\BroadbandSubscription;
 use Arrilot\Widgets\AbstractWidget;
 
 /**
@@ -41,8 +42,27 @@ class BroadbandSubscriptionsWidget extends AbstractWidget
     public function run()
     {
         $country = func_get_arg(0);
+        $current = BroadbandSubscription::current($country['id']);
+        $stats = BroadbandSubscription::select('year_reported', 'total')
+            ->where('country_id', $country['id'])
+            ->orderBy('year_reported', 'ASC')
+            ->get();
+        $statLabels = [];
+        $statData = [];
+        foreach ($stats as $stat) {
+            $statLabels[] = strval($stat->year_reported);
+            $statData[] = $stat->total;
+        }
+        $lineColor = config('widgets.broadband_subscriptions.graph.line_color');
+        if ($lineColor == null) {
+            $lineColor = '#000000';
+        }
         return view('broadband-subscriptions::broadband_subscriptions_widget', [
             'config'    =>  $this->config,
+            'current'   =>  $current,
+            'statLabels'    => $statLabels,
+            'statData'      => $statData,
+            'lineColor'     => $lineColor,
         ]);
     }
 
