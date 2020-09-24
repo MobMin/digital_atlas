@@ -1,7 +1,7 @@
 <div class="card m-3">
     @if(!$current->exists())
         <div class="card-body">
-            <h3 class="card-title">Mobile Subscriptions</h3>
+            <h3 class="card-title">{{ ucwords(trans('mobile-subscriptions::widget.title')) }}</h3>
             <p>{{ trans('mobile-subscriptions::widget.missing_data') }}</p>
         </div>
     @else
