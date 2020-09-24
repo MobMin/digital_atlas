@@ -81,4 +81,14 @@ class PopulationWidget extends AbstractWidget
             'attributes'    => 'class="widget widget-population" data-widget-name="Population"',
         ];
     }
+
+    /**
+     * Text displayed when your widget is loading async.
+     *
+     * @return string
+     */
+    public function placeholder()
+    {
+        return trans('widget-population::widget.loading');
+    }
 }

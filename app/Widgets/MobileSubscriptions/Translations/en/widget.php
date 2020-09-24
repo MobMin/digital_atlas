@@ -23,6 +23,7 @@
  * Localization strings for the Mobile Subscriptions widget.
  */
 return [
+    'loading'           =>  'Loading...',
     'missing_data'      =>  'Sorry, no data was found.',
     'title'             =>  'Mobile Subscriptions',
     'total'             =>  'Total Subscriptions',

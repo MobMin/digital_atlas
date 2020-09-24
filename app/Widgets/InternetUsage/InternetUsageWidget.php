@@ -87,6 +87,6 @@ class InternetUsageWidget extends AbstractWidget
      */
     public function placeholder()
     {
-        return 'Loading...';
+        return trans('internet-usage::widget.loading');
     }
 }

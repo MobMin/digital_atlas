@@ -76,4 +76,14 @@ class JoshuaProjectWidget extends AbstractWidget
             'attributes'    => 'class="widget widget-joshua-project" data-widget-name="Joshua Project"',
         ];
     }
+
+    /**
+     * Text displayed when your widget is loading async.
+     *
+     * @return string
+     */
+    public function placeholder()
+    {
+        return trans('widget-joshua-project::widget.loading');
+    }
 }

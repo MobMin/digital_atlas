@@ -23,6 +23,7 @@
  * Localization strings for the Internet Usage widget.
  */
 return [
+    'loading'           =>  'Loading...',
     'missing_data'      =>  'Sorry, no data was found.',
     'title'             =>  'Internet Usage',
     'percentage'        =>  'Percentage',

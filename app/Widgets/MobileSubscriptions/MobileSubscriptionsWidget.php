@@ -89,6 +89,6 @@ class MobileSubscriptionsWidget extends AbstractWidget
      */
     public function placeholder()
     {
-        return 'Loading...';
+        return trans('mobile-subscriptions::widget.loading');
     }
 }
