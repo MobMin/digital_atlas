@@ -200,6 +200,7 @@ return [
         App\Widgets\JoshuaProject\JoshuaProjectServiceProvider::class,
         App\Widgets\MobileSubscriptions\MobileSubscriptionsServiceProvider::class,
         App\Widgets\InternetUsage\InternetUsageServiceProvider::class,
+        App\Widgets\BroadbandSubscriptions\BroadbandSubscriptionsServiceProvider::class,
     ],
 
     /*
