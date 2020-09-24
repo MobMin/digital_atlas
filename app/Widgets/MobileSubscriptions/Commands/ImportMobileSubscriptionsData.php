@@ -104,6 +104,11 @@ class ImportMobileSubscriptionsData extends Command
                 continue;
             }
             $combined = array_filter(array_combine($headers, $row));
+            // Remove the first items becomes they are not date columns
+            $combined = array_slice($combined, 4, null, true);
+            if (empty($combined)) {
+                continue;
+            }
             $total = (count($combined) < 5) ? count($combined) : 5;
             $years = array_slice($combined, -$total, null, true);
             foreach ($years as $year => $val) {
