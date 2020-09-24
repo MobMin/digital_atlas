@@ -29,4 +29,6 @@ return [
     'total'             =>  'Total Subscriptions',
     'provided_by'       =>  'data provided by',
     'provider'          =>  'World Bank',
+    'subscriptions'     =>  'subscriptions',
+    'year'              =>  'year',
 ];
