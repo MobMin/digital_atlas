@@ -67,6 +67,6 @@ class {{studlyName}}Widget extends AbstractWidget
      */
     public function placeholder()
     {
-        return 'Loading...';
+        return trans('{{kebabName}}::widget.loading');
     }
 }

@@ -23,5 +23,6 @@
  * Localization strings for the {{titlizedName}} widget.
  */
 return [
-    'title' =>  '{{titlizedName}}',
+    'loading'   =>  'Loading...',
+    'title'     =>  '{{titlizedName}}',
 ];
