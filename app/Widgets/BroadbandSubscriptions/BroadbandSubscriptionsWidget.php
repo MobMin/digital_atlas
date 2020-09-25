@@ -76,7 +76,8 @@ class BroadbandSubscriptionsWidget extends AbstractWidget
     {
         return [
             'element'       => 'div',
-            'attributes'    => 'class="widget widget-broadband-subscriptions" data-widget-name="Broadband Subscriptions"',
+            'attributes'    => 'class="widget widget-broadband-subscriptions"'.
+                                'data-widget-name="Broadband Subscriptions"',
         ];
     }
 
