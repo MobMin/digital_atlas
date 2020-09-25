@@ -201,6 +201,7 @@ return [
         App\Widgets\MobileSubscriptions\MobileSubscriptionsServiceProvider::class,
         App\Widgets\InternetUsage\InternetUsageServiceProvider::class,
         App\Widgets\BroadbandSubscriptions\BroadbandSubscriptionsServiceProvider::class,
+        App\Widgets\Maps\MapsServiceProvider::class,
     ],
 
     /*

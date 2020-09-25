@@ -7,6 +7,7 @@
         <meta name="author" content="Mobile Ministry Forum">
         <title>@lang('main_layout.website_name')</title>
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+        @yield('extra-css')
     </head>
     @if (Request::path() == '/')
         <body class="home">
