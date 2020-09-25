@@ -27,6 +27,8 @@ return [
     'title'             =>  'Map',
     'map_missing'       =>  'Sorry, looks like the map is missing.',
     'provided_by'       =>  'map provided by',
-    'provider'          =>  'Leaflet',
+    'leaflet'           =>  'Leaflet',
     'open_street_maps'  =>  'Open Street Maps',
+    'special_thanks'    =>  'The map overlays were provided by the awesome contributors at',
+    'countries_github'  =>  'World Countries Data',
 ];

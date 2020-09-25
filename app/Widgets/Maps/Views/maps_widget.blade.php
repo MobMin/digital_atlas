@@ -9,7 +9,8 @@
         @endif
     </div>
     <div class="card-footer text-muted">
-        <p class="credit">{{ ucfirst(trans('maps::widget.provided_by')) }} <a href="https://leafletjs.com/" target="_blank" rel="nofollow">{{ trans('maps::widget.provider') }}</a> & <a href="https://www.openstreetmap.org/" target="_blank" rel="nofollow">{{ trans('maps::widget.open_street_maps') }}</a></p>
+        <p class="credit">{{ ucfirst(trans('maps::widget.provided_by')) }} <a href="https://leafletjs.com/" target="_blank" rel="nofollow">{{ trans('maps::widget.leaflet') }}</a> & <a href="https://www.openstreetmap.org/" target="_blank" rel="nofollow">{{ trans('maps::widget.open_street_maps') }}</a></p>
+        <p class="credit">{{ ucfirst(trans('maps::widget.special_thanks')) }} <a href="https://github.com/mledoze/countries" target="_blank" rel="nofollow">{{ trans('maps::widget.countries_github') }}</a>!</p>
     </div>
 </div>
 <style media="screen">
