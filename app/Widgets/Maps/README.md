@@ -18,7 +18,10 @@ This package only works with the Digital Atlas.  To install:
 App\Widgets\Maps\MapsServiceProvider::class
 ```
 3. In terminal, migrate the database with `php artisan migrate`
-4. Added the widget to the view file using `@asyncWidget('App\Widgets\Maps\MapsWidget', [], $country)`.
+4. Open the view page:
+    a. Add the widget to the view file using `@asyncWidget('App\Widgets\Maps\MapsWidget', [], $country)`.
+    b. Add the following to the **extra-css**: `<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin=""/>`
+    c. Add the following to the **extra-js** `<script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>`
 5. Copy the map's JSON data to the public directory using this command `php artisan vendor:publish --tag=public --force`.
 
 ## Configuration
