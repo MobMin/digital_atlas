@@ -2,10 +2,10 @@
     <div class="card-body">
         <h3 class="card-title">{{ ucwords(trans('maps::widget.title')) }}</h3>
         @if(empty($coords))
-            <p class="map-warning">{{ ucwords(trans('google-map::widget.map_missing')) }}</p>
+            <p class="map-warning">{{ ucwords(trans('maps::widget.map_missing')) }}</p>
         @else
             <div id="country-map"></div>
-            <p class="map-warning d-none">{{ ucwords(trans('google-map::widget.map_missing')) }}</p>
+            <p class="map-warning d-none">{{ ucwords(trans('maps::widget.map_missing')) }}</p>
         @endif
     </div>
     <div class="card-footer text-muted">
