@@ -1,6 +1,6 @@
 # Maps for Digital Atlas
 
-This Maps widget was designed for the Digital Atlas.  It displays a map of the current country.  It uses the [Leaflet](https://leafletjs.com/) Javascript library.  Special thanks to the community that developed [World Countries data](https://github.com/mledoze/countries) used in the maps.
+This Maps widget was designed for the Digital Atlas.  It displays a map of the current country.  It uses the [Leaflet](https://leafletjs.com/) Javascript library and [Open Street Maps](https://www.openstreetmap.org/).  Special thanks to the community that developed [World Countries data](https://github.com/mledoze/countries) used in the maps.
 
 ## Dependencies
 
@@ -23,4 +23,4 @@ App\Widgets\Maps\MapsServiceProvider::class
 
 ## Configuration
 
-To publish the configuration file, simply run `php artisan vendor:publish` and select **Provider: App\Widgets\Maps\MapsServiceProvider** from the list.  The configuration file contains the coordinates for each country.
+To publish the configuration file, simply run `php artisan vendor:publish` and select **Provider: App\Widgets\Maps\MapsServiceProvider** from the list.  The configuration file contains the coordinates for each country and map settings.
