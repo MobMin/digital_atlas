@@ -1,0 +1,85 @@
+version: '3'
+
+networks:
+  digital_atlas:
+
+services:
+  da_nginx:
+    image: nginx:stable-alpine
+    container_name: da_nginx
+    ports:
+      - "8080:80"
+    volumes:
+      - .:/var/www/html
+      - ./docker/nginx-default.conf:/etc/nginx/conf.d/default.conf
+    depends_on:
+      - da_mysql
+      - da_php
+    networks:
+      - digital_atlas
+
+  da_mysql:
+    image: mysql:5.7.22
+    container_name: da_mysql
+    restart: unless-stopped
+    tty: true
+    ports:
+      - "4306:3306"
+    environment:
+      MYSQL_DATABASE: homestead
+      MYSQL_USER: homestead
+      MYSQL_PASSWORD: secret
+      MYSQL_ROOT_PASSWORD: secret
+      SERVICE_TAGS: dev
+      SERVICE_NAME: da_mysql
+    volumes:
+      - ./docker/mysql:/var/lib/mysql
+    networks:
+      - digital_atlas
+
+  da_php:
+    hostname: docker-php
+    build:
+      context: .
+      dockerfile: ./docker/php-build
+    container_name: da_php
+    volumes:
+      - .:/var/www/html
+    ports:
+      - "9000:9000"
+    networks:
+      - digital_atlas
+
+  da_composer:
+    image: composer:latest
+    container_name: da_composer
+    volumes:
+      - .:/var/www/html
+    working_dir: /var/www/html
+    entrypoint: ['composer']
+    networks:
+      - digital_atlas
+
+  da_npm:
+    image: node:13.7
+    container_name: da_npm
+    volumes:
+      - .:/var/www/html
+    working_dir: /var/www/html
+    entrypoint: ['npm']
+    networks:
+      - digital_atlas
+
+  da_artisan:
+    build:
+      context: .
+      dockerfile: ./docker/php-build
+    container_name: da_artisan
+    depends_on:
+      - da_mysql
+    volumes:
+      - .:/var/www/html
+    working_dir: /var/www/html
+    entrypoint: ['/var/www/html/artisan']
+    networks:
+      - digital_atlas
