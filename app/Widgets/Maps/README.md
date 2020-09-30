@@ -26,4 +26,16 @@ App\Widgets\Maps\MapsServiceProvider::class
 
 ## Configuration
 
-To publish the configuration file, simply run `php artisan vendor:publish` and select **Provider: App\Widgets\Maps\MapsServiceProvider** from the list.  The configuration file contains the coordinates for each country and map settings.
+To publish the configuration file, simply run the following command:
+
+_Docker_
+```
+docker-compose run --rm da_artisan vendor:publish
+```
+
+_Manual Installation_
+```
+php artisan vendor:publish
+```
+
+Then select **Provider: App\Widgets\Maps\MapsServiceProvider** from the list.  The configuration file contains the coordinates for each country and map settings.

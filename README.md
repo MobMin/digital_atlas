@@ -1,17 +1,17 @@
-# Digital Atlas
+<p align="center">
+<img width="275" height="275" src="https://contribute.missionaldigerati.org/assets/img/digital-world-atlas.png">
+</p>
 
-This tool provides a detailed overview of the digital landscape for the countries of the world.
+Welcome to the [Digital World Atlas](https://digitalworldatlas.com) project!  The [Digital World Atlas](https://digitalworldatlas.com) is a web tool that details the digital and spiritual landscape of each country in the world.  The code of this project is built on the [Laravel PHP Framework](https://laravel.com/), and is released under the [GNU General Public License](https://opensource.org/licenses/GPL-3.0) (version 3).
 
 ## Development
 
-To test the code, simply run the following command:
+Checkout the [project wiki](https://github.com/MobMin/digital_atlas/wiki) for more details on how to set up the code.
 
-```
-php artisan test
-```
+## Contributing
 
-To lint the code, simply run:
+ If you want to contribute to this project, please read our contributing documents first! They will outline our Code of Conduct, and ways you can join our community. Next, you can find details about setting up the project in our [project wiki](https://github.com/MobMin/digital_atlas/wiki).
 
-```
-php artisan lint
-```
+ If you have any questions, please email us at contribute [at] missionaldigerati.org (replace the [at] with @).
+
+ _This project is brought you by the [Mobile Ministry Forum](https://mobileministryforum.org/)._

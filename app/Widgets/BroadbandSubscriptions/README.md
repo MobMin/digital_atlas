@@ -17,12 +17,35 @@ This package only works with the Digital Atlas.  To install:
 ```
 App\Widgets\BroadbandSubscriptions\BroadbandSubscriptionsServiceProvider::class
 ```
-3. In terminal, migrate the database with `php artisan migrate`
+3. In terminal, migrate the database.
+
+_Docker_
+```
+docker-compose run --rm da_artisan artisan migrate
+```
+
+_Manual Installation_
+```
+php artisan artisan migrate
+```
+
 4. Added the widget to the view file using `@asyncWidget('App\Widgets\BroadbandSubscriptions\BroadbandSubscriptionsWidget', [], $country)`.
 
 ## Configuration
 
-To publish the configuration file, simply run `php artisan vendor:publish` and select **Provider: App\Widgets\BroadbandSubscriptions\BroadbandSubscriptionsServiceProvider** from the list.
+To publish the configuration file, simply run the following command:
+
+_Docker_
+```
+docker-compose run --rm da_artisan vendor:publish
+```
+
+_Manual Installation_
+```
+php artisan vendor:publish
+```
+
+Then select **Provider: App\Widgets\BroadbandSubscriptions\BroadbandSubscriptionsServiceProvider** from the list.
 
 ## Import Data
 
@@ -34,10 +57,10 @@ To import the data:
 
 _Docker_
 ```
-docker-compose run --rm da_artisan 
+docker-compose run --rm da_artisan import:broadband-subscriptions:data
 ```
 
 _Manual Installation_
 ```
-php artisan import:broadband-subscriptions:data`
+php artisan import:broadband-subscriptions:data
 ```

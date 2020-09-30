@@ -18,13 +18,50 @@ This package only works with the Digital Atlas.  To install:
 ```
 App\Widgets\JoshuaProject\JoshuaProjectServiceProvider::class
 ```
-3. In terminal, migrate the database with `php artisan migrate`
+3. In terminal, migrate the database.
+
+_Docker_
+```
+docker-compose run --rm da_artisan artisan migrate
+```
+
+_Manual Installation_
+```
+php artisan artisan migrate
+```
+
 4. Add the widget to the view file using `@asyncWidget('App\Widgets\JoshuaProject\JoshuaProjectWidget', [], $country)`.
 5. Create the configuration file as described below.
 6. Make sure to get an API key, and set it in the configuration file.
 
 ## Configuration
 
-To publish the configuration file, simply run `php artisan vendor:publish` and select **Provider: App\Widgets\JoshuaProject\JoshuaProjectServiceProvider** from the list.
+To publish the configuration file, simply run the following command:
+
+_Docker_
+```
+docker-compose run --rm da_artisan vendor:publish
+```
+
+_Manual Installation_
+```
+php artisan vendor:publish
+```
+
+Then select **Provider: App\Widgets\JoshuaProject\JoshuaProjectServiceProvider** from the list.
 
 ## Import Data
+
+To import the data, simply run the following command:
+
+_Docker_
+```
+docker-compose run --rm da_artisan import:joshuaproject:data
+```
+
+_Manual Installation_
+```
+php artisan import:joshuaproject:data
+```
+
+This is set up on a cron job and will update every week.
