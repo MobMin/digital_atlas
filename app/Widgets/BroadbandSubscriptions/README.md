@@ -30,4 +30,14 @@ To import the data:
 
 1. Drop the CSV file from the [World Bank](https://data.worldbank.org/indicator/IT.NET.BBND) into the root data folder.
 2. Rename the file to **widget-broadband-subscriptions.csv** or the name specified in the *config/widgets/broadband_subscriptions.php* file.
-3. On the terminal, run the following command: `php artisan import:broadband-subscriptions:data`
+3. On the terminal, run the following command:
+
+_Docker_
+```
+docker-compose run --rm da_artisan 
+```
+
+_Manual Installation_
+```
+php artisan import:broadband-subscriptions:data`
+```
