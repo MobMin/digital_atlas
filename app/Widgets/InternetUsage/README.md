@@ -21,12 +21,12 @@ App\Widgets\InternetUsage\InternetUsageServiceProvider::class
 
 _Docker_
 ```
-docker-compose run --rm da_artisan artisan migrate
+docker-compose run --rm da_artisan migrate
 ```
 
 _Manual Installation_
 ```
-php artisan artisan migrate
+php artisan migrate
 ```
 
 4. Added the widget to the view file using `@asyncWidget('App\Widgets\InternetUsage\InternetUsageWidget', [], $country)`.

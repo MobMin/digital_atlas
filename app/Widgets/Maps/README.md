@@ -17,7 +17,18 @@ This package only works with the Digital Atlas.  To install:
 ```
 App\Widgets\Maps\MapsServiceProvider::class
 ```
-3. In terminal, migrate the database with `php artisan migrate`
+3. In terminal, migrate the database.
+
+_Docker_
+```
+docker-compose run --rm da_artisan migrate
+```
+
+_Manual Installation_
+```
+php artisan migrate
+```
+
 4. Open the view page:
     a. Add the widget to the view file using `@asyncWidget('App\Widgets\Maps\MapsWidget', [], $country)`.
     b. Add the following to the **extra-css**: `<link rel="stylesheet" href="https://unpkg.com/leaflet@1.7.1/dist/leaflet.css" integrity="sha512-xodZBNTC5n17Xt2atTPuE1HxjVMSvLVW9ocqUKLsCC5CXdbqCmblAshOMAS6/keqq/sMZMZ19scR4PsZChSR7A==" crossorigin=""/>`
