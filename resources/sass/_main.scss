@@ -1,5 +1,22 @@
 body {
-    padding-top: 5rem;
+    padding-top: 6rem;
+}
+.navbar {
+    padding: 0 .5rem 0 0 !important;
+    .navbar-brand {
+        img {
+            max-height: 60px;
+        }
+    }
+    .navbar-nav {
+        margin-top: .25rem;
+    }
+    a, a:visited {
+        color: #ffffff;
+    }
+    a:hover {
+        color: theme-color('dark');
+    }
 }
 .home {
     h1 {
@@ -13,7 +30,7 @@ body {
     }
 }
 footer {
-    background-color: theme-color('dark');
+    background-color: theme-color('primary');
     text-align: center;
     padding: 1.5rem 0 .85rem;
     width: 100%;
@@ -24,11 +41,11 @@ footer {
         font-size: .85rem;
         margin: 0px;
     }
-    a {
-        color: theme-color('secondary');
-    }
-    a:hover, a:visited {
+    a, a:visited {
         color: #ffffff;
+    }
+    a:hover {
+        color: theme-color('dark');
     }
 }
 /* Widget code

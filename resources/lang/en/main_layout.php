@@ -23,9 +23,9 @@
  * Localization strings for main layout.
  */
 return [
-    'website_name'      =>  'Digital Atlas',
-    'website_tagline'   =>  'Brought to you by',
-    'website_welcome'   =>  'Welcome to the Digital Atlas',
+    'website_name'      =>  'Digital World Atlas',
+    'website_tagline'   =>  'Brought to you by the',
+    'website_welcome'   =>  'Welcome to the Digital World Atlas',
     'mmf_short'         =>  'MMF',
     'mmf_long'          =>  'Mobile Ministry Forum',
     'nav_home'          =>  'Home',
