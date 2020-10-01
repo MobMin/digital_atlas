@@ -34,6 +34,7 @@ services:
       SERVICE_NAME: da_mysql
     volumes:
       - ./docker/mysql:/var/lib/mysql
+      - ./docker/data:/docker-entrypoint-initdb.d
     networks:
       - digital_atlas
 
