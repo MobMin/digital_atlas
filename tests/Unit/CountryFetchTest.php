@@ -44,14 +44,59 @@ class CountryFetchTest extends TestCase
     use RefreshDatabase;
 
     /**
+     * Algeria data
+     *
+     * @var array
+     */
+    public $algeria = [
+        'name'              =>  'Algeria',
+        'slug'              =>  'algeria',
+        'alpha_two_code'    =>  'DZ',
+        'alpha_three_code'  =>  'DZA',
+        'numeric_code'      =>  12,
+    ];
+
+    /**
+     * Afghanistan data
+     *
+     * @var array
+     */
+    public $afghanistan = [
+        'name'              =>  'Afghanistan',
+        'slug'              =>  'afghanistan',
+        'alpha_two_code'    =>  'AF',
+        'alpha_three_code'  =>  'AFG',
+        'numeric_code'      =>  4,
+    ];
+
+    /**
+     * Albania data
+     *
+     * @var array
+     */
+    public $albania = [
+        'name'              =>  'Albania',
+        'slug'              =>  'albania',
+        'alpha_two_code'    =>  'AL',
+        'alpha_three_code'  =>  'ALB',
+        'numeric_code'      =>  8,
+    ];
+
+    /**
      * Test the fetch response works
      *
      * @return void
      */
     public function testFetchResponse()
     {
-        $countries = Country::factory()->count(3)->create();
-        $expected = $countries->toArray();
+        $algeriaSaved = Country::factory()->create($this->algeria);
+        $afghanistanSaved = Country::factory()->create($this->afghanistan);
+        $albaniaSaved = Country::factory()->create($this->albania);
+        $expected = [
+            $algeriaSaved->toArray(),
+            $afghanistanSaved->toArray(),
+            $albaniaSaved->toArray()
+        ];
         $response = $this->get('/countries/fetch');
         $response->assertStatus(200);
         $actual = json_decode($response->getContent(), true);
@@ -66,10 +111,11 @@ class CountryFetchTest extends TestCase
      */
     public function testFetchWithQuery()
     {
-        $countries = Country::factory()->count(2)->create();
-        $country = Country::factory()->create(['name'   =>  '12345Desired Find Country']);
-        $expected = $country->toArray();
-        $response = $this->get('/countries/fetch?query=345desir');
+        Country::factory()->create($this->algeria);
+        Country::factory()->create($this->albania);
+        $saved = Country::factory()->create($this->afghanistan);
+        $expected = $saved->toArray();
+        $response = $this->get('/countries/fetch?query=anista');
         $response->assertStatus(200);
         $actual = json_decode($response->getContent(), true);
         $this->assertEquals(1, count($actual));
