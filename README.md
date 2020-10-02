@@ -2,6 +2,8 @@
 <img width="275" height="275" src="https://contribute.missionaldigerati.org/assets/img/digital-world-atlas.png">
 </p>
 
+[![Build Status](https://travis-ci.org/MobMin/digital_atlas.svg?branch=master)](https://travis-ci.org/MobMin/digital_atlas)
+
 Welcome to the [Digital World Atlas](https://digitalworldatlas.com) project!  The [Digital World Atlas](https://digitalworldatlas.com) is a web tool that details the digital and spiritual landscape of each country in the world.  The code of this project is built on the [Laravel PHP Framework](https://laravel.com/), and is released under the [GNU General Public License](https://opensource.org/licenses/GPL-3.0) (version 3).
 
 ## Development
