@@ -14,7 +14,7 @@
     @else
         <body class="pages">
     @endif
-        <nav class="navbar navbar-expand-md navbar-primary bg-primary fixed-top">
+        <nav class="navbar navbar-expand-md navbar-dark bg-primary fixed-top">
             <a class="navbar-brand" href="/"><img src="{{ asset('files/logo-landscape.png') }}" alt="Digital World Atlas" /></a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="@lang('main_layout.aria_toggle_nav')">
                 <span class="navbar-toggler-icon"></span>
