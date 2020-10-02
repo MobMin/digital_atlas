@@ -4,13 +4,9 @@
 
 Welcome to the [Digital World Atlas](https://digitalworldatlas.com) project!  The [Digital World Atlas](https://digitalworldatlas.com) is a web tool that details the digital and spiritual landscape of each country in the world.  The code of this project is built on the [Laravel PHP Framework](https://laravel.com/), and is released under the [GNU General Public License](https://opensource.org/licenses/GPL-3.0) (version 3).
 
-<center>
-
 | Develop Branch | Master Branch | Repository |
 | -------------- | ------------- | ---------- |
 | [![Build Status](https://travis-ci.org/MobMin/digital_atlas.svg?branch=develop)](https://travis-ci.org/MobMin/digital_atlas) [![StyleCI](https://github.styleci.io/repos/295577580/shield?branch=develop)](https://github.styleci.io/repos/295577580?branch=develop) | [![Build Status](https://travis-ci.org/MobMin/digital_atlas.svg?branch=master)](https://travis-ci.org/MobMin/digital_atlas) [![StyleCI](https://github.styleci.io/repos/295577580/shield?branch=develop)](https://github.styleci.io/repos/295577580?branch=master) | [![AppVersion-version](https://img.shields.io/badge/AppVersion-1.2.0-brightgreen.svg?style=flat)](https://github.com/delvedor/appversion?#version) |
-
-</center>
 
 ## Development
 
