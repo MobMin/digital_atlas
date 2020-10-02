@@ -30,4 +30,11 @@ use Illuminate\Database\Eloquent\Model;
 class Country extends Model
 {
     use HasFactory;
+    /**
+     * Do we use timestamps on the table?
+     *
+     * @var boolean
+     * @access public
+     */
+    public $timestamps = false;
 }
