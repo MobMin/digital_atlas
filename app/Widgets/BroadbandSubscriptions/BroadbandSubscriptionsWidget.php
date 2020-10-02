@@ -39,8 +39,7 @@ class BroadbandSubscriptionsWidget extends AbstractWidget
      * Treat this method as a controller action.
      * Return view() or other content to display.
      */
-    public function run()
-    {
+    public function run() {
         $country = func_get_arg(0);
         $current = BroadbandSubscription::current($country['id']);
         $stats = BroadbandSubscription::select('year_reported', 'total')
