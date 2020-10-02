@@ -7,7 +7,7 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * Year of Prayer API is distributed in the hope that it will be useful,
+ * Digital Atlas is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
@@ -65,6 +65,21 @@ return [
         'local' => [
             'driver' => 'local',
             'root' => storage_path('app'),
+        ],
+
+        'base' => [
+            'driver' => 'local',
+            'root' => resource_path(),
+        ],
+
+        'stubs' => [
+            'driver' => 'local',
+            'root' => resource_path('stubs'),
+        ],
+
+        'widgets' => [
+            'driver' => 'local',
+            'root' => base_path('app' . DIRECTORY_SEPARATOR . 'Widgets'),
         ],
 
         'public' => [

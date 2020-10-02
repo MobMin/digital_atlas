@@ -7,7 +7,7 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * Year of Prayer API is distributed in the hope that it will be useful,
+ * Digital Atlas is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
@@ -71,6 +71,26 @@ return [
             'username' => env('DB_USERNAME', 'forge'),
             'password' => env('DB_PASSWORD', ''),
             'unix_socket' => env('DB_SOCKET', ''),
+            'charset' => 'utf8mb4',
+            'collation' => 'utf8mb4_unicode_ci',
+            'prefix' => '',
+            'prefix_indexes' => true,
+            'strict' => true,
+            'engine' => null,
+            'options' => extension_loaded('pdo_mysql') ? array_filter([
+                PDO::MYSQL_ATTR_SSL_CA => env('MYSQL_ATTR_SSL_CA'),
+            ]) : [],
+        ],
+
+        'test_mysql' => [
+            'driver' => 'mysql',
+            'url' => env('TEST_DATABASE_URL'),
+            'host' => env('TEST_DB_HOST', '127.0.0.1'),
+            'port' => env('TEST_DB_PORT', '3306'),
+            'database' => env('TEST_DB_DATABASE', 'forge'),
+            'username' => env('TEST_DB_USERNAME', 'forge'),
+            'password' => env('TEST_DB_PASSWORD', ''),
+            'unix_socket' => env('TEST_DB_SOCKET', ''),
             'charset' => 'utf8mb4',
             'collation' => 'utf8mb4_unicode_ci',
             'prefix' => '',

@@ -7,7 +7,7 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * Year of Prayer API is distributed in the hope that it will be useful,
+ * Digital Atlas is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
@@ -19,6 +19,7 @@
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
  */
+use App\Http\Controllers\CountryController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -32,6 +33,6 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [CountryController::class, 'index']);
+Route::get('countries/fetch', [CountryController::class, 'fetch']);
+Route::get('countries/{slug}', [CountryController::class, 'show'])->where('slug', '[a-zA-Z\-]+');

@@ -1,13 +1,16 @@
-php:
-  preset: laravel
-  disabled:
-    - unused_use
-  finder:
-    not-name:
-      - index.php
-      - server.php
-js:
-  finder:
-    not-name:
-      - webpack.mix.js
-css: true
+risky: false
+preset: psr2
+version: 7
+finder:
+  exclude:
+    - "app/Widgets/**/Views/"
+    - "app/Widgets/**/Migrations/"
+    - "bootstrap/cache/"
+    - "config/home_photos.php"
+    - "database"
+    - "node_modules"
+    - "public"
+    - "resources"
+    - "storage"
+    - "stubs"
+    - "vendor"

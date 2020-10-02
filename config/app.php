@@ -7,7 +7,7 @@
  * the Free Software Foundation, either version 3 of the License, or
  * (at your option) any later version.
  *
- * Year of Prayer API is distributed in the hope that it will be useful,
+ * Digital Atlas is distributed in the hope that it will be useful,
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
  * GNU General Public License for more details.
@@ -190,10 +190,18 @@ return [
          */
         App\Providers\AppServiceProvider::class,
         App\Providers\AuthServiceProvider::class,
-        // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        /**
+         * Widget Service Providers
+         */
+        App\Widgets\Population\PopulationServiceProvider::class,
+        App\Widgets\JoshuaProject\JoshuaProjectServiceProvider::class,
+        App\Widgets\MobileSubscriptions\MobileSubscriptionsServiceProvider::class,
+        App\Widgets\InternetUsage\InternetUsageServiceProvider::class,
+        App\Widgets\BroadbandSubscriptions\BroadbandSubscriptionsServiceProvider::class,
+        App\Widgets\Maps\MapsServiceProvider::class,
     ],
 
     /*
