@@ -24,6 +24,7 @@
  */
 return [
     'website_name'      =>  'Digital World Atlas',
+    'website_desc'      =>  'A web tool detailing the digital and spiritual landscape of each country in the world.',
     'website_tagline'   =>  'Brought to you by the',
     'website_welcome'   =>  'Welcome to the Digital World Atlas',
     'mmf_short'         =>  'MMF',

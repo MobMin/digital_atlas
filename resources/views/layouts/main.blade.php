@@ -3,14 +3,20 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <meta name="description" content="">
+        <title>{{ $title }}</title>
+        <meta name="description" content="@lang('main_layout.website_desc')" />
+        <meta name="twitter:card" content="summary">
+        <meta name="twitter:site" content="mobmin">
+        <meta name="twitter:title" content="{{ $title }}">
+        <meta name="twitter:description" content="@lang('main_layout.website_desc')">
+        <meta name="twitter:image" content="{{ asset('files/digital-world-atlas-share-twitter.jpg') }}">
+        <meta property="og:title" content="{{ $title }}" />
+        <meta property="og:type" content="article" />
+        <meta property="og:url" content="{{ Request::url() }}" />
+        <meta property="og:image" content="{{ asset('files/digital-world-atlas-share.jpg') }}" />
+        <meta property="og:description" content="@lang('main_layout.website_desc')" />
+        <meta property="og:site_name" content="@lang('main_layout.website_name')" />
         <meta name="author" content="Mobile Ministry Forum">
-        <title>
-            @lang('main_layout.website_name')
-            @if(!empty($country))
-             | {{ $country }}
-            @endif
-        </title>
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
         @yield('extra-css')
     </head>

@@ -1,4 +1,4 @@
-@extends('layouts.main', ['country' =>  null])
+@extends('layouts.main', ['title' =>  __('main_layout.website_name')])
 
 @section('content')
     <div id="welcome" class="row">
