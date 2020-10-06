@@ -77,3 +77,9 @@ form#search-form {
         padding-right: 1.25rem;
     }
 }
+
+@include media-breakpoint-down(sm) {
+    #welcome-text {
+        font-size: 1.5rem !important;
+    }
+}
