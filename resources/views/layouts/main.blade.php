@@ -3,9 +3,20 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <meta name="description" content="">
+        <title>{{ $title }}</title>
+        <meta name="description" content="@lang('main_layout.website_desc')" />
+        <meta name="twitter:card" content="summary">
+        <meta name="twitter:site" content="mobmin">
+        <meta name="twitter:title" content="{{ $title }}">
+        <meta name="twitter:description" content="@lang('main_layout.website_desc')">
+        <meta name="twitter:image" content="{{ asset('files/digital-world-atlas-share-twitter.jpg') }}">
+        <meta property="og:title" content="{{ $title }}" />
+        <meta property="og:type" content="article" />
+        <meta property="og:url" content="{{ Request::url() }}" />
+        <meta property="og:image" content="{{ asset('files/digital-world-atlas-share.jpg') }}" />
+        <meta property="og:description" content="@lang('main_layout.website_desc')" />
+        <meta property="og:site_name" content="@lang('main_layout.website_name')" />
         <meta name="author" content="Mobile Ministry Forum">
-        <title>@lang('main_layout.website_name')</title>
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
         @yield('extra-css')
     </head>
@@ -51,11 +62,20 @@
 
         </main><!-- /.container -->
 
-        <footer class="footer">
-            <p>
-                @lang('main_layout.website_tagline') <a href="https://mobileministryforum.org/">@lang('main_layout.mmf_long')</a>
-                @yield('extra-footer')
-            </p>
+        <footer class="footer container-fluid">
+            <div class="row">
+                <div class="col-12 col-md-6">
+                    <p class="text-center text-md-left">
+                        @lang('main_layout.website_tagline') <a href="https://mobileministryforum.org/" target="_blank">@lang('main_layout.mmf_long')</a>
+                        @yield('extra-footer')
+                    </p>
+                </div>
+                <div class="col-12 col-md-6">
+                    <p class="text-center text-md-right">
+                        <span class="text-success">@lang('main_layout.are_you_developer')</span> <a href="https://github.com/MobMin/digital_atlas" target="_blank">@lang('main_layout.contribute_text') GitHub</a>
+                    </p>
+                </div>
+            </div>
         </footer>
         <script type="text/javascript" src="{{ asset('js/app.js') }}"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js" integrity="sha512-s+xg36jbIujB2S2VKfpGmlC3T5V2TF3lY48DX7u2r9XzGzgPsa6wTpOQA7J9iffvdeBN0q9tKzRxVxw1JviZPg==" crossorigin="anonymous"></script>
