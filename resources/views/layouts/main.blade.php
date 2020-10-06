@@ -62,11 +62,20 @@
 
         </main><!-- /.container -->
 
-        <footer class="footer">
-            <p>
-                @lang('main_layout.website_tagline') <a href="https://mobileministryforum.org/">@lang('main_layout.mmf_long')</a>
-                @yield('extra-footer')
-            </p>
+        <footer class="footer container-fluid">
+            <div class="row">
+                <div class="col-12 col-md-6">
+                    <p class="text-center text-md-left">
+                        @lang('main_layout.website_tagline') <a href="https://mobileministryforum.org/" target="_blank">@lang('main_layout.mmf_long')</a>
+                        @yield('extra-footer')
+                    </p>
+                </div>
+                <div class="col-12 col-md-6">
+                    <p class="text-center text-md-right">
+                        <span class="text-success">@lang('main_layout.are_you_developer')</span> <a href="https://github.com/MobMin/digital_atlas" target="_blank">@lang('main_layout.contribute_text') GitHub</a>
+                    </p>
+                </div>
+            </div>
         </footer>
         <script type="text/javascript" src="{{ asset('js/app.js') }}"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js" integrity="sha512-s+xg36jbIujB2S2VKfpGmlC3T5V2TF3lY48DX7u2r9XzGzgPsa6wTpOQA7J9iffvdeBN0q9tKzRxVxw1JviZPg==" crossorigin="anonymous"></script>

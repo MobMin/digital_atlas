@@ -23,6 +23,8 @@
  * Localization strings for main layout.
  */
 return [
+    'are_you_developer' =>  'Are you a developer?',
+    'contribute_text'   =>  'Contribute on',
     'website_name'      =>  'Digital World Atlas',
     'website_desc'      =>  'A web tool detailing the digital and spiritual landscape of each country in the world.',
     'website_tagline'   =>  'Brought to you by the',
