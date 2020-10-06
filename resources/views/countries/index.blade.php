@@ -1,4 +1,4 @@
-@extends('layouts.main')
+@extends('layouts.main', ['country' =>  null])
 
 @section('content')
     <div id="welcome" class="row">

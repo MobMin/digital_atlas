@@ -5,7 +5,12 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta name="description" content="">
         <meta name="author" content="Mobile Ministry Forum">
-        <title>@lang('main_layout.website_name')</title>
+        <title>
+            @lang('main_layout.website_name')
+            @if(!empty($country))
+             | {{ $country }}
+            @endif
+        </title>
         <link href="{{ asset('css/app.css') }}" rel="stylesheet">
         @yield('extra-css')
     </head>
