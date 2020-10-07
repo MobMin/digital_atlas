@@ -6,7 +6,7 @@ Welcome to the [Digital World Atlas](https://digitalworldatlas.com) project!  Th
 
 | Develop Branch | Master Branch | Repository |
 | -------------- | ------------- | ---------- |
-| [![Build Status](https://travis-ci.org/MobMin/digital_atlas.svg?branch=develop)](https://travis-ci.org/MobMin/digital_atlas) [![StyleCI](https://github.styleci.io/repos/295577580/shield?branch=develop)](https://github.styleci.io/repos/295577580?branch=develop) | [![Build Status](https://travis-ci.org/MobMin/digital_atlas.svg?branch=master)](https://travis-ci.org/MobMin/digital_atlas) [![StyleCI](https://github.styleci.io/repos/295577580/shield?branch=master)](https://github.styleci.io/repos/295577580?branch=master) | [![AppVersion-version](https://img.shields.io/badge/AppVersion-1.3.0-brightgreen.svg?style=flat)](https://github.com/delvedor/appversion?#version) |
+| [![Build Status](https://travis-ci.org/MobMin/digital_atlas.svg?branch=develop)](https://travis-ci.org/MobMin/digital_atlas) [![StyleCI](https://github.styleci.io/repos/295577580/shield?branch=develop)](https://github.styleci.io/repos/295577580?branch=develop) | [![Build Status](https://travis-ci.org/MobMin/digital_atlas.svg?branch=master)](https://travis-ci.org/MobMin/digital_atlas) [![StyleCI](https://github.styleci.io/repos/295577580/shield?branch=master)](https://github.styleci.io/repos/295577580?branch=master) | [![AppVersion-version](https://img.shields.io/badge/AppVersion-1.3.1-brightgreen.svg?style=flat)](https://github.com/delvedor/appversion?#version) |
 
 ## Development
 
