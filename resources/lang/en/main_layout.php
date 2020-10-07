@@ -35,5 +35,5 @@ return [
     'aria_toggle_nav'   =>  'Toggle Navigation',
     'search'            =>  'search',
     'country'           =>  'country',
-    'search_no_results' =>  'Sorry, no mathes found!',
+    'search_no_results' =>  'Sorry, no matches found!',
 ];
