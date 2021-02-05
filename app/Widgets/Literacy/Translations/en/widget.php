@@ -24,8 +24,8 @@
  */
 return [
     'loading'   =>  'Loading...',
-    'title'     =>  'Literacy',
-    'total'     =>  'Total Literacy Rate',
+    'title'     =>  'Literacy Rate',
+    'total'     =>  'Literacy Rate',
     'missing_data' => 'missing',
     'provided_by' => 'Data provided by',
     'provider' => 'World Bank',
