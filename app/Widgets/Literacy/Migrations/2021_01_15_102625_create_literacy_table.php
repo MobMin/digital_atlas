@@ -33,5 +33,4 @@ class CreateLiteracyTable extends Migration
     {
         Schema::dropIfExists('literacy_rates');
     }
-    
 }

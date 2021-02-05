@@ -23,7 +23,6 @@ namespace App\Widgets\Literacy;
 use App\Widgets\Literacy\Models\Literacy;
 use Arrilot\Widgets\AbstractWidget;
 
-
 /**
  * A widget displaying Literacy data
  */
@@ -50,12 +49,12 @@ class LiteracyWidget extends AbstractWidget
             ->get();
         $statLabels = [];
         $statData = [];
-        foreach($stats as $stat) {
+        foreach ($stats as $stat) {
             $statLabels[] = strval($stat->year_reported);
             $statData[] = $stat->total;
         }
         $lineColor = config('widgets.literacy.graph.line_color');
-        if($lineColor==null) {
+        if ($lineColor==null) {
             $lineColor = '#000000';
         }
         return view('literacy::literacy_widget', [
