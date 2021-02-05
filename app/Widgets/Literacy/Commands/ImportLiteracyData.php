@@ -115,7 +115,7 @@ class ImportLiteracyData extends Command
             foreach ($years as $year => $val) {
                 $data[] = [
                     'country_id'    =>  $countries[$countryCode],
-                    'total'         =>  intval($val),
+                    'total'         =>  floatval($val),
                     'year_reported' =>  intval($year),
                 ];
             }

@@ -10,7 +10,7 @@
             <h3 class="card-title">{{ $current->year_reported }} {{ ucfirst(trans('literacy::widget.title')) }}</h3>
             <dl class="row">
                 <dt class="col-sm-5">{{ ucfirst(trans('literacy::widget.total')) }}</dt>
-                <dd class="col-sm-7">{{ number_format($current->total) }}</dd>
+                <dd class="col-sm-7">{{ number_format($current->total, 3) }}</dd>
             </dl>
         </div>
     @endif
