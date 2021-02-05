@@ -24,7 +24,7 @@
  */
 return [
     'loading'   =>  'Loading...',
-    'title'     =>  '2020 Literacy',
+    'title'     =>  'Literacy',
     'total'     =>  'Total Literacy Rate',
     'missing_data' => 'missing',
     'provided_by' => 'Data provided by',

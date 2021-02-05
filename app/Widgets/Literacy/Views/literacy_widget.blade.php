@@ -15,7 +15,7 @@
         </div>
     @endif
     <div class="card-footer text-muted">
-        <p class="credit">{{ ucfirst(trans('literacy::widget.provided_by')) }} <a href="https://data.worldbank.org/indicator/IT.NET.BBND" target="_blank" rel="nofollow">{{ trans('literacy::widget.provider') }}</a></p>
+        <p class="credit">{{ ucfirst(trans('literacy::widget.provided_by')) }} <a href="https://data.worldbank.org/indicator/SE.ADT.LITR.ZS" target="_blank" rel="nofollow">{{ trans('literacy::widget.provider') }}</a></p>
     </div>
 </div>
 <script type="text/javascript">

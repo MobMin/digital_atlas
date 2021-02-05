@@ -26,6 +26,6 @@
 return [
     'report_filename' => 'widget-literacy.csv',
     'graph' => [
-        'line_color' => '#123456'
+        'line_color' => '#7094cf'
     ]
 ];

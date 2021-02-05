@@ -15,6 +15,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
+ * @author Levi Costello <leviwcostello@gmail.com>
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
  */
@@ -42,8 +43,8 @@ class LiteracyWidget extends AbstractWidget
     public function run()
     {
         $country = func_get_arg(0);
-        $current = literacy::current($country['id']);
-        $stats = literacy::select('year_reported', 'total')
+        $current = Literacy::current($country['id']);
+        $stats = Literacy::select('year_reported', 'total')
             ->where('country_id', $country['id'])
             ->orderBy('year_reported', 'ASC')
             ->get();

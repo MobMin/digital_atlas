@@ -15,7 +15,7 @@ class CreateLiteracyTable extends Migration
     {
         Schema::create('literacy_rates', function (Blueprint $table) {
             $table->id();
-            $table->bigInteger('total');
+            $table->decimal('total', 8, 3);
             $table->smallInteger('year_reported');
             $table->timestamp('created_at')->useCurrent();
         });
