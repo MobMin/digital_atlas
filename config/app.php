@@ -202,7 +202,7 @@ return [
         App\Widgets\InternetUsage\InternetUsageServiceProvider::class,
         App\Widgets\BroadbandSubscriptions\BroadbandSubscriptionsServiceProvider::class,
         App\Widgets\Maps\MapsServiceProvider::class,
-		App\Widgets\Literacy\LiteracyServiceProvider::class,
+        App\Widgets\Literacy\LiteracyServiceProvider::class,
     ],
 
     /*
