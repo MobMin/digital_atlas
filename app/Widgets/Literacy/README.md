@@ -1,6 +1,6 @@
 # Literacy for Digital Atlas
 
-This Literacy was designed for the Digital Atlas.  It ...
+This Literacy was designed for the Digital Atlas.  It displays Literacy Rate data retrieved from [World Bank](https://data.worldbank.org/indicator/SE.ADT.LITR.ZS).
 
 ## Dependencies
 
