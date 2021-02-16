@@ -19,6 +19,9 @@
                     @asyncWidget('App\Widgets\Population\PopulationWidget', [], $country)
                 </div>
                 <div class="col-12 col-lg-6 col-xl-4">
+                    @asyncWidget('App\Widgets\UrbanPopulation\UrbanPopulationWidget', [], $country)
+                </div>
+                <div class="col-12 col-lg-6 col-xl-4">
                     @asyncWidget('App\Widgets\InternetUsage\InternetUsageWidget', [], $country)
                 </div>
                 <div class="col-12 col-lg-6 col-xl-4">
