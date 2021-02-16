@@ -15,11 +15,11 @@ class CreateUrbanPopulationTable extends Migration
     {
         Schema::create('urban_population', function (Blueprint $table) {
             $table->id();
-            $table->decimal('total',8,3);
+            $table->decimal('total', 8, 3);
             $table->smallInteger('year_reported');
             $table->timestamp('created_at')->useCurrent();
         });
-        Schema::table('urban_population', function (Blueprint $table){
+        Schema::table('urban_population', function (Blueprint $table) {
             $table->foreignId('country_id')->contrained()->onDelete('cascade');
         });
     }
