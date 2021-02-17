@@ -49,7 +49,7 @@ class UrbanPopulationServiceProvider extends ServiceProvider
             __DIR__  . $ds . 'Config.php' => config_path('widgets' . $ds . 'urban_population.php'),
         ]);
         $this->callAfterResolving(Schedule::class, function (Schedule $schedule) {
-            $schedule->command('import:urbanpopulation:data')->weekly();
+            // Schedule your cron
         });
         if ($this->app->runningInConsole()) {
             // Add commands for artisan here

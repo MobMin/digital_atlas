@@ -15,7 +15,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
- * @author Johnathan Pulos <johnathan@missionaldigerati.org>
+ * @author Levi Costello <Leviwcostello@gmail.com>
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
  */

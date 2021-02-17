@@ -15,6 +15,7 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
+ * @author Levi Costello <Leviwcosello@gmail.com>
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
  */

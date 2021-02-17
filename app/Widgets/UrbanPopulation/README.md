@@ -53,7 +53,7 @@ Then select **Provider: App\Widgets\UrbanPopulation\UrbanPopulationServiceProvid
 To import the data:
 
 1. Drop the CSV file from the [World Bank](https://data.worldbank.org/indicator/SP.URB.TOTL.IN.ZS) into the root data folder.
-2. Rename the file to **widget-urbanpopulation.csv** or the name specified in the *config/widgets/urban_population.php* file.
+2. Rename the file to **widget-urban-population.csv** or the name specified in the *config/widgets/urban_population.php* file.
 3. On the terminal, run the following command:
 
 _Docker_
