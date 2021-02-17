@@ -25,7 +25,7 @@
 return [
     'loading'   =>  'Loading...',
     'title'     =>  'Urban Population',
-    'total'     =>  'Urban Population',
+    'total'     =>  '% of Population',
     'missing_data' => 'missing',
     'provided_by' => 'Data provided by',
     'provider' => 'World Bank',
