@@ -6,6 +6,15 @@
 
 @section('content')
     <h1 class="country-title text-center">{{ $country->name }}</h1>
+    <div class="text-right">
+        <div class="dropdown pr-3" id="filter-options-dropdown">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="filter-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-filter"></i>
+          </button>
+          <div class="dropdown-menu" aria-labelledby="filter-options">
+          </div>
+        </div>
+    </div>
     <div class="row">
         <div class="col-12 col-md-6 col-xl-3">
             <div class="row">
@@ -46,5 +55,6 @@
 @stop
 
 @section('extra-js')
+    <script type="text/javascript" src="{{ asset('js/filter-widgets.js') }}"></script>
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
 @stop

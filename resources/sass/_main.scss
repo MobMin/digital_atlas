@@ -83,3 +83,9 @@ form#search-form {
         font-size: 1.5rem !important;
     }
 }
+#filter-options {
+    color: #ffffff;
+}
+.filter-option, .filter-option:hover {
+    cursor: pointer;
+}
