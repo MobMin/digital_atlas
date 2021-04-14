@@ -48,7 +48,7 @@ class TopSocialPlatformsServiceProvider extends ServiceProvider
             __DIR__  . $ds . 'Config.php' => config_path('widgets' . $ds . 'top_social_platforms.php'),
         ]);
         $this->callAfterResolving(Schedule::class, function (Schedule $schedule) {
-            // Schedule your cron
+            $schedule->command('import:top-social-stats')->monthly();
         });
         if ($this->app->runningInConsole()) {
             // Add commands for artisan here
