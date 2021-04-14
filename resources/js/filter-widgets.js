@@ -43,10 +43,10 @@ $(() => {
     selected.showing = !selected.showing;
     ele.data('widget-showing', selected.showing);
     if (selected.showing) {
-      $(`#${id}`).parent().show();
+      $(`#${id}`).show();
       ele.html(`<i class="far fa-check-square"></i> ${ele.text()}`);
     } else {
-      $(`#${id}`).parent().hide();
+      $(`#${id}`).hide();
       ele.html(`<i class="far fa-square"></i> ${ele.text()}`);
     }
     event.stopPropagation();
