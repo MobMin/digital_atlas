@@ -8,7 +8,14 @@
     <h1 class="country-title text-center">{{ $country->name }}</h1>
     <div class="row">
         <div class="col-12 col-md-6 col-xl-3">
-            @asyncWidget('App\Widgets\JoshuaProject\JoshuaProjectWidget', [], $country)
+            <div class="row">
+                <div class="col-12">
+                    @asyncWidget('App\Widgets\JoshuaProject\JoshuaProjectWidget', [], $country)
+                </div>
+                <div class="col-12">
+                    @asyncWidget('App\Widgets\TopSocialPlatforms\TopSocialPlatformsWidget', [], $country)
+                </div>
+            </div>
         </div>
         <div class="col-12 col-md-6 col-xl-9">
             <div class="row">
