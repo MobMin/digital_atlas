@@ -34,6 +34,7 @@ class CreateSocialPlatformsTable extends Migration
         Schema::create('social_platforms', function (Blueprint $table) {
             $table->id();
             $table->string('name', 255);
+            $table->timestamp('updated_at')->useCurrent();
             $table->timestamp('created_at')->useCurrent();
         });
         Schema::table('social_platforms', function (Blueprint $table) {

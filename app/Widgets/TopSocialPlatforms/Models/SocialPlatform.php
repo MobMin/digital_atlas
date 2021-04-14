@@ -25,6 +25,12 @@ use Illuminate\Database\Eloquent\Model;
 class SocialPlatform extends Model
 {
     /**
+     * Allows us to find and save the correct social platform
+     *
+     * @var array
+     */
+    protected $fillable = ['country_id', 'name'];
+    /**
      * The table associated with the model.
      *
      * @var string

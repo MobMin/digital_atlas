@@ -37,6 +37,7 @@ class CreatePlatformStatsTable extends Migration
             $table->smallInteger('month_reported');
             $table->smallInteger('year_reported');
             $table->timestamp('created_at')->useCurrent();
+            $table->timestamp('updated_at')->useCurrent();
         });
         Schema::table('platform_stats', function (Blueprint $table) {
             $table->foreignId('social_platform_id')->constrained()->onDelete('cascade');

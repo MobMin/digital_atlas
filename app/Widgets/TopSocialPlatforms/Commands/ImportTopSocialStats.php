@@ -20,8 +20,11 @@
  */
 namespace App\Widgets\TopSocialPlatforms\Commands;
 
+use App\Widgets\TopSocialPlatforms\Models\PlatformStat;
+use App\Widgets\TopSocialPlatforms\Models\SocialPlatform;
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Schema;
 
 /**
  * Command for widget.
@@ -84,7 +87,9 @@ class ImportTopSocialStats extends Command
     {
         // This creates an array with key alpha_two_code and value of id
         $countries = DB::table('countries')->pluck('id', 'alpha_two_code')->toArray();
+        $countryData = [];
         foreach ($countries as $code => $id) {
+            $this->info('Importing ' . $code . ' stats.');
             $statUrl = $this->getUrl($code);
             $fileData = fopen($statUrl, 'r');
             $count = 0;
@@ -97,28 +102,44 @@ class ImportTopSocialStats extends Command
                             continue;
                         }
                         $data[$key] = [
-                            'platform'  =>  $value,
-                            'stats'     =>  []
+                            'country_id'    =>  $id,
+                            'platform'      =>  $value,
+                            'stats'         =>  []
                         ];
                     }
                 } else {
-                    $date = $line[0];
+                    $date = explode('-', $line[0]);
                     foreach ($line as $key => $value) {
                         if ($key === 0) {
                             continue;
                         }
                         $data[$key]['stats'][] = [
-                            'date'          =>  $date,
-                            'percentage'    =>  floatval($value)
+                            'month_reported'    => intval($date[1]),
+                            'year_reported'     =>  intval($date[0]),
+                            'percentage'        =>  floatval($value)
                         ];
                     }
                 }
                 $count++;
             }
-            // Save to database
-            
-            break;
+            $countryData[] = $data;
+            $this->info('Import complete for ' . $code . '. Sleeping before next request.');
+            sleep(5);
         }
+        // Save to database
+        Schema::disableForeignKeyConstraints();
+        SocialPlatform::truncate();
+        Schema::enableForeignKeyConstraints();
+        foreach ($countryData as $data) {
+            foreach ($data as $platformData) {
+                $platform = SocialPlatform::firstOrCreate([
+                    'country_id'    =>  $platformData['country_id'],
+                    'name'          =>  trim($platformData['platform'])
+                ]);
+                $platform->stats()->createMany($platformData['stats']);
+            }
+        }
+        $this->info('Import is complete.');
         return 0;
     }
 

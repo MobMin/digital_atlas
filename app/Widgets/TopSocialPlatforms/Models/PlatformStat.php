@@ -25,6 +25,12 @@ use Illuminate\Database\Eloquent\Model;
 class PlatformStat extends Model
 {
     /**
+     * Allows us to use the create method
+     *
+     * @var array
+     */
+    protected $fillable = ['month_reported', 'percentage', 'year_reported'];
+    /**
      * The table associated with the model.
      *
      * @var string
