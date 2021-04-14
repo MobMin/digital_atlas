@@ -20,6 +20,7 @@
  */
 namespace App\Widgets\TopSocialPlatforms;
 
+use App\Widgets\TopSocialPlatforms\Models\SocialPlatform;
 use Arrilot\Widgets\AbstractWidget;
 
 /**
@@ -41,8 +42,20 @@ class TopSocialPlatformsWidget extends AbstractWidget
     public function run()
     {
         $country = func_get_arg(0);
+        $platforms = SocialPlatform::where('country_id', $country['id'])->get();
+        $tableData = [];
+        foreach ($platforms as $platform) {
+            $tableData[] = [
+                'platform'  =>  $platform->name,
+                'average'   =>  round($platform->stats->avg('percentage'), 3),
+            ];
+        }
+        // Sort the table data
+        $average = array_column($tableData, 'average');
+        array_multisort($average, \SORT_DESC, $tableData);
         return view('top-social-platforms::top_social_platforms_widget', [
             'config'    =>  $this->config,
+            'tableData' =>  $tableData
         ]);
     }
 

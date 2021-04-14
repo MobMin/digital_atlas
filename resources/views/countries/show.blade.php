@@ -33,6 +33,9 @@
 				<div class="col-12 col-lg-6 col-xl-4">
                     @asyncWidget('App\Widgets\Literacy\LiteracyWidget', [], $country)
                 </div>
+                <div class="col-12 col-lg-6 col-xl-4">
+                    @asyncWidget('App\Widgets\TopSocialPlatforms\TopSocialPlatformsWidget', [], $country)
+                </div>
             </div>
         </div>
     </div>

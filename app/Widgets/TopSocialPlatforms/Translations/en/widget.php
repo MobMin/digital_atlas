@@ -23,6 +23,9 @@
  * Localization strings for the Top Social Platforms widget.
  */
 return [
-    'loading'   =>  'Loading...',
-    'title'     =>  'Top Social Platforms',
+    'averages_title'    =>  'Last Year Average',
+    'loading'           =>  'Loading...',
+    'title'             =>  'Top Social Platforms',
+    'provided_by'       =>  'data provided by',
+    'stat_counter'      =>  'Statcounter',
 ];
