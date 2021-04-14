@@ -1,6 +1,6 @@
 # Top Social Platforms for Digital Atlas
 
-This Top Social Platforms was designed for the Digital Atlas.  It ...
+This Top Social Platforms was designed for the Digital Atlas.  It displays the top 10 social platforms over the last year in a specific country.  It also displays an average for each platform.
 
 ## Dependencies
 
@@ -30,19 +30,3 @@ php artisan migrate
 ```
 
 4. Added the widget to the view file using `@asyncWidget('App\Widgets\TopSocialPlatforms\TopSocialPlatformsWidget', [], $country)`.
-
-## Configuration
-
-To publish the configuration file, simply run the following command:
-
-_Docker_
-```
-docker-compose run --rm da_artisan vendor:publish
-```
-
-_Manual Installation_
-```
-php artisan vendor:publish
-```
-
-Then select **Provider: App\Widgets\TopSocialPlatforms\TopSocialPlatformsServiceProvider** from the list.
