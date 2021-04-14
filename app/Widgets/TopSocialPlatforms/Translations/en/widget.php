@@ -23,8 +23,20 @@
  * Localization strings for the Top Social Platforms widget.
  */
 return [
-    'averages_title'    =>  'Last Year Average',
+    'averages_title'    =>  'Last Year Averages',
     'loading'           =>  'Loading...',
+    'month_jan'         =>  'Jan',
+    'month_feb'         =>  'Feb',
+    'month_mar'         =>  'Mar',
+    'month_apr'         =>  'Apr',
+    'month_may'         =>  'May',
+    'month_jun'         =>  'Jun',
+    'month_jul'         =>  'Jul',
+    'month_aug'         =>  'Aug',
+    'month_sep'         =>  'Sep',
+    'month_oct'         =>  'Oct',
+    'month_nov'         =>  'Nov',
+    'month_dec'         =>  'Dec',
     'title'             =>  'Top Social Platforms',
     'provided_by'       =>  'data provided by',
     'stat_counter'      =>  'Statcounter',

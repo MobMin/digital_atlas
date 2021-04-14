@@ -22,6 +22,7 @@ namespace App\Widgets\TopSocialPlatforms;
 
 use App\Widgets\TopSocialPlatforms\Models\SocialPlatform;
 use Arrilot\Widgets\AbstractWidget;
+use Illuminate\Support\Facades\Lang;
 
 /**
  * A widget displaying Top Social Platforms data
@@ -32,8 +33,31 @@ class TopSocialPlatformsWidget extends AbstractWidget
      * The configuration array.
      *
      * @var array
+     * @access protected
      */
     protected $config = [];
+
+    /**
+     * Translation keys for the months.  We leave first blank so 1 = Jan.
+     *
+     * @var array
+     * @access protected
+     */
+    protected $monthKeys = [
+        '',
+        'month_jan',
+        'month_feb',
+        'month_mar',
+        'month_apr',
+        'month_may',
+        'month_jun',
+        'month_jul',
+        'month_aug',
+        'month_sep',
+        'month_oct',
+        'month_nov',
+        'month_dec'
+    ];
 
     /**
      * Treat this method as a controller action.
@@ -42,20 +66,37 @@ class TopSocialPlatformsWidget extends AbstractWidget
     public function run()
     {
         $country = func_get_arg(0);
+        $labels = [];
         $platforms = SocialPlatform::where('country_id', $country['id'])->get();
-        $tableData = [];
-        foreach ($platforms as $platform) {
-            $tableData[] = [
+        $data = [];
+        foreach ($platforms as $key => $platform) {
+            $platformData = [
                 'platform'  =>  $platform->name,
                 'average'   =>  round($platform->stats->avg('percentage'), 3),
+                'stats'     =>  []
             ];
+            $stats = $platform->stats()
+                                ->orderBy('year_reported', 'asc')
+                                ->orderBy('month_reported', 'asc')
+                                ->get();
+            foreach ($stats as $stat) {
+                $platformData['stats'][] = $stat->percentage;
+                if ($key === 0) {
+                    $month = Lang::get(
+                        'top-social-platforms::widget.' . $this->monthKeys[$stat->month_reported]
+                    );
+                    $labels[] = $month . ' ' . $stat->year_reported;
+                }
+            }
+            $data[] = $platformData;
         }
         // Sort the table data
-        $average = array_column($tableData, 'average');
-        array_multisort($average, \SORT_DESC, $tableData);
+        $average = array_column($data, 'average');
+        array_multisort($average, \SORT_DESC, $data);
         return view('top-social-platforms::top_social_platforms_widget', [
             'config'    =>  $this->config,
-            'tableData' =>  $tableData
+            'labels'    =>  $labels,
+            'data'      =>  $data
         ]);
     }
 
