@@ -1,17 +1,23 @@
+import * as Cookies from 'js-cookie';
 $(() => {
   /**
    * An array holding all the widgets available and there state.
    *
    * @type {Array}
    */
-  const widgets = [];
-  $('div[data-widget-name]').each((index, ele) => {
-    widgets.push({
-      showing:  true,
-      id:       $(ele).attr('id'),
-      name:     $(ele).data('widget-name'),
+  let widgets = [];
+  const filterCookie = Cookies.get('filter-options');
+  if (typeof filterCookie === 'undefined') {
+    $('div[data-widget-name]').each((index, ele) => {
+      widgets.push({
+        showing:  true,
+        id:       $(ele).attr('id'),
+        name:     $(ele).data('widget-name'),
+      });
     });
-  });
+  } else {
+    widgets = JSON.parse(filterCookie);
+  }
   /**
    * populate the dropdown
    *
@@ -30,8 +36,19 @@ $(() => {
             .data('widget-target', widget.id)
             .data('widget-showing', widget.showing)
             .html(`${icon} ${widget.name}`)
-      );
+    );
+    /**
+     * Hide widgets previously set to hidden
+     *
+     */
+    if (!widget.showing) {
+      $(`#${widget.id}`).hide();
+    }
   });
+  /**
+   * Set up on click
+   *
+   */
   $(document).on('click', '#filter-options-dropdown .dropdown-menu .filter-option', (event) => {
     if (!event.currentTarget) {
       return false;
@@ -49,6 +66,7 @@ $(() => {
       $(`#${id}`).hide();
       ele.html(`<i class="far fa-square"></i> ${ele.text()}`);
     }
+    Cookies.set('filter-options', JSON.stringify(widgets));
     event.stopPropagation();
     return false;
   });
