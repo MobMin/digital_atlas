@@ -115,7 +115,7 @@ class CountryFetchTest extends TestCase
         Country::factory()->create($this->albania);
         $saved = Country::factory()->create($this->afghanistan);
         $expected = $saved->toArray();
-        $response = $this->get('/countries/fetch?query=anista');
+        $response = $this->get('/countries/fetch?query=afghan');
         $response->assertStatus(200);
         $actual = json_decode($response->getContent(), true);
         $this->assertEquals(1, count($actual));
