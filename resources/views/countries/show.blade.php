@@ -16,15 +16,15 @@
         </div>
     </div>
     <div class="card-columns">
-        @asyncWidget('App\Widgets\JoshuaProject\JoshuaProjectWidget', [], $country)
-        @asyncWidget('App\Widgets\TopSocialPlatforms\TopSocialPlatformsWidget', [], $country)
-        @asyncWidget('App\Widgets\Maps\MapsWidget', [], $country)
-        @asyncWidget('App\Widgets\Population\PopulationWidget', [], $country)
-        @asyncWidget('App\Widgets\UrbanPopulation\UrbanPopulationWidget', [], $country)
-        @asyncWidget('App\Widgets\InternetUsage\InternetUsageWidget', [], $country)
-        @asyncWidget('App\Widgets\MobileSubscriptions\MobileSubscriptionsWidget', [], $country)
         @asyncWidget('App\Widgets\BroadbandSubscriptions\BroadbandSubscriptionsWidget', [], $country)
+        @asyncWidget('App\Widgets\InternetUsage\InternetUsageWidget', [], $country)
         @asyncWidget('App\Widgets\Literacy\LiteracyWidget', [], $country)
+        @asyncWidget('App\Widgets\Maps\MapsWidget', [], $country)
+        @asyncWidget('App\Widgets\MobileSubscriptions\MobileSubscriptionsWidget', [], $country)
+        @asyncWidget('App\Widgets\Population\PopulationWidget', [], $country)
+        @widget('App\Widgets\JoshuaProject\JoshuaProjectWidget', [], $country)
+        @asyncWidget('App\Widgets\TopSocialPlatforms\TopSocialPlatformsWidget', [], $country)
+        @asyncWidget('App\Widgets\UrbanPopulation\UrbanPopulationWidget', [], $country)
     </div>
 @stop
 
