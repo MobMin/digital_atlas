@@ -1,4 +1,4 @@
-<div class="card">
+<div id="widget-maps-card" class="card">
     <div class="card-body">
         <h3 class="card-title">{{ ucwords(trans('maps::widget.title')) }}</h3>
         @if(empty($coords))
@@ -21,7 +21,7 @@
 <script type="text/javascript">
 $(function() {
 @if(!empty($coords))
-    var mymap = L.map('country-map').setView([{{$coords[0]}},{{$coords[1]}}], 4);
+    const mymap = L.map('country-map').setView([{{$coords[0]}},{{$coords[1]}}], 4);
     L.tileLayer("{{$settings['tile_provider']}}", {
         attribution: '&copy; {!!html_entity_decode($settings["tile_copyright"])!!}',
         maxZoom: {{$settings['zoom']}},
@@ -36,6 +36,9 @@ $(function() {
             $('#country-map').hide();
             $('p.map-warning').removeClass('d-none');
         }
+    });
+    $('#widget-maps-card').parent().on('filter-widget:show', () => {
+        mymap.invalidateSize();
     });
 @endif
 });
