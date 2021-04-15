@@ -74,10 +74,11 @@ class BroadbandSubscriptionsWidget extends AbstractWidget
      */
     public function container()
     {
+        $title = ucwords(trans('broadband-subscriptions::widget.title'));
         return [
             'element'       => 'div',
             'attributes'    => 'class="widget widget-broadband-subscriptions"'.
-                                'data-widget-name="Broadband Subscriptions"',
+                                'data-widget-name="' . $title . '"',
         ];
     }
 

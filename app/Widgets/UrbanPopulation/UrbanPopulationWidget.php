@@ -75,9 +75,10 @@ class UrbanPopulationWidget extends AbstractWidget
      */
     public function container()
     {
+        $title = ucwords(trans('urban-population::widget.title'));
         return [
             'element'       => 'div',
-            'attributes'    => 'class="widget widget-urban-population" data-widget-name="Urban Population"',
+            'attributes'    => 'class="widget widget-urban-population" data-widget-name="' . $title . '"',
         ];
     }
 

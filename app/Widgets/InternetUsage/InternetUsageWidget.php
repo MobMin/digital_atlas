@@ -74,9 +74,10 @@ class InternetUsageWidget extends AbstractWidget
      */
     public function container()
     {
+        $title = ucwords(trans('internet-usage::widget.title'));
         return [
             'element'       => 'div',
-            'attributes'    => 'class="widget widget-internet-usage" data-widget-name="Internet Usage"',
+            'attributes'    => 'class="widget widget-internet-usage" data-widget-name="' . $title . '"',
         ];
     }
 
