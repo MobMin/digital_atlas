@@ -42,7 +42,7 @@ $(() => {
      *
      */
     if (!widget.showing) {
-      $(`#${widget.id}`).hide();
+      $(`#${widget.id}`).hide().trigger('filter-widget:hide');
     }
   });
   /**
@@ -60,10 +60,10 @@ $(() => {
     selected.showing = !selected.showing;
     ele.data('widget-showing', selected.showing);
     if (selected.showing) {
-      $(`#${id}`).show();
+      $(`#${id}`).show().trigger('filter-widget:show');
       ele.html(`<i class="far fa-check-square"></i> ${ele.text()}`);
     } else {
-      $(`#${id}`).hide();
+      $(`#${id}`).hide().trigger('filter-widget:hide');
       ele.html(`<i class="far fa-square"></i> ${ele.text()}`);
     }
     Cookies.set('filter-options', JSON.stringify(widgets));
