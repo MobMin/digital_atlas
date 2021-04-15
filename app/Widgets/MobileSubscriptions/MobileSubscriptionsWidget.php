@@ -74,8 +74,9 @@ class MobileSubscriptionsWidget extends AbstractWidget
      */
     public function container()
     {
+        $title = ucwords(trans('mobile-subscriptions::widget.title'));
         $attrs = 'class="widget widget-mobile-subscriptions"' .
-            'data-widget-name="Mobile Subscriptions"';
+            'data-widget-name="' . $title . '"';
         return [
             'element'       => 'div',
             'attributes'    => $attrs,

@@ -1,4 +1,4 @@
-<div class="card m-3">
+<div class="card">
     <div class="card-body">
         <h3 class="card-title">{{ ucwords(trans('{{kebabName}}::widget.title')) }}</h3>
     </div>

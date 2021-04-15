@@ -109,9 +109,10 @@ class TopSocialPlatformsWidget extends AbstractWidget
      */
     public function container()
     {
+        $title = ucwords(trans('top-social-platforms::widget.title'));
         return [
             'element'       => 'div',
-            'attributes'    => 'class="widget widget-top-social-platforms" data-widget-name="Top Social Platforms"',
+            'attributes'    => 'class="widget widget-top-social-platforms" data-widget-name="' . $title . '"',
         ];
     }
 

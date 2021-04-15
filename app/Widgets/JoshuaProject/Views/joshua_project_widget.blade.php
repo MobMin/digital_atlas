@@ -1,4 +1,4 @@
-<div class="card m-3">
+<div class="card" id="joshua-project-pg-data" data-widget-name="{{ ucwords(trans('widget-joshua-project::widget.people_groups')) }}">
     @if ($data == null)
         <div class="card-body">
             <h3 class="card-title">{{ ucwords(trans('widget-joshua-project::widget.people_groups')) }}</h3>
@@ -27,10 +27,10 @@
         <p class="credit">{{ ucfirst(trans('widget-joshua-project::widget.provided_by')) }} <a href="https://joshuaproject.net/countries/{{ $data['rog3'] }}" target="_blank" rel="nofollow">{{ trans('widget-joshua-project::widget.joshua_project') }}</a></p>
     </div>
 </div>
-<div class="card m-3">
+<div class="card" id="joshua-project-religions" data-widget-name="{{ ucwords(trans('widget-joshua-project::widget.religion')) }}">
     @if ($data == null)
         <div class="card-body">
-            <h3 class="card-title">{{ ucwords(trans('widget-joshua-project::widget.people_groups')) }}</h3>
+            <h3 class="card-title">{{ ucwords(trans('widget-joshua-project::widget.religion')) }}</h3>
             <p>{{ trans('widget-joshua-project::widget.missing_data') }}</p>
         </div>
     @else

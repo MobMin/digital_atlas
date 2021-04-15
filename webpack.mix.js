@@ -12,5 +12,6 @@ const mix = require('laravel-mix');
  */
 
 mix.js('resources/js/app.js', 'public/js')
+    .js('resources/js/filter-widgets.js', 'public/js')
     .js('resources/js/jquery.backstretch.min.js', 'public/js')
     .sass('resources/sass/app.scss', 'public/css');

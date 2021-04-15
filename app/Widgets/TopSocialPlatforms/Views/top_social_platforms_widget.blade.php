@@ -1,4 +1,4 @@
-<div class="card m-3">
+<div class="card">
     <canvas id="top-social-platforms-chart" class="card-img-top" height="400" styles="width: 100%; height: auto;"></canvas>
     <div class="card-body">
         <h3 class="card-title">{{ ucwords(trans('top-social-platforms::widget.title')) }}</h3>

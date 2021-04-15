@@ -1,4 +1,4 @@
-<div class="card m-3">
+<div class="card">
     @if(!$current->exists())
         <div class="card-body">
             <h3 class="card-title">{{ ucwords(trans('urban-population::widget.title')) }}</h3>

@@ -68,9 +68,10 @@ class MapsWidget extends AbstractWidget
      */
     public function container()
     {
+        $title = ucwords(trans('maps::widget.title'));
         return [
             'element'       => 'div',
-            'attributes'    => 'class="widget widget-maps" data-widget-name="Maps"',
+            'attributes'    => 'class="widget widget-maps" data-widget-name="' . $title . '"',
         ];
     }
 

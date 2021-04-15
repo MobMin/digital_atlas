@@ -6,45 +6,29 @@
 
 @section('content')
     <h1 class="country-title text-center">{{ $country->name }}</h1>
-    <div class="row">
-        <div class="col-12 col-md-6 col-xl-3">
-            <div class="row">
-                <div class="col-12">
-                    @asyncWidget('App\Widgets\JoshuaProject\JoshuaProjectWidget', [], $country)
-                </div>
-                <div class="col-12">
-                    @asyncWidget('App\Widgets\TopSocialPlatforms\TopSocialPlatformsWidget', [], $country)
-                </div>
-            </div>
+    <div class="text-right">
+        <div class="dropdown pr-3 mb-2" id="filter-options-dropdown">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="filter-options" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <i class="fas fa-filter"></i>
+          </button>
+          <div class="dropdown-menu" aria-labelledby="filter-options">
+          </div>
         </div>
-        <div class="col-12 col-md-6 col-xl-9">
-            <div class="row">
-                <div class="col-12 col-lg-6 col-xl-4">
-                    @asyncWidget('App\Widgets\Maps\MapsWidget', [], $country)
-                </div>
-                <div class="col-12 col-lg-6 col-xl-4">
-                    @asyncWidget('App\Widgets\Population\PopulationWidget', [], $country)
-                </div>
-                <div class="col-12 col-lg-6 col-xl-4">
-                    @asyncWidget('App\Widgets\UrbanPopulation\UrbanPopulationWidget', [], $country)
-                </div>
-                <div class="col-12 col-lg-6 col-xl-4">
-                    @asyncWidget('App\Widgets\InternetUsage\InternetUsageWidget', [], $country)
-                </div>
-                <div class="col-12 col-lg-6 col-xl-4">
-                    @asyncWidget('App\Widgets\MobileSubscriptions\MobileSubscriptionsWidget', [], $country)
-                </div>
-                <div class="col-12 col-lg-6 col-xl-4">
-                    @asyncWidget('App\Widgets\BroadbandSubscriptions\BroadbandSubscriptionsWidget', [], $country)
-                </div>
-				<div class="col-12 col-lg-6 col-xl-4">
-                    @asyncWidget('App\Widgets\Literacy\LiteracyWidget', [], $country)
-                </div>
-            </div>
-        </div>
+    </div>
+    <div class="card-columns">
+        @asyncWidget('App\Widgets\BroadbandSubscriptions\BroadbandSubscriptionsWidget', [], $country)
+        @asyncWidget('App\Widgets\InternetUsage\InternetUsageWidget', [], $country)
+        @asyncWidget('App\Widgets\Literacy\LiteracyWidget', [], $country)
+        @asyncWidget('App\Widgets\Maps\MapsWidget', [], $country)
+        @asyncWidget('App\Widgets\MobileSubscriptions\MobileSubscriptionsWidget', [], $country)
+        @asyncWidget('App\Widgets\Population\PopulationWidget', [], $country)
+        @widget('App\Widgets\JoshuaProject\JoshuaProjectWidget', [], $country)
+        @asyncWidget('App\Widgets\TopSocialPlatforms\TopSocialPlatformsWidget', [], $country)
+        @asyncWidget('App\Widgets\UrbanPopulation\UrbanPopulationWidget', [], $country)
     </div>
 @stop
 
 @section('extra-js')
+    <script type="text/javascript" src="{{ asset('js/filter-widgets.js') }}"></script>
     <script src="https://unpkg.com/leaflet@1.7.1/dist/leaflet.js" integrity="sha512-XQoYMqMTK8LvdxXYG3nZ448hOEQiglfqkJs1NOQV44cWnUrBc8PkAOcXy20w0vlaXaVUearIOBhiXZ5V3ynxwA==" crossorigin=""></script>
 @stop

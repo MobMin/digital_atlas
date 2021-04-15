@@ -76,9 +76,10 @@ class PopulationWidget extends AbstractWidget
      */
     public function container()
     {
+        $title = ucwords(trans('widget-population::widget.title'));
         return [
             'element'       => 'div',
-            'attributes'    => 'class="widget widget-population" data-widget-name="Population"',
+            'attributes'    => 'class="widget widget-population" data-widget-name="' . $title .'"',
         ];
     }
 
