@@ -54,9 +54,10 @@ class {{studlyName}}Widget extends AbstractWidget
      */
     public function container()
     {
+        $title = ucwords(trans('{{kebabName}}::widget.title'));
         return [
             'element'       => 'div',
-            'attributes'    => 'class="widget widget-{{kebabName}}" data-widget-name="{{titlizedName}}"',
+            'attributes'    => 'class="widget widget-{{kebabName}}" data-widget-name="' . $title . '"',
         ];
     }
 

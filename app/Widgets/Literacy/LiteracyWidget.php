@@ -75,9 +75,10 @@ class LiteracyWidget extends AbstractWidget
      */
     public function container()
     {
+        $title = ucwords(trans('literacy::widget.title'));
         return [
             'element'       => 'div',
-            'attributes'    => 'class="widget widget-literacy" data-widget-name="Literacy"',
+            'attributes'    => 'class="widget widget-literacy" data-widget-name="' . $title . '"',
         ];
     }
 

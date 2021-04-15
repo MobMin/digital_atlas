@@ -66,7 +66,7 @@ class CountryController extends Controller
     {
         $query = $request->get('query');
         if ($query) {
-            $countries = Country::where('name', 'LIKE', "%{$query}%")->get();
+            $countries = Country::where('name', 'LIKE', "{$query}%")->get();
         } else {
             $countries = Country::get();
         }
