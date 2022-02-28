@@ -4,7 +4,7 @@
     <div id="welcome" class="row">
         <div class="mx-auto col-8 col-lg-4">
             <h1 id="welcome-text">@lang('main_layout.website_welcome')</h1>
-            <form id="search-form" class="input-group pt-5" autocomplete="off">
+            <form id="search-form" class="input-group pt-4" autocomplete="off">
                 <input autocomplete="false" name="hidden" type="text" class="d-none">
                 <div class="input-group-prepend">
                     <div class="input-group-text">@lang('main_layout.country')</div>
@@ -15,6 +15,11 @@
                     <div class="list-autocomplete"></div>
                 </div>
             </form>
+        </div>
+    </div>
+    <div id="welcome-promo" class="row pt-5">
+        <div class="mx-auto col-10 col-lg-6 rounded p-2">
+            @lang('main_layout.website_welcome_promo')
         </div>
     </div>
 @stop

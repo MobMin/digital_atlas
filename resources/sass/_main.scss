@@ -18,6 +18,16 @@ body {
         color: theme-color('dark');
     }
 }
+#welcome-text {
+    margin-bottom: 0px !important;
+}
+#welcome-promo {
+    & > div {
+        background-color: #ffffff;
+        font-size: 1.0rem;
+        opacity: 0.70;
+    }
+}
 .home {
     h1 {
         color: #ffffff;
