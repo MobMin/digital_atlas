@@ -15,16 +15,27 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
- * @author Johnathan Pulos <johnathan@missionaldigerati.org>
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
  */
-/**
- * Localization strings for the Median Age widget.
- */
-return [
-    'loading'   =>  'Loading...',
-    'title'     =>  'Median Age',
-    'ages'      =>  'Median Age',
-    'year'      =>  'year',
-];
+namespace App\Widgets\MedianAge\Models;
+
+use Illuminate\Database\Eloquent\Model;
+
+class MedianAge extends Model
+{
+    /**
+     * The table associated with the model.
+     *
+     * @var string
+     */
+    protected $table = 'median_age';
+
+    public function scopeCurrent($query, $countryId)
+    {
+	return $query
+            ->where('country_id', $countryId)
+            ->orderBy('year_reported', 'DESC')
+            ->first();
+    }
+}

@@ -20,7 +20,9 @@
  */
 namespace App\Widgets\MedianAge\Commands;
 
+use App\Widgets\MedianAge\Models\MedianAge;
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\DB;
 
 /**
  * Command for widget.
@@ -41,8 +43,9 @@ class ImportMedianAgeData extends Command
      * @var string
      * @access protected
      */
-    protected $description = 'command description';
-
+    protected $description = 'Import the MedianAge CSV File after running convert_csv command.';
+    
+    protected $headerRow = 1;
     /**
      * Create a new command instance.
      *
@@ -62,6 +65,60 @@ class ImportMedianAgeData extends Command
      */
     public function handle()
     {
-        return 0;
+	$report = config ('widgets.medianage.report_filename');
+        if ($report == null) {
+		$report = 'widget-median-age.csv';
+	}
+	$this->info('Importing MedianAge data');
+	$file = base_path('data' . DIRECTORY_SEPARATOR . $report);
+	if(!file_exists($file)){
+		$this->error('Missing file: ' . $file);
+		return 0;
+	}
+	$countries = DB::table('countries')->pluck('id','numeric_code')->toArray();
+        $handle = fopen($file, 'r');
+        $count = 1;
+        $headers = [];
+        $data = [];
+        while (($raw = fgets($handle)) != false) {
+            $row = str_getcsv($raw);
+            if ($count < $this->headerRow) {
+                $count++;
+                continue;
+            } elseif ($count == $this->headerRow) {
+                $headers = $row;
+                $count++;
+                continue;
+            }
+
+            $countryCode = $row[5];
+            if (!array_key_exists($countryCode, $countries)) {
+		continue;
+            }
+            $combined = array_filter(array_combine($headers, $row));
+            // Remove the first items becomes they are not date columns
+            $combined = array_slice($combined, 7, null, true);
+            if (empty($combined)) {                
+		continue;
+            }
+            $total = (count($combined) < 7) ? count($combined) : 7;
+            $years = array_slice($combined, -$total, null, true);
+            foreach ($years as $year => $val) {
+                $data[] = [
+                    'country_id'    =>  $countries[$countryCode],
+                    'total'         =>  floatval($val),
+                    'year_reported' =>  intval($year),
+                ];
+            }
+            $count++;
+        }
+        if (empty($data)) {
+            $this->error('The file has no data to import.');
+            return 0;
+        }
+        MedianAge::truncate();
+        MedianAge::insert($data);
+        $this->info('Import is complete.');
+	return 0;
     }
 }

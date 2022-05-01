@@ -20,6 +20,7 @@
  */
 namespace App\Widgets\MedianAge;
 
+use App\Widgets\MedianAge\Models\MedianAge;
 use Arrilot\Widgets\AbstractWidget;
 
 /**
@@ -41,10 +42,28 @@ class MedianAgeWidget extends AbstractWidget
     public function run()
     {
         $country = func_get_arg(0);
+	//echo $country;
 	$current = MedianAge::current($country['id']);
-	$stats = Literacy::
+	$stats = MedianAge::select('year_reported', 'total')
+		->where('country_id', $country['id'])
+		->orderBy('year_reported', 'ASC')
+		->get();
+	$statLabels = [];
+        $statData = [];
+        foreach ($stats as $stat) {
+            $statLabels[] = strval($stat->year_reported);
+            $statData[] = $stat->total;
+        }
+        $lineColor = config('widgets.median_age.graph.line_color');
+        if ($lineColor==null) {
+            $lineColor = '#000000';
+        }
         return view('median_age::median_age_widget', [
-            'config'    =>  $this->config,
+            'config'      =>  $this->config,
+            'current'     =>  $current,
+            'statLabels'  =>  $statLabels,
+            'statData'    =>  $statData,
+            'lineColor'   =>  $lineColor,
         ]);
     }
 
