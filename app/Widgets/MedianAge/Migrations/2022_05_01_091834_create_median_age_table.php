@@ -19,12 +19,12 @@ class CreateMedianAgeTable extends Migration
             $table->smallInteger('year_reported');
             $table->timestamp('created_at')->useCurrent();
         });
-	Schema::table('median_age', function (Blueprint $table) {
-    		$table->foreignId('country_id')->constrained()->onDelete('cascade');
-	});
+        Schema::table('median_age', function (Blueprint $table) {
+    	    $table->foreignId('country_id')->constrained()->onDelete('cascade');
+        });
     }
 
-public function down()
+    public function down()
     {
         Schema::dropIfExists('median_age');
     }

@@ -67,13 +67,13 @@ class ImportMedianAgeData extends Command
     {
         $report = config('widgets.medianage.report_filename');
         if ($report == null) {
-                $report = 'widget-median-age.csv';
+            $report = 'widget-median-age.csv';
         }
         $this->info('Importing MedianAge data');
         $file = base_path('data' . DIRECTORY_SEPARATOR . $report);
         if (!file_exists($file)) {
-                $this->error('Missing file: ' . $file);
-                return 0;
+            $this->error('Missing file: ' . $file);
+            return 0;
         }
         $countries = DB::table('countries')->pluck('id', 'numeric_code')->toArray();
         $handle = fopen($file, 'r');
