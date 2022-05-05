@@ -33,7 +33,7 @@ class MedianAge extends Model
 
     public function scopeCurrent($query, $countryId)
     {
-	return $query
+        return $query
             ->where('country_id', $countryId)
             ->orderBy('year_reported', 'DESC')
             ->first();

@@ -15,7 +15,7 @@
         </div>
     @endif
     <div class="card-footer text-muted">
-        <p class="credit">{{ ucfirst(trans('median_age::widget.provided_by')) }} <a href="https://data.worldbank.org/indicator/SE.ADT.LITR.ZS" target="_blank" rel="nofollow">{{ trans('median-age::widget.provider') }}</a></p>
+        <p class="credit">{{ ucfirst(trans('median_age::widget.provided_by')) }} <a href="https://population.un.org/wpp/Download/Standard/Population/" target="_blank" rel="nofollow">{{ trans('median_age::widget.provider') }}</a></p>
     </div>
 </div>
 <script type="text/javascript">

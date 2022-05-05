@@ -23,8 +23,10 @@
  * Localization strings for the Median Age widget.
  */
 return [
-    'loading'   =>  'Loading...',
-    'title'     =>  'Median Age',
-    'ages'      =>  'Median Age',
-    'year'      =>  'year',
+    'loading'     =>  'Loading...',
+    'title'       =>  'Median Age',
+    'ages'        =>  'Median Age',
+    'year'        =>  'year',
+    'provided_by' => 'Data provided by ',
+    'provider'    => 'United Nations',
 ];

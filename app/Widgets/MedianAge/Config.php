@@ -24,5 +24,5 @@
  * @var array
  */
 return [
-	'report_filename' => 'widget-median-age.csv'
+        'report_filename' => 'widget-median-age.csv'
 ];

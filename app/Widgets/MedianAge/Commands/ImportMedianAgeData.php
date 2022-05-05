@@ -65,17 +65,17 @@ class ImportMedianAgeData extends Command
      */
     public function handle()
     {
-	$report = config ('widgets.medianage.report_filename');
+        $report = config('widgets.medianage.report_filename');
         if ($report == null) {
-		$report = 'widget-median-age.csv';
-	}
-	$this->info('Importing MedianAge data');
-	$file = base_path('data' . DIRECTORY_SEPARATOR . $report);
-	if(!file_exists($file)){
-		$this->error('Missing file: ' . $file);
-		return 0;
-	}
-	$countries = DB::table('countries')->pluck('id','numeric_code')->toArray();
+                $report = 'widget-median-age.csv';
+        }
+        $this->info('Importing MedianAge data');
+        $file = base_path('data' . DIRECTORY_SEPARATOR . $report);
+        if (!file_exists($file)) {
+                $this->error('Missing file: ' . $file);
+                return 0;
+        }
+        $countries = DB::table('countries')->pluck('id', 'numeric_code')->toArray();
         $handle = fopen($file, 'r');
         $count = 1;
         $headers = [];
@@ -93,13 +93,13 @@ class ImportMedianAgeData extends Command
 
             $countryCode = $row[5];
             if (!array_key_exists($countryCode, $countries)) {
-		continue;
+                continue;
             }
             $combined = array_filter(array_combine($headers, $row));
             // Remove the first items becomes they are not date columns
             $combined = array_slice($combined, 7, null, true);
-            if (empty($combined)) {                
-		continue;
+            if (empty($combined)) {
+                continue;
             }
             $total = (count($combined) < 7) ? count($combined) : 7;
             $years = array_slice($combined, -$total, null, true);
@@ -119,6 +119,6 @@ class ImportMedianAgeData extends Command
         MedianAge::truncate();
         MedianAge::insert($data);
         $this->info('Import is complete.');
-	return 0;
+        return 0;
     }
 }

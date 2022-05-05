@@ -42,13 +42,13 @@ class MedianAgeWidget extends AbstractWidget
     public function run()
     {
         $country = func_get_arg(0);
-	//echo $country;
-	$current = MedianAge::current($country['id']);
-	$stats = MedianAge::select('year_reported', 'total')
-		->where('country_id', $country['id'])
-		->orderBy('year_reported', 'ASC')
-		->get();
-	$statLabels = [];
+        //echo $country;
+        $current = MedianAge::current($country['id']);
+        $stats = MedianAge::select('year_reported', 'total')
+                ->where('country_id', $country['id'])
+                ->orderBy('year_reported', 'ASC')
+                ->get();
+        $statLabels = [];
         $statData = [];
         foreach ($stats as $stat) {
             $statLabels[] = strval($stat->year_reported);
