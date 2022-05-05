@@ -20,7 +20,7 @@ class CreateMedianAgeTable extends Migration
             $table->timestamp('created_at')->useCurrent();
         });
         Schema::table('median_age', function (Blueprint $table) {
-    	    $table->foreignId('country_id')->constrained()->onDelete('cascade');
+            $table->foreignId('country_id')->constrained()->onDelete('cascade');
         });
     }
 
