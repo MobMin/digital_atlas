@@ -56,10 +56,10 @@ class TwitterContent extends Command
     public function __construct()
     {
         $apiKey = [
-            'consumer_key' => "4KBaGIQlBSR6CFAvTtFeTaiSU",
-            'consumer_secret' => "gH3sBKIIel9rtijTcmAkFlb9lajLkr37hO4EK4Qj82rdvMVVtM",
-            'oauth_access_token' => "702045475-Thr7zSksfTl7iAt5N4b0fM3PSkl3BGICDRVOASY2",
-            'oauth_access_token_secret' => "KTPV3A9XVfW4D5TQoK8dJ4f3BoJCWwmmlSzKup0URIz9J",
+            'consumer_key' => "",
+            'consumer_secret' => "",
+            'oauth_access_token' => "",
+            'oauth_access_token_secret' => "",
         ];
 
         $this->twitter_api = new TwitterAPIExchange($apiKey);
