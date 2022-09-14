@@ -47,8 +47,8 @@ class TwitterWidget extends AbstractWidget
 
         $table_name = (new Twitter)->getTable();
         $tweets = DB::select("SELECT `tweet_name`,`tweet_count` FROM
-                                       (SELECT * FROM {$table_name} WHERE `country_id`=:country_id ORDER BY id DESC LIMIT 20)
-                                           t ORDER BY `tweet_count` DESC", ['country_id' => $country['id']]);
+                   (SELECT * FROM {$table_name} WHERE `country_id`=:country_id ORDER BY id DESC LIMIT 20)
+                       t ORDER BY `tweet_count` DESC", ['country_id' => $country['id']]);
 
         if (count($tweets) > 0) {
             return view('twitter::twitter_widget', [
