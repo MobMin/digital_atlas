@@ -22,6 +22,8 @@ namespace App\Widgets\Twitter;
 
 use App\Widgets\Twitter\Models\Twitter;
 use Arrilot\Widgets\AbstractWidget;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 /**
  * A widget displaying Twitter data
@@ -42,19 +44,19 @@ class TwitterWidget extends AbstractWidget
     public function run()
     {
         $country = func_get_arg(0);
-        $tweets = Twitter::select('tweet_name', 'tweet_count')
-            ->where('country_id', $country['id'])
-            ->orderBy('id', 'desc')
-            ->take(20)
-            ->get();
 
-        if (count($tweets->toArray()) > 0) {
+        $table_name = (new Twitter)->getTable();
+        $tweets = DB::select("SELECT `tweet_name`,`tweet_count` FROM
+                                       (SELECT * FROM {$table_name} WHERE `country_id`=:country_id ORDER BY id DESC LIMIT 20)
+                                           t ORDER BY `tweet_count` DESC", ['country_id' => $country['id']]);
+
+        if (count($tweets) > 0) {
             return view('twitter::twitter_widget', [
                 'config'    =>  $this->config,
                 'tweets'    =>  $tweets,
             ]);
         } else {
-            return false;
+            return '';
         }
     }
 

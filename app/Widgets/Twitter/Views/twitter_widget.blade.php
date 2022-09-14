@@ -14,7 +14,7 @@
                     <tr>
                         <td><a href="http://twitter.com/search?q={{$val->tweet_name}}" target="_blank">{{$val->tweet_name}}</a></td>
                         @if($val->tweet_count > 0)
-                            <td>{{$val->tweet_count}}</td>
+                            <td>{{number_format($val->tweet_count)}}</td>
                         @else
                             <td>-</td>
                         @endif

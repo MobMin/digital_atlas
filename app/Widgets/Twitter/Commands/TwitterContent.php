@@ -46,7 +46,12 @@ class TwitterContent extends Command
      */
     protected $description = 'Imports Twitter data from the API.';
 
+    /**
+     * An instance of the Twitter Exchange API class
+     * @var string|TwitterAPIExchange
+     */
     protected $twitter_api = '';
+
     /**
      * Create a new command instance.
      *
@@ -55,14 +60,6 @@ class TwitterContent extends Command
      */
     public function __construct()
     {
-        $apiKey = [
-            'consumer_key' => "",
-            'consumer_secret' => "",
-            'oauth_access_token' => "",
-            'oauth_access_token_secret' => "",
-        ];
-
-        $this->twitter_api = new TwitterAPIExchange($apiKey);
         parent::__construct();
     }
 
@@ -74,6 +71,14 @@ class TwitterContent extends Command
      */
     public function handle()
     {
+        $apiKey = config('widgets.twitter.api');
+        if ($apiKey == null) {
+            $this->error('Your API key is missing in the configuration file.');
+            return 0;
+        }
+
+        $this->twitter_api = new TwitterAPIExchange($apiKey);
+
         $countries = DB::table('countries')->pluck('id', 'alpha_two_code')->toArray();
 
         $requestMethod = 'GET';
@@ -101,15 +106,24 @@ class TwitterContent extends Command
         }
 
         if (isset($data) && !empty($data)) {
+            // Deleting old data
+            Twitter::truncate();
+            //Adding new data
             Twitter::insert($data);
             $this->info('Import is complete.');
         } else {
-            $this->info('Errors');
+            $this->error('Errors');
         }
 
         return 0;
     }
 
+    /**
+     * Get popular tweets by country number
+     * @param $id_country
+     * @return false
+     * @throws \Exception
+     */
     protected function getTrendsPlace($id_country)
     {
         $url = 'https://api.twitter.com/1.1/trends/place.json';
@@ -123,7 +137,7 @@ class TwitterContent extends Command
         if (is_array($result) && isset($result[0]->trends)) {
             return $result[0]->trends;
         } elseif (isset($result->errors)) {
-            $this->info('Errors: ' . $result->errors[0]->message);
+            $this->error('Errors: ' . $result->errors[0]->message);
             return false;
         }
     }

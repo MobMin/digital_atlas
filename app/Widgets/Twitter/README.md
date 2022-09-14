@@ -1,6 +1,6 @@
 # Twitter for Digital Atlas
 
-This Twitter was designed for the Digital Atlas.  It ...
+This Twitter was designed for the Digital Atlas.  It displays 20 popular tweets so far.
 
 ## Dependencies
 
@@ -46,3 +46,17 @@ php artisan vendor:publish
 ```
 
 Then select **Provider: App\Widgets\Twitter\TwitterServiceProvider** from the list.
+
+5.To populate the table with data, specify the API parameters in the widget's configuration file and run the command:
+
+## Data
+
+_Docker_
+```
+docker-compose run --rm da_artisan import:twitter:data
+```
+
+_Manual Installation_
+```
+php artisan import:twitter:data
+```
