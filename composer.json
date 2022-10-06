@@ -1,7 +1,7 @@
 {
   "name": "mobmin/digital_atlas",
   "type": "project",
-  "version": "1.7.0",
+  "version": "1.7.1",
   "description": "This tool provides a detailed overview of the digital landscape for the countries of the world.",
   "keywords": [
     "framework",
