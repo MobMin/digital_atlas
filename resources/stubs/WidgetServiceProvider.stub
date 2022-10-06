@@ -20,6 +20,7 @@
  */
 namespace App\Widgets\{{studlyName}};
 
+use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Support\ServiceProvider;
 
 class {{studlyName}}ServiceProvider extends ServiceProvider
