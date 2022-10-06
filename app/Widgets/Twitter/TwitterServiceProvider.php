@@ -20,6 +20,7 @@
  */
 namespace App\Widgets\Twitter;
 
+use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Support\ServiceProvider;
 
 class TwitterServiceProvider extends ServiceProvider
