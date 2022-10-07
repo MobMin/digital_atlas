@@ -52,7 +52,7 @@ services:
       - digital_atlas
 
   da_composer:
-    image: composer:2.0.8
+    image: composer:1.8.5
     container_name: da_composer
     volumes:
       - .:/var/www/html
