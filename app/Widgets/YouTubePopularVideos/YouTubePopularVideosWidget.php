@@ -20,6 +20,7 @@
  */
 namespace App\Widgets\YouTubePopularVideos;
 
+use App\Widgets\YouTubePopularVideos\Models\YouTubeVideo;
 use Arrilot\Widgets\AbstractWidget;
 
 /**
@@ -41,9 +42,15 @@ class YouTubePopularVideosWidget extends AbstractWidget
     public function run()
     {
         $country = func_get_arg(0);
-        return view('you-tube-popular-videos::you_tube_popular_videos_widget', [
-            'config'    =>  $this->config,
-        ]);
+        $videos = YouTubeVideo::where('country_id', $country['id'])->get();
+        if (count($videos) > 0) {
+            return view('you-tube-popular-videos::you_tube_popular_videos_widget', [
+                'config'    =>  $this->config,
+                'videos'    =>  $videos,
+            ]);
+        } else {
+            return '';
+        }
     }
 
     /**

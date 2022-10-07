@@ -23,6 +23,11 @@
  * Localization strings for the You Tube Popular Videos widget.
  */
 return [
-    'loading'   =>  'Loading...',
-    'title'     =>  'You Tube Popular Videos',
+    'alt_channel_link'  =>  'Visit the channel',
+    'alt_thumbnail_img' =>  'Thumbnail',
+    'alt_video_link'    =>  'Watch the video',
+    'channel'           =>  'Channel',
+    'loading'           =>  'Loading...',
+    'provided_by'       =>  'data provided by',
+    'title'             =>  'YouTube: Most Popular',
 ];
