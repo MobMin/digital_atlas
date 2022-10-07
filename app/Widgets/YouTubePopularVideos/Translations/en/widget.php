@@ -28,6 +28,8 @@ return [
     'alt_video_link'    =>  'Watch the video',
     'channel'           =>  'Channel',
     'loading'           =>  'Loading...',
+    'next'              =>  'Next',
+    'previous'          =>  'Previous',
     'provided_by'       =>  'data provided by',
     'title'             =>  'YouTube: Most Popular',
 ];
