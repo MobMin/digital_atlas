@@ -49,7 +49,7 @@ class YouTubePopularVideosServiceProvider extends ServiceProvider
             __DIR__  . $ds . 'Config.php' => config_path('widgets' . $ds . 'you_tube_popular_videos.php'),
         ]);
         $this->callAfterResolving(Schedule::class, function (Schedule $schedule) {
-            // Schedule your cron
+            $schedule->command('import:youtube-popular-videos')->twiceDaily(8, 17);
         });
         if ($this->app->runningInConsole()) {
             // Add commands for artisan here
