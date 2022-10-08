@@ -27,9 +27,11 @@ return [
     'alt_thumbnail_img' =>  'Thumbnail',
     'alt_video_link'    =>  'Watch the video',
     'channel'           =>  'Channel',
+    'display_list'      =>  'Display as list',
+    'display_slideshow' =>  'Display as a slideshow',
     'loading'           =>  'Loading...',
     'next'              =>  'Next',
     'previous'          =>  'Previous',
     'provided_by'       =>  'data provided by',
-    'title'             =>  'YouTube: Most Popular',
+    'title'             =>  'YouTube: 10 Most Popular',
 ];

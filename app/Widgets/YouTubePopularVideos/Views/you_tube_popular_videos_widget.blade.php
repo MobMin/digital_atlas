@@ -1,7 +1,13 @@
 <div class="card">
     <div class="card-body">
         <h3 class="card-title">{{ ucwords(trans('you-tube-popular-videos::widget.title')) }}</h3>
-        <div id="yt-most-popular-list" class="d-none">
+        <div class="text-right mb-3">
+            <div class="btn-group justify-content-end" role="group" aria-label="Display Type">
+                <button type="button" class="btn btn-primary yt-display-slideshow" title="{{ trans('you-tube-popular-videos::widget.display_slideshow') }}"><i class="fas fa-image"></i></button>
+                <button type="button" class="btn yt-display-list" title="{{ trans('you-tube-popular-videos::widget.display_list') }}"><i class="fas fa-list"></i></button>
+            </div>
+        </div>
+        <div id="yt-most-popular-list">
             @foreach ($videos as $video)
                 @if($loop->last)
                     <div>
@@ -27,6 +33,12 @@
                     </p>
                 </div>
             @endforeach
+            <div class="text-right mb-3">
+                <div class="btn-group justify-content-end" role="group" aria-label="Display Type">
+                    <button type="button" class="btn btn-primary yt-display-slideshow" title="{{ trans('you-tube-popular-videos::widget.display_slideshow') }}"><i class="fas fa-image"></i></button>
+                    <button type="button" class="btn yt-display-list" title="{{ trans('you-tube-popular-videos::widget.display_list') }}"><i class="fas fa-list"></i></button>
+                </div>
+            </div>
         </div>
         <div id="yt-most-popular-carousel">
             <div class="carousel slide">
@@ -46,8 +58,8 @@
                     <span class="sr-only">{{ trans('you-tube-popular-videos::widget.next') }}</span>
                 </a>
             </div>
+            <div id="yt-carousel-details"></div>
         </div>
-        <div id="yt-carousel-details"></div>
     </div>
     <div class="card-footer text-muted">
         <p class="credit">{{ trans('you-tube-popular-videos::widget.provided_by') }} <a href="https://youtube.com" rel="nofollow" target="_blank">YouTube</a></p>
@@ -88,6 +100,39 @@
         $('#yt-carousel-details').html($template.html());
     }
     $(function() {
+        $('#yt-most-popular-list').hide();
+        /**
+         * Handle the display options
+         */
+        $('.yt-display-slideshow').on('click', function(event) {
+            event.stopPropagation();
+            if ($(this).hasClass('btn-primary')) {
+                return false;
+            }
+            $('#yt-most-popular-list').slideUp('slow', function() {
+                $('.yt-display-slideshow').addClass('btn-primary');
+                $('.yt-display-list').removeClass('btn-primary');
+                $('#yt-most-popular-carousel').slideDown('slow', function() {
+                    window.scrollTo({ top: 0, behavior: 'smooth' });
+                });
+            });
+            return false;
+        });
+        $('.yt-display-list').on('click', function(event) {
+            event.stopPropagation();
+            if ($(this).hasClass('btn-primary')) {
+                return false;
+            }
+            $('#yt-most-popular-carousel').slideUp('slow', function() {
+                $('.yt-display-list').addClass('btn-primary');
+                $('.yt-display-slideshow').removeClass('btn-primary');
+                $('#yt-most-popular-list').slideDown('slow');
+            });
+            return false;
+        });
+        /**
+         * Handle the carousel
+         */
         var $slider = $('#yt-most-popular-carousel .carousel').carousel({interval: false});
         ytAddSlideDetails($slider.find('.carousel-item.active').eq(0));
         $slider.bind('slid.bs.carousel', function() {
