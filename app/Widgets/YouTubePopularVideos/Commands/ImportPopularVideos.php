@@ -68,6 +68,7 @@ class ImportPopularVideos extends Command
     {
         $appName = config('widgets.you_tube_popular_videos.application_name');
         $apiKey = config('widgets.you_tube_popular_videos.api_key');
+        $maxResults = config('widgets.you_tube_popular_videos.total_videos');
         if (empty($apiKey)) {
             $this->error('Your API key is missing in the configuration file.');
             return 0;
@@ -76,13 +77,16 @@ class ImportPopularVideos extends Command
             $this->error('Your application name is missing in the configuration file.');
             return 0;
         }
+        if (empty($maxResults)) {
+            $maxResults = 10;
+        }
         $client = new Client();
         $client->setApplicationName($appName);
         $client->setDeveloperKey($apiKey);
         $service = new YouTube($client);
         $options = [
             'chart'         =>  'mostPopular',
-            'maxResults'    =>  10,
+            'maxResults'    =>  $maxResults,
             'regionCode'    =>  '',
 
         ];

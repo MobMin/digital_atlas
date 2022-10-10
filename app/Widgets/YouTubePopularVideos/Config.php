@@ -26,4 +26,5 @@
 return [
     'application_name'  =>  '',
     'api_key'           =>  '',
+    'total_videos'      =>  10,
 ];
