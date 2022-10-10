@@ -1,7 +1,7 @@
 {
   "name": "mobmin/digital_atlas",
   "type": "project",
-  "version": "1.7.1",
+  "version": "1.8.0",
   "description": "This tool provides a detailed overview of the digital landscape for the countries of the world.",
   "keywords": [
     "framework",
@@ -13,6 +13,7 @@
     "arrilot/laravel-widgets": "^3.13",
     "fideloper/proxy": "^4.2",
     "fruitcake/laravel-cors": "^2.0",
+    "google/apiclient": "^2.0",
     "guzzlehttp/guzzle": "^7.0.1",
     "j7mbo/twitter-api-php": "^1.0",
     "laravel/framework": "^8.0",
@@ -33,6 +34,9 @@
     "sort-packages": true
   },
   "extra": {
+    "google/apiclient-services": [
+      "YouTube"
+    ],
     "laravel": {
       "dont-discover": []
     }
@@ -52,6 +56,9 @@
   "minimum-stability": "dev",
   "prefer-stable": true,
   "scripts": {
+    "pre-autoload-dump": [
+      "Google\\Task\\Composer::cleanup"
+    ],
     "post-autoload-dump": [
       "Illuminate\\Foundation\\ComposerScripts::postAutoloadDump",
       "@php artisan package:discover --ansi"
