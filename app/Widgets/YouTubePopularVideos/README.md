@@ -1,12 +1,13 @@
 # YouTube Popular Videos for Digital Atlas
 
-This YouTube Popular Videos was designed for the Digital Atlas.  It lists the 10 most popular videos for a country.
+This YouTube Popular Videos widget was designed for the Digital Atlas.  It lists the most popular videos for a specific country.  It uses the [YouTube API](https://developers.google.com/youtube/v3) to get content.
 
 ## Dependencies
 
 It uses the following PHP libraries:
 
 - [arrilot/laravel-widgets](https://github.com/arrilot/laravel-widgets)
+- [google/apiclient](https://github.com/googleapis/google-api-php-client)
 
 ## Install
 
@@ -29,7 +30,7 @@ _Manual Installation_
 php artisan migrate
 ```
 
-4. Added the widget to the view file using `@asyncWidget('App\Widgets\YouTubePopularVideos\YouTubePopularVideosWidget', [], $country)`.
+4. Add the widget to the view file using `@asyncWidget('App\Widgets\YouTubePopularVideos\YouTubePopularVideosWidget', [], $country)`.
 
 ## Configuration
 
@@ -46,3 +47,17 @@ php artisan vendor:publish
 ```
 
 Then select **Provider: App\Widgets\YouTubePopularVideos\YouTubePopularVideosServiceProvider** from the list.
+
+## Retrieve an API Key
+
+In order to use this widget, you must retrieve an API key for the [YouTube API](https://developers.google.com/youtube/v3).  You can follow the instructions on [this page](https://developers.google.com/youtube/v3/getting-started) to get your key.  Once you add your key to the configuration file, you can run the command to get the most popular videos.
+
+_Docker_
+```
+docker-compose run --rm da_artisan vendor:publish
+```
+
+_Manual Installation_
+```
+php artisan vendor:publish
+```
