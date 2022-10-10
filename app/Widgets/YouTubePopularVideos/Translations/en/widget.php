@@ -33,5 +33,5 @@ return [
     'next'              =>  'Next',
     'previous'          =>  'Previous',
     'provided_by'       =>  'data provided by',
-    'title'             =>  'YouTube: 10 Most Popular',
+    'title'             =>  'YouTube: Most Popular',
 ];
