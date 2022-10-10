@@ -16,6 +16,7 @@
         </div>
     </div>
     <div class="card-columns">
+        @asyncWidget('App\Widgets\YouTubePopularVideos\YouTubePopularVideosWidget', [], $country)
         @asyncWidget('App\Widgets\BroadbandSubscriptions\BroadbandSubscriptionsWidget', [], $country)
         @asyncWidget('App\Widgets\InternetUsage\InternetUsageWidget', [], $country)
         @asyncWidget('App\Widgets\Literacy\LiteracyWidget', [], $country)
