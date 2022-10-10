@@ -54,10 +54,10 @@ In order to use this widget, you must retrieve an API key for the [YouTube API](
 
 _Docker_
 ```
-docker-compose run --rm da_artisan vendor:publish
+docker-compose run --rm da_artisan import:youtube-popular-videos
 ```
 
 _Manual Installation_
 ```
-php artisan vendor:publish
+php artisan import:youtube-popular-videos
 ```
