@@ -41,7 +41,7 @@
             </div>
         </div>
         <div id="yt-most-popular-carousel">
-            <div class="carousel slide">
+            <div class="carousel carousel-dark slide">
                 <div class="carousel-inner">
                     @foreach ($videos as $video)
                         <div class="carousel-item{{$loop->first ? ' active' : '' }}" data-yt-id="{{ $video->you_tube_id }}" data-yt-channel-id="{{ $video->channel_id }}" data-yt-title="{{ $video->title }}" data-yt-channel-title="{{ $video->channel_title }}">
@@ -49,11 +49,11 @@
                         </div>
                     @endforeach
                 </div>
-                <a class="yt-carousel-control-prev carousel-control-prev" href="#" role="button" data-slide="prev">
+                <a class="yt-carousel-control-prev carousel-control-prev yt-navigation" href="#" role="button" data-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                     <span class="sr-only">{{ trans('you-tube-popular-videos::widget.previous') }}</span>
                 </a>
-                <a class="yt-carousel-control-next carousel-control-next" href="#" role="button" data-slide="next">
+                <a class="yt-carousel-control-next carousel-control-next yt-navigation" href="#" role="button" data-slide="next">
                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
                     <span class="sr-only">{{ trans('you-tube-popular-videos::widget.next') }}</span>
                 </a>
@@ -79,6 +79,9 @@
 <style>
     a.youtube-thumbnail:hover {
         opacity: .70;
+    }
+    .yt-navigation {
+        background-color: #444444;
     }
 </style>
 <script type="text/javascript">
