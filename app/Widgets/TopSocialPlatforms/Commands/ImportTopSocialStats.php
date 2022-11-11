@@ -92,7 +92,12 @@ class ImportTopSocialStats extends Command
         foreach ($countries as $code => $id) {
             $this->info('Importing ' . $code . ' stats.');
             $statUrl = $this->getUrl($code);
-            $fileData = fopen($statUrl, 'r');
+            try {
+                $fileData = fopen($statUrl, 'r');
+            } catch (Exception $e) {
+                $this->error('Unable to retrieve file for ' . $code . '.');
+                continue;
+            }
             $count = 0;
             $data = [];
             while (($line = fgetcsv($fileData)) !== false) {
