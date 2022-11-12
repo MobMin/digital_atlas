@@ -134,7 +134,9 @@ class ImportTopSocialStats extends Command
         }
         // Save to database
         Schema::disableForeignKeyConstraints();
+        // We only store one year of data
         SocialPlatform::truncate();
+        PlatformStat::truncate();
         Schema::enableForeignKeyConstraints();
         foreach ($countryData as $data) {
             foreach ($data as $platformData) {
