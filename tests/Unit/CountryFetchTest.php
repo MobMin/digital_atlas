@@ -23,7 +23,6 @@ namespace Tests\Unit;
 
 use App\Models\Country;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use Illuminate\Foundation\Testing\DatabaseMigrations;
 
 /**
  * Generator uses the wrong test case
@@ -33,14 +32,6 @@ use Tests\TestCase;
 
 class CountryFetchTest extends TestCase
 {
-    /**
-     * Migrate the database
-     */
-    use DatabaseMigrations;
-
-    /**
-     * Refresh the database
-     */
     use RefreshDatabase;
 
     /**
@@ -49,11 +40,11 @@ class CountryFetchTest extends TestCase
      * @var array
      */
     public $algeria = [
-        'name'              =>  'Algeria',
-        'slug'              =>  'algeria',
-        'alpha_two_code'    =>  'DZ',
-        'alpha_three_code'  =>  'DZA',
-        'numeric_code'      =>  12,
+        'name'              => 'Algeria',
+        'slug'              => 'algeria',
+        'alpha_two_code'    => 'DZ',
+        'alpha_three_code'  => 'DZA',
+        'numeric_code'      => 12,
     ];
 
     /**
@@ -62,11 +53,11 @@ class CountryFetchTest extends TestCase
      * @var array
      */
     public $afghanistan = [
-        'name'              =>  'Afghanistan',
-        'slug'              =>  'afghanistan',
-        'alpha_two_code'    =>  'AF',
-        'alpha_three_code'  =>  'AFG',
-        'numeric_code'      =>  4,
+        'name'              => 'Afghanistan',
+        'slug'              => 'afghanistan',
+        'alpha_two_code'    => 'AF',
+        'alpha_three_code'  => 'AFG',
+        'numeric_code'      => 4,
     ];
 
     /**
@@ -75,11 +66,11 @@ class CountryFetchTest extends TestCase
      * @var array
      */
     public $albania = [
-        'name'              =>  'Albania',
-        'slug'              =>  'albania',
-        'alpha_two_code'    =>  'AL',
-        'alpha_three_code'  =>  'ALB',
-        'numeric_code'      =>  8,
+        'name'              => 'Albania',
+        'slug'              => 'albania',
+        'alpha_two_code'    => 'AL',
+        'alpha_three_code'  => 'ALB',
+        'numeric_code'      => 8,
     ];
 
     /**
