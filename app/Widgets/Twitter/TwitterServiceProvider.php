@@ -15,15 +15,15 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
- * @author Johnathan <johnathan@missionaldigerati.org>
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
  */
-namespace App\Widgets\TopSocialPlatforms;
+namespace App\Widgets\Twitter;
 
+use Illuminate\Console\Scheduling\Schedule;
 use Illuminate\Support\ServiceProvider;
 
-class TopSocialPlatformsServiceProvider extends ServiceProvider
+class TwitterServiceProvider extends ServiceProvider
 {
     /**
      * Register services.
@@ -43,17 +43,17 @@ class TopSocialPlatformsServiceProvider extends ServiceProvider
     {
         $ds = DIRECTORY_SEPARATOR;
         $this->loadMigrationsFrom(__DIR__ . $ds . 'Migrations');
-        $this->loadViewsFrom(__DIR__ . $ds . 'Views', 'top-social-platforms');
-        $this->loadTranslationsFrom(__DIR__ . $ds . 'Translations', 'top-social-platforms');
+        $this->loadViewsFrom(__DIR__ . $ds . 'Views', 'twitter');
+        $this->loadTranslationsFrom(__DIR__ . $ds . 'Translations', 'twitter');
         $this->publishes([
-            __DIR__  . $ds . 'Config.php' => config_path('widgets' . $ds . 'top_social_platforms.php'),
+            __DIR__  . $ds . 'Config.php' => config_path('widgets' . $ds . 'twitter.php'),
         ]);
         $this->callAfterResolving(Schedule::class, function (Schedule $schedule) {
-            // $schedule->command('import:top-social-stats')->monthly();
+            $schedule->command('import:twitter:data')->twiceDaily(9, 18);
         });
         if ($this->app->runningInConsole()) {
             // Add commands for artisan here
-            $this->commands([Commands\ImportTopSocialStats::class]);
+            $this->commands([Commands\TwitterContent::class]);
         }
     }
 }

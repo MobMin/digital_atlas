@@ -7,8 +7,8 @@
                 <caption>{{ ucwords(trans('top-social-platforms::widget.averages_title')) }}</caption>
                 <thead>
                     <tr>
-                        <th>Platform</th>
-                        <th>Average</th>
+                        <th>{{ ucwords(trans('top-social-platforms::widget.platform_table_header')) }}</th>
+                        <th>{{ ucwords(trans('top-social-platforms::widget.average_table_header')) }}</th>
                     </tr>
                 </thead>
                 <tbody>

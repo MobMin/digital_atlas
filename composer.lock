@@ -458,11 +458,17 @@
             "require": {
                 "php": "^7.2|^8.0",
                 "webmozart/assert": "^1.0"
+                "php": "^7.2|^8.0",
+                "webmozart/assert": "^1.0"
             },
             "replace": {
                 "mtdowling/cron-expression": "^1.0"
             },
             "require-dev": {
+                "phpstan/extension-installer": "^1.0",
+                "phpstan/phpstan": "^1.0",
+                "phpstan/phpstan-webmozart-assert": "^1.0",
+                "phpunit/phpunit": "^7.0|^8.0|^9.0"
                 "phpstan/extension-installer": "^1.0",
                 "phpstan/phpstan": "^1.0",
                 "phpstan/phpstan-webmozart-assert": "^1.0",
@@ -676,6 +682,8 @@
                     "name": "Graham Campbell",
                     "email": "hello@gjcampbell.co.uk",
                     "homepage": "https://github.com/GrahamCampbell"
+                    "email": "hello@gjcampbell.co.uk",
+                    "homepage": "https://github.com/GrahamCampbell"
                 }
             ],
             "description": "An Implementation Of The Result Type",
@@ -751,8 +759,12 @@
                 "files": [
                     "src/functions_include.php"
                 ],
+                "files": [
+                    "src/functions_include.php"
+                ],
                 "psr-4": {
                     "GuzzleHttp\\": "src/"
+                }
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -760,6 +772,11 @@
                 "MIT"
             ],
             "authors": [
+                {
+                    "name": "Graham Campbell",
+                    "email": "hello@gjcampbell.co.uk",
+                    "homepage": "https://github.com/GrahamCampbell"
+                },
                 {
                     "name": "Graham Campbell",
                     "email": "hello@gjcampbell.co.uk",
@@ -786,8 +803,29 @@
                     "homepage": "https://github.com/Nyholm"
                 },
                 {
+                    "name": "Jeremy Lindblom",
+                    "email": "jeremeamia@gmail.com",
+                    "homepage": "https://github.com/jeremeamia"
+                },
+                {
+                    "name": "George Mponos",
+                    "email": "gmponos@gmail.com",
+                    "homepage": "https://github.com/gmponos"
+                },
+                {
+                    "name": "Tobias Nyholm",
+                    "email": "tobias.nyholm@gmail.com",
+                    "homepage": "https://github.com/Nyholm"
+                },
+                {
                     "name": "Márk Sági-Kazár",
                     "email": "mark.sagikazar@gmail.com",
+                    "homepage": "https://github.com/sagikazarmark"
+                },
+                {
+                    "name": "Tobias Schultze",
+                    "email": "webmaster@tubo-world.de",
+                    "homepage": "https://github.com/Tobion"
                     "homepage": "https://github.com/sagikazarmark"
                 },
                 {
@@ -857,8 +895,12 @@
                 }
             },
             "autoload": {
+                "files": [
+                    "src/functions_include.php"
+                ],
                 "psr-4": {
                     "GuzzleHttp\\Promise\\": "src/"
+                }
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -872,9 +914,24 @@
                     "homepage": "https://github.com/GrahamCampbell"
                 },
                 {
+                    "name": "Graham Campbell",
+                    "email": "hello@gjcampbell.co.uk",
+                    "homepage": "https://github.com/GrahamCampbell"
+                },
+                {
                     "name": "Michael Dowling",
                     "email": "mtdowling@gmail.com",
                     "homepage": "https://github.com/mtdowling"
+                },
+                {
+                    "name": "Tobias Nyholm",
+                    "email": "tobias.nyholm@gmail.com",
+                    "homepage": "https://github.com/Nyholm"
+                },
+                {
+                    "name": "Tobias Schultze",
+                    "email": "webmaster@tubo-world.de",
+                    "homepage": "https://github.com/Tobion"
                 },
                 {
                     "name": "Tobias Nyholm",
@@ -933,6 +990,7 @@
             },
             "provide": {
                 "psr/http-factory-implementation": "1.0",
+                "psr/http-factory-implementation": "1.0",
                 "psr/http-message-implementation": "1.0"
             },
             "require-dev": {
@@ -941,6 +999,7 @@
                 "phpunit/phpunit": "^8.5.36 || ^9.6.15"
             },
             "suggest": {
+                "laminas/laminas-httphandlerrunner": "Emit PSR-7 responses"
                 "laminas/laminas-httphandlerrunner": "Emit PSR-7 responses"
             },
             "type": "library",
@@ -954,12 +1013,18 @@
                 "psr-4": {
                     "GuzzleHttp\\Psr7\\": "src/"
                 }
+                }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
                 "MIT"
             ],
             "authors": [
+                {
+                    "name": "Graham Campbell",
+                    "email": "hello@gjcampbell.co.uk",
+                    "homepage": "https://github.com/GrahamCampbell"
+                },
                 {
                     "name": "Graham Campbell",
                     "email": "hello@gjcampbell.co.uk",
@@ -986,9 +1051,30 @@
                     "homepage": "https://github.com/sagikazarmark"
                 },
                 {
+                    "name": "George Mponos",
+                    "email": "gmponos@gmail.com",
+                    "homepage": "https://github.com/gmponos"
+                },
+                {
+                    "name": "Tobias Nyholm",
+                    "email": "tobias.nyholm@gmail.com",
+                    "homepage": "https://github.com/Nyholm"
+                },
+                {
+                    "name": "Márk Sági-Kazár",
+                    "email": "mark.sagikazar@gmail.com",
+                    "homepage": "https://github.com/sagikazarmark"
+                },
+                {
                     "name": "Tobias Schultze",
                     "email": "webmaster@tubo-world.de",
+                    "email": "webmaster@tubo-world.de",
                     "homepage": "https://github.com/Tobion"
+                },
+                {
+                    "name": "Márk Sági-Kazár",
+                    "email": "mark.sagikazar@gmail.com",
+                    "homepage": "https://sagikazarmark.hu"
                 },
                 {
                     "name": "Márk Sági-Kazár",
@@ -2007,8 +2093,11 @@
                 "elasticsearch/elasticsearch": "Allow sending log messages to an Elasticsearch server via official client",
                 "ext-amqp": "Allow sending log messages to an AMQP server (1.0+ required)",
                 "ext-curl": "Required to send log messages using the IFTTTHandler, the LogglyHandler, the SendGridHandler, the SlackWebhookHandler or the TelegramBotHandler",
+                "ext-curl": "Required to send log messages using the IFTTTHandler, the LogglyHandler, the SendGridHandler, the SlackWebhookHandler or the TelegramBotHandler",
                 "ext-mbstring": "Allow to work properly with unicode symbols",
                 "ext-mongodb": "Allow sending log messages to a MongoDB server (via driver)",
+                "ext-openssl": "Required to send log messages using SSL",
+                "ext-sockets": "Allow sending log messages to a Syslog server (via UDP driver)",
                 "ext-openssl": "Required to send log messages using SSL",
                 "ext-sockets": "Allow sending log messages to a Syslog server (via UDP driver)",
                 "graylog2/gelf-php": "Allow sending log messages to a GrayLog2 server",
@@ -2037,9 +2126,11 @@
                     "name": "Jordi Boggiano",
                     "email": "j.boggiano@seld.be",
                     "homepage": "https://seld.be"
+                    "homepage": "https://seld.be"
                 }
             ],
             "description": "Sends your logs to files, sockets, inboxes, databases and various web services",
+            "homepage": "https://github.com/Seldaek/monolog",
             "homepage": "https://github.com/Seldaek/monolog",
             "keywords": [
                 "log",
@@ -2094,8 +2185,12 @@
                 "friendsofphp/php-cs-fixer": "^3.0",
                 "kylekatarnls/multi-tester": "^2.0",
                 "ondrejmirtes/better-reflection": "*",
+                "ondrejmirtes/better-reflection": "*",
                 "phpmd/phpmd": "^2.9",
                 "phpstan/extension-installer": "^1.0",
+                "phpstan/phpstan": "^0.12.99 || ^1.7.14",
+                "phpunit/php-file-iterator": "^2.0.5 || ^3.0.6",
+                "phpunit/phpunit": "^7.5.20 || ^8.5.26 || ^9.5.20",
                 "phpstan/phpstan": "^0.12.99 || ^1.7.14",
                 "phpunit/php-file-iterator": "^2.0.5 || ^3.0.6",
                 "phpunit/phpunit": "^7.5.20 || ^8.5.26 || ^9.5.20",
@@ -2107,6 +2202,8 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
+                    "dev-3.x": "3.x-dev",
+                    "dev-master": "2.x-dev"
                     "dev-3.x": "3.x-dev",
                     "dev-master": "2.x-dev"
                 },
@@ -2135,13 +2232,16 @@
                     "name": "Brian Nesbitt",
                     "email": "brian@nesbot.com",
                     "homepage": "https://markido.com"
+                    "homepage": "https://markido.com"
                 },
                 {
                     "name": "kylekatarnls",
                     "homepage": "https://github.com/kylekatarnls"
+                    "homepage": "https://github.com/kylekatarnls"
                 }
             ],
             "description": "An API extension for DateTime that supports 281 different languages.",
+            "homepage": "https://carbon.nesbot.com",
             "homepage": "https://carbon.nesbot.com",
             "keywords": [
                 "date",
@@ -2477,6 +2577,7 @@
             },
             "require": {
                 "php": "^7.2.5 || ^8.0"
+                "php": "^7.2.5 || ^8.0"
             },
             "require-dev": {
                 "bamarni/composer-bin-plugin": "^1.8.2",
@@ -2488,7 +2589,12 @@
                     "bin-links": true,
                     "forward-command": true
                 },
+                "bamarni-bin": {
+                    "bin-links": true,
+                    "forward-command": true
+                },
                 "branch-alias": {
+                    "dev-master": "1.9-dev"
                     "dev-master": "1.9-dev"
                 }
             },
@@ -2506,9 +2612,13 @@
                     "name": "Johannes M. Schmitt",
                     "email": "schmittjoh@gmail.com",
                     "homepage": "https://github.com/schmittjoh"
+                    "email": "schmittjoh@gmail.com",
+                    "homepage": "https://github.com/schmittjoh"
                 },
                 {
                     "name": "Graham Campbell",
+                    "email": "hello@gjcampbell.co.uk",
+                    "homepage": "https://github.com/GrahamCampbell"
                     "email": "hello@gjcampbell.co.uk",
                     "homepage": "https://github.com/GrahamCampbell"
                 }
@@ -2607,6 +2717,47 @@
                     "dev-master": "2.0.x-dev"
                 }
             },
+            "autoload": {
+                "psr-4": {
+                    "Psr\\Cache\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "PHP-FIG",
+                    "homepage": "https://www.php-fig.org/"
+                }
+            ],
+            "description": "Common interface for caching libraries",
+            "keywords": [
+                "cache",
+                "psr",
+                "psr-6"
+            ],
+            "time": "2016-08-06T20:24:11+00:00"
+        },
+        {
+            "name": "psr/container",
+            "version": "1.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-fig/container.git",
+                "reference": "8622567409010282b7aeebe4bb841fe98b58dcaf"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-fig/container/zipball/8622567409010282b7aeebe4bb841fe98b58dcaf",
+                "reference": "8622567409010282b7aeebe4bb841fe98b58dcaf",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=7.2.0"
+            },
+            "type": "library",
             "autoload": {
                 "psr-4": {
                     "Psr\\Container\\": "src/"
@@ -2832,6 +2983,60 @@
                     "homepage": "https://www.php-fig.org/"
                 }
             ],
+            "description": "Common interfaces for PSR-7 HTTP message factories",
+            "keywords": [
+                "factory",
+                "http",
+                "message",
+                "psr",
+                "psr-17",
+                "psr-7",
+                "request",
+                "response"
+            ],
+            "support": {
+                "source": "https://github.com/php-fig/http-factory/tree/master"
+            },
+            "time": "2019-04-30T12:38:16+00:00"
+        },
+        {
+            "name": "psr/http-message",
+            "version": "2.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/php-fig/http-message.git",
+                "reference": "402d35bcb92c70c026d1a6a9883f06b2ead23d71"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/php-fig/http-message/zipball/402d35bcb92c70c026d1a6a9883f06b2ead23d71",
+                "reference": "402d35bcb92c70c026d1a6a9883f06b2ead23d71",
+                "shasum": ""
+            },
+            "require": {
+                "php": "^7.2 || ^8.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "2.0.x-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Psr\\Http\\Message\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "PHP-FIG",
+                    "homepage": "https://www.php-fig.org/"
+                }
+            ],
             "description": "Common interface for HTTP messages",
             "homepage": "https://github.com/php-fig/http-message",
             "keywords": [
@@ -2882,6 +3087,7 @@
             "authors": [
                 {
                     "name": "PHP-FIG",
+                    "homepage": "https://www.php-fig.org/"
                     "homepage": "https://www.php-fig.org/"
                 }
             ],
@@ -2974,6 +3180,7 @@
                 "symfony/console": "4.4.37 || 5.3.14 || 5.3.15 || 5.4.3 || 5.4.4 || 6.0.3 || 6.0.4"
             },
             "require-dev": {
+                "bamarni/composer-bin-plugin": "^1.2"
                 "bamarni/composer-bin-plugin": "^1.2"
             },
             "suggest": {
@@ -3136,6 +3343,7 @@
                 }
             ],
             "description": "A PHP library for representing and manipulating collections.",
+            "description": "A PHP library for representing and manipulating collections.",
             "keywords": [
                 "array",
                 "collection",
@@ -3187,10 +3395,15 @@
                 "captainhook/captainhook": "^5.10",
                 "captainhook/plugin-composer": "^5.3",
                 "dealerdirect/phpcodesniffer-composer-installer": "^0.7.0",
+                "captainhook/captainhook": "^5.10",
+                "captainhook/plugin-composer": "^5.3",
+                "dealerdirect/phpcodesniffer-composer-installer": "^0.7.0",
                 "doctrine/annotations": "^1.8",
+                "ergebnis/composer-normalize": "^2.15",
                 "ergebnis/composer-normalize": "^2.15",
                 "mockery/mockery": "^1.3",
                 "paragonie/random-lib": "^2",
+                "php-mock/php-mock": "^2.2",
                 "php-mock/php-mock": "^2.2",
                 "php-mock/php-mock-mockery": "^1.3",
                 "php-parallel-lint/php-parallel-lint": "^1.1",
@@ -3203,6 +3416,7 @@
                 "ramsey/composer-repl": "^1.4",
                 "slevomat/coding-standard": "^8.4",
                 "squizlabs/php_codesniffer": "^3.5",
+                "vimeo/psalm": "^4.9"
                 "vimeo/psalm": "^4.9"
             },
             "suggest": {
@@ -3222,8 +3436,12 @@
                 "files": [
                     "src/functions.php"
                 ],
+                "files": [
+                    "src/functions.php"
+                ],
                 "psr-4": {
                     "Ramsey\\Uuid\\": "src/"
+                }
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -3320,6 +3538,7 @@
                 }
             ],
             "description": "Eases the creation of beautiful and testable command line interfaces",
+            "description": "Eases the creation of beautiful and testable command line interfaces",
             "homepage": "https://symfony.com",
             "keywords": [
                 "cli",
@@ -3390,6 +3609,7 @@
                     "homepage": "https://symfony.com/contributors"
                 }
             ],
+            "description": "Converts CSS selectors to XPath expressions",
             "description": "Converts CSS selectors to XPath expressions",
             "homepage": "https://symfony.com",
             "support": {
@@ -3509,6 +3729,9 @@
             "bin": [
                 "Resources/bin/patch-type-declarations"
             ],
+            "bin": [
+                "Resources/bin/patch-type-declarations"
+            ],
             "type": "library",
             "autoload": {
                 "psr-4": {
@@ -3532,6 +3755,7 @@
                     "homepage": "https://symfony.com/contributors"
                 }
             ],
+            "description": "Provides tools to manage errors and ease debugging PHP code",
             "description": "Provides tools to manage errors and ease debugging PHP code",
             "homepage": "https://symfony.com",
             "support": {
@@ -3612,6 +3836,7 @@
                     "homepage": "https://symfony.com/contributors"
                 }
             ],
+            "description": "Provides tools that allow your application components to communicate with each other by dispatching events and listening to them",
             "description": "Provides tools that allow your application components to communicate with each other by dispatching events and listening to them",
             "homepage": "https://symfony.com",
             "support": {
@@ -3753,6 +3978,7 @@
                 }
             ],
             "description": "Finds files and directories via an intuitive fluent interface",
+            "description": "Finds files and directories via an intuitive fluent interface",
             "homepage": "https://symfony.com",
             "support": {
                 "source": "https://github.com/symfony/finder/tree/v6.4.0"
@@ -3829,6 +4055,7 @@
                     "homepage": "https://symfony.com/contributors"
                 }
             ],
+            "description": "Defines an object-oriented layer for the HTTP specification",
             "description": "Defines an object-oriented layer for the HTTP specification",
             "homepage": "https://symfony.com",
             "support": {
@@ -3942,6 +4169,7 @@
                     "homepage": "https://symfony.com/contributors"
                 }
             ],
+            "description": "Provides a structured process for converting a Request into a Response",
             "description": "Provides a structured process for converting a Request into a Response",
             "homepage": "https://symfony.com",
             "support": {
@@ -4081,6 +4309,9 @@
             },
             "type": "library",
             "autoload": {
+                "files": [
+                    "bootstrap.php"
+                ],
                 "psr-4": {
                     "Symfony\\Component\\Mime\\": ""
                 },
@@ -4225,6 +4456,7 @@
             },
             "require": {
                 "php": ">=7.1"
+                "php": ">=7.1"
             },
             "suggest": {
                 "ext-intl": "For best performance"
@@ -4243,8 +4475,12 @@
                 "files": [
                     "bootstrap.php"
                 ],
+                "files": [
+                    "bootstrap.php"
+                ],
                 "psr-4": {
                     "Symfony\\Polyfill\\Intl\\Grapheme\\": ""
+                }
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -4306,6 +4542,7 @@
             },
             "require": {
                 "php": ">=7.1",
+                "php": ">=7.1",
                 "symfony/polyfill-intl-normalizer": "^1.10",
                 "symfony/polyfill-php72": "^1.10"
             },
@@ -4326,8 +4563,12 @@
                 "files": [
                     "bootstrap.php"
                 ],
+                "files": [
+                    "bootstrap.php"
+                ],
                 "psr-4": {
                     "Symfony\\Polyfill\\Intl\\Idn\\": ""
+                }
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -4393,6 +4634,7 @@
             },
             "require": {
                 "php": ">=7.1"
+                "php": ">=7.1"
             },
             "suggest": {
                 "ext-intl": "For best performance"
@@ -4411,6 +4653,9 @@
                 "files": [
                     "bootstrap.php"
                 ],
+                "psr-4": {
+                    "Symfony\\Polyfill\\Intl\\Normalizer\\": ""
+                },
                 "psr-4": {
                     "Symfony\\Polyfill\\Intl\\Normalizer\\": ""
                 },
@@ -4480,6 +4725,10 @@
             },
             "provide": {
                 "ext-mbstring": "*"
+                "php": ">=7.1"
+            },
+            "provide": {
+                "ext-mbstring": "*"
             },
             "suggest": {
                 "ext-mbstring": "For best performance"
@@ -4498,8 +4747,12 @@
                 "files": [
                     "bootstrap.php"
                 ],
+                "files": [
+                    "bootstrap.php"
+                ],
                 "psr-4": {
                     "Symfony\\Polyfill\\Mbstring\\": ""
+                }
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -4560,6 +4813,7 @@
             },
             "require": {
                 "php": ">=7.1"
+                "php": ">=7.1"
             },
             "type": "library",
             "extra": {
@@ -4578,6 +4832,9 @@
                 "psr-4": {
                     "Symfony\\Polyfill\\Php72\\": ""
                 }
+                "psr-4": {
+                    "Symfony\\Polyfill\\Php72\\": ""
+                }
             },
             "notification-url": "https://packagist.org/downloads/",
             "license": [
@@ -4593,6 +4850,7 @@
                     "homepage": "https://symfony.com/contributors"
                 }
             ],
+            "description": "Symfony polyfill backporting some PHP 7.2+ features to lower PHP versions",
             "description": "Symfony polyfill backporting some PHP 7.2+ features to lower PHP versions",
             "homepage": "https://symfony.com",
             "keywords": [
@@ -4635,6 +4893,7 @@
                 "shasum": ""
             },
             "require": {
+                "php": ">=7.1"
                 "php": ">=7.1"
             },
             "type": "library",
@@ -4747,6 +5006,10 @@
                 "MIT"
             ],
             "authors": [
+                {
+                    "name": "Ion Bazan",
+                    "email": "ion.bazan@gmail.com"
+                },
                 {
                     "name": "Nicolas Grekas",
                     "email": "p@tchwork.com"
@@ -4906,6 +5169,7 @@
                 }
             ],
             "description": "Executes commands in sub-processes",
+            "description": "Executes commands in sub-processes",
             "homepage": "https://symfony.com",
             "support": {
                 "source": "https://github.com/symfony/process/tree/v6.4.3"
@@ -4982,6 +5246,7 @@
                     "homepage": "https://symfony.com/contributors"
                 }
             ],
+            "description": "Maps an HTTP request to a set of configuration variables",
             "description": "Maps an HTTP request to a set of configuration variables",
             "homepage": "https://symfony.com",
             "keywords": [
@@ -5130,6 +5395,9 @@
                 "psr-4": {
                     "Symfony\\Component\\String\\": ""
                 },
+                "psr-4": {
+                    "Symfony\\Component\\String\\": ""
+                },
                 "exclude-from-classmap": [
                     "/Tests/"
                 ]
@@ -5148,6 +5416,7 @@
                     "homepage": "https://symfony.com/contributors"
                 }
             ],
+            "description": "Provides an object-oriented API to strings and deals with bytes, UTF-8 code points and grapheme clusters in a unified way",
             "description": "Provides an object-oriented API to strings and deals with bytes, UTF-8 code points and grapheme clusters in a unified way",
             "homepage": "https://symfony.com",
             "keywords": [
@@ -5230,6 +5499,9 @@
                 "files": [
                     "Resources/functions.php"
                 ],
+                "files": [
+                    "Resources/functions.php"
+                ],
                 "psr-4": {
                     "Symfony\\Component\\Translation\\": ""
                 },
@@ -5251,6 +5523,7 @@
                     "homepage": "https://symfony.com/contributors"
                 }
             ],
+            "description": "Provides tools to internationalize your application",
             "description": "Provides tools to internationalize your application",
             "homepage": "https://symfony.com",
             "support": {
@@ -5485,6 +5758,7 @@
                 }
             ],
             "description": "Provides mechanisms for walking through any arbitrary PHP variable",
+            "description": "Provides mechanisms for walking through any arbitrary PHP variable",
             "homepage": "https://symfony.com",
             "keywords": [
                 "debug",
@@ -5530,6 +5804,7 @@
                 "symfony/css-selector": "^2.7 || ^3.0 || ^4.0 || ^5.0 || ^6.0 || ^7.0"
             },
             "require-dev": {
+                "phpunit/phpunit": "^4.8.35 || ^5.7 || ^6.0 || ^7.5 || ^8.5.21 || ^9.5.10"
                 "phpunit/phpunit": "^4.8.35 || ^5.7 || ^6.0 || ^7.5 || ^8.5.21 || ^9.5.10"
             },
             "type": "library",
@@ -5617,10 +5892,13 @@
                     "name": "Graham Campbell",
                     "email": "hello@gjcampbell.co.uk",
                     "homepage": "https://github.com/GrahamCampbell"
+                    "email": "hello@gjcampbell.co.uk",
+                    "homepage": "https://github.com/GrahamCampbell"
                 },
                 {
                     "name": "Vance Lucas",
                     "email": "vance@vancelucas.com",
+                    "homepage": "https://github.com/vlucas"
                     "homepage": "https://github.com/vlucas"
                 }
             ],
@@ -5664,6 +5942,7 @@
                 "php": ">=7.0.0"
             },
             "require-dev": {
+                "phpunit/phpunit": "~6.0 || ~7.0 || ~9.0"
                 "phpunit/phpunit": "~6.0 || ~7.0 || ~9.0"
             },
             "suggest": {
@@ -5818,6 +6097,9 @@
             },
             "type": "library",
             "autoload": {
+                "files": [
+                    "src/helpers.php"
+                ],
                 "psr-4": {
                     "Faker\\": "src/Faker/"
                 }
@@ -5860,9 +6142,12 @@
             "require": {
                 "php": "^5.5.9 || ^7.0 || ^8.0",
                 "psr/log": "^1.0.1 || ^2.0 || ^3.0"
+                "php": "^5.5.9 || ^7.0 || ^8.0",
+                "psr/log": "^1.0.1 || ^2.0 || ^3.0"
             },
             "require-dev": {
                 "mockery/mockery": "^0.9 || ^1.0",
+                "phpunit/phpunit": "^4.8.36 || ^5.7.27 || ^6.5.14 || ^7.5.20 || ^8.5.8 || ^9.3.3",
                 "phpunit/phpunit": "^4.8.36 || ^5.7.27 || ^6.5.14 || ^7.5.20 || ^8.5.8 || ^9.3.3",
                 "symfony/var-dumper": "^2.6 || ^3.0 || ^4.0 || ^5.0"
             },
@@ -5873,6 +6158,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
+                    "dev-master": "2.7-dev"
                     "dev-master": "2.7-dev"
                 }
             },
@@ -6199,8 +6485,14 @@
             "conflict": {
                 "doctrine/collections": "<1.6.8",
                 "doctrine/common": "<2.13.3 || >=3,<3.2.2"
+            "conflict": {
+                "doctrine/collections": "<1.6.8",
+                "doctrine/common": "<2.13.3 || >=3,<3.2.2"
             },
             "require-dev": {
+                "doctrine/collections": "^1.6.8",
+                "doctrine/common": "^2.13.3 || ^3.2.2",
+                "phpunit/phpunit": "^7.5.20 || ^8.5.23 || ^9.5.13"
                 "doctrine/collections": "^1.6.8",
                 "doctrine/common": "^2.13.3 || ^3.2.2",
                 "phpunit/phpunit": "^7.5.20 || ^8.5.23 || ^9.5.13"
@@ -6210,8 +6502,12 @@
                 "files": [
                     "src/DeepCopy/deep_copy.php"
                 ],
+                "files": [
+                    "src/DeepCopy/deep_copy.php"
+                ],
                 "psr-4": {
                     "DeepCopy\\": "src/DeepCopy/"
+                }
                 }
             },
             "notification-url": "https://packagist.org/downloads/",
@@ -6337,13 +6633,17 @@
         {
             "name": "phar-io/manifest",
             "version": "2.0.3",
+            "version": "2.0.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phar-io/manifest.git",
                 "reference": "97803eca37d319dfa7826cc2437fc020857acb53"
+                "reference": "97803eca37d319dfa7826cc2437fc020857acb53"
             },
             "dist": {
                 "type": "zip",
+                "url": "https://api.github.com/repos/phar-io/manifest/zipball/97803eca37d319dfa7826cc2437fc020857acb53",
+                "reference": "97803eca37d319dfa7826cc2437fc020857acb53",
                 "url": "https://api.github.com/repos/phar-io/manifest/zipball/97803eca37d319dfa7826cc2437fc020857acb53",
                 "reference": "97803eca37d319dfa7826cc2437fc020857acb53",
                 "shasum": ""
@@ -6393,17 +6693,26 @@
                 "source": "https://github.com/phar-io/manifest/tree/2.0.3"
             },
             "time": "2021-07-20T11:28:43+00:00"
+            "support": {
+                "issues": "https://github.com/phar-io/manifest/issues",
+                "source": "https://github.com/phar-io/manifest/tree/2.0.3"
+            },
+            "time": "2021-07-20T11:28:43+00:00"
         },
         {
             "name": "phar-io/version",
+            "version": "3.2.1",
             "version": "3.2.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/phar-io/version.git",
                 "reference": "4f7fd7836c6f332bb2933569e566a0d6c4cbed74"
+                "reference": "4f7fd7836c6f332bb2933569e566a0d6c4cbed74"
             },
             "dist": {
                 "type": "zip",
+                "url": "https://api.github.com/repos/phar-io/version/zipball/4f7fd7836c6f332bb2933569e566a0d6c4cbed74",
+                "reference": "4f7fd7836c6f332bb2933569e566a0d6c4cbed74",
                 "url": "https://api.github.com/repos/phar-io/version/zipball/4f7fd7836c6f332bb2933569e566a0d6c4cbed74",
                 "reference": "4f7fd7836c6f332bb2933569e566a0d6c4cbed74",
                 "shasum": ""
@@ -6442,7 +6751,11 @@
             "support": {
                 "issues": "https://github.com/phar-io/version/issues",
                 "source": "https://github.com/phar-io/version/tree/3.2.1"
+            "support": {
+                "issues": "https://github.com/phar-io/version/issues",
+                "source": "https://github.com/phar-io/version/tree/3.2.1"
             },
+            "time": "2022-02-21T01:04:05+00:00"
             "time": "2022-02-21T01:04:05+00:00"
         },
         {
@@ -6789,6 +7102,7 @@
                 "ext-xmlwriter": "*",
                 "myclabs/deep-copy": "^1.10.1",
                 "phar-io/manifest": "^2.0.3",
+                "phar-io/manifest": "^2.0.3",
                 "phar-io/version": "^3.0.2",
                 "php": ">=8.1",
                 "phpunit/php-code-coverage": "^10.1.5",
@@ -6823,6 +7137,9 @@
             "autoload": {
                 "files": [
                     "src/Framework/Assert/Functions.php"
+                ],
+                "classmap": [
+                    "src/"
                 ],
                 "classmap": [
                     "src/"
@@ -7360,6 +7677,7 @@
                 }
             ],
             "description": "Provides the functionality to export PHP variables for visualization",
+            "homepage": "https://www.github.com/sebastianbergmann/exporter",
             "homepage": "https://www.github.com/sebastianbergmann/exporter",
             "keywords": [
                 "export",
