@@ -205,8 +205,7 @@ return [
         App\Widgets\Literacy\LiteracyServiceProvider::class,
         App\Widgets\TopSocialPlatforms\TopSocialPlatformsServiceProvider::class,
         App\Widgets\UrbanPopulation\UrbanPopulationServiceProvider::class,
-        App\Widgets\Twitter\TwitterServiceProvider::class,
-        App\Widgets\YouTubePopularVideos\YouTubePopularVideosServiceProvider::class,
+        App\Widgets\MedianAge\MedianAgeServiceProvider::class,
     ],
 
     /*
