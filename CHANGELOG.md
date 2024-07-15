@@ -2,6 +2,10 @@
 
 Here is a list of changes made between the versions.
 
+## 2.0.1
+
+FIXED: The population was missing the title in the translation file.
+
 ## 2.0.0
 
 We upgraded the Laravel framework to [version 10](https://laravel.com/docs/10.x).
