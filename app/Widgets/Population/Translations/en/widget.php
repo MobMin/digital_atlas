@@ -26,6 +26,7 @@ return [
     'loading'           =>  'Loading...',
     'missing_data'      =>  'Sorry, no data was found.',
     'population'        =>  'population',
+    'title'             =>  'Population',
     'stats'             =>  'stats',
     'total'             =>  'total',
     'men'               =>  'men',
