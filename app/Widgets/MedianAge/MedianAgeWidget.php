@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of Digital Atlas.
  *
@@ -18,6 +19,7 @@
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
  */
+
 namespace App\Widgets\MedianAge;
 
 use App\Widgets\MedianAge\Models\MedianAge;
@@ -55,7 +57,7 @@ class MedianAgeWidget extends AbstractWidget
             $statData[] = $stat->total;
         }
         $lineColor = config('widgets.median_age.graph.line_color');
-        if ($lineColor==null) {
+        if ($lineColor == null) {
             $lineColor = '#000000';
         }
         return view('median_age::median_age_widget', [

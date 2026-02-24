@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of Digital Atlas.
  *
@@ -18,11 +19,11 @@
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
  */
+
 namespace App\Widgets\Twitter;
 
 use App\Widgets\Twitter\Models\Twitter;
 use Arrilot\Widgets\AbstractWidget;
-use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\DB;
 
 /**
@@ -45,7 +46,7 @@ class TwitterWidget extends AbstractWidget
     {
         $country = func_get_arg(0);
 
-        $table_name = (new Twitter)->getTable();
+        $table_name = (new Twitter())->getTable();
         $tweets = DB::select("SELECT `tweet_name`,`tweet_count` FROM
                    (SELECT * FROM {$table_name} WHERE `country_id`=:country_id ORDER BY id DESC LIMIT 20)
                        t ORDER BY `tweet_count` DESC", ['country_id' => $country['id']]);
