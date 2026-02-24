@@ -9,13 +9,11 @@
   ],
   "license": "MIT",
   "require": {
-    "php": "^8.1",
+    "php": "^8.2",
     "arrilot/laravel-widgets": "^3.14",
     "google/apiclient": "^2.15",
     "guzzlehttp/guzzle": "^7.2",
-    "j7mbo/twitter-api-php": "^1.0",
     "laravel/framework": "^10.10",
-    "laravel/sanctum": "^3.3",
     "laravel/tinker": "^2.8"
   },
   "require-dev": {
