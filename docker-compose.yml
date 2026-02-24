@@ -18,6 +18,7 @@ services:
 
   da_mysql:
     image: mysql:5.7.22
+    platform: linux/amd64
     container_name: da_mysql
     restart: unless-stopped
     tty: true
@@ -50,7 +51,9 @@ services:
       - digital_atlas
 
   da_composer:
-    image: composer:latest
+    build:
+      context: .
+      dockerfile: ./docker/php-build
     container_name: da_composer
     volumes:
       - .:/var/www/html
@@ -61,6 +64,7 @@ services:
 
   da_npm:
     image: node:13.7
+    platform: linux/amd64
     container_name: da_npm
     volumes:
       - .:/var/www/html
