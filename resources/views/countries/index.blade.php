@@ -27,7 +27,7 @@
 | Photo by <a href="{{ $photo['link'] }}" rel="nofollow" target="_blank">{{ $photo['credit'] }}</a>
 @stop
 @section('extra-js')
-    <script type="text/javascript" src="{{ asset('js/jquery.backstretch.min.js') }}"></script>
+    @vite('resources/js/jquery.backstretch.min.js')
     <script type="text/javascript">
     $(function() {
         $.backstretch("{{ asset('files/' . $photo['file_name']) }}");
