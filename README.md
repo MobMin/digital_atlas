@@ -1,5 +1,5 @@
 <p align="center">
-<img width="275" height="275" src="https://contribute.missionaldigerati.org/assets/img/digital-world-atlas.png">
+<img width="463" height="100" src="https://digitalworldatlas.com/files/logo-landscape.png">
 </p>
 
 Welcome to the [Digital World Atlas](https://digitalworldatlas.com) project!  The [Digital World Atlas](https://digitalworldatlas.com) is a web tool that details the digital and spiritual landscape of each country in the world.  The code of this project is built on the [Laravel PHP Framework](https://laravel.com/), and is released under the [GNU General Public License](https://opensource.org/licenses/GPL-3.0) (version 3).
