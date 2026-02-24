@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of Digital Atlas.
  *
@@ -19,10 +20,10 @@
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
  */
+
 namespace App\Providers;
 
 use Illuminate\Foundation\Support\Providers\AuthServiceProvider as ServiceProvider;
-use Illuminate\Support\Facades\Gate;
 
 class AuthServiceProvider extends ServiceProvider
 {

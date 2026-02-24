@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of Digital Atlas.
  *
@@ -19,6 +20,7 @@
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
  */
+
 namespace App\Widgets\Population\Commands;
 
 use App\Widgets\Population\Models\Population;
@@ -78,7 +80,7 @@ class ImportPopulationData extends Command
          * We get last year because this year is an estimate.
          */
         $thisYear = date('Y') - 1;
-        $earliestYear = $thisYear-4;
+        $earliestYear = $thisYear - 4;
         $this->info('Importing population data.');
         $report = config('widgets.population.report_filename');
         if ($report == null) {
