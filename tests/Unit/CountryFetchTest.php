@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of Digital Atlas.
  *
@@ -19,11 +20,11 @@
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
  */
+
 namespace Tests\Unit;
 
 use App\Models\Country;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-
 /**
  * Generator uses the wrong test case
  * @link https://github.com/laravel/framework/issues/34209

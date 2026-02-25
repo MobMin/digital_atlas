@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of Digital Atlas.
  *
@@ -19,6 +20,7 @@
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
  */
+
 namespace App\Widgets\UrbanPopulation;
 
 use App\Widgets\UrbanPopulation\Models\UrbanPopulation;
@@ -55,7 +57,7 @@ class UrbanPopulationWidget extends AbstractWidget
             $statData[] = $stat->total;
         }
         $lineColor = config('widgets.urban_population.graph.line_color');
-        if ($lineColor==null) {
+        if ($lineColor == null) {
             $lineColor = '#000000';
         }
         return view('urban-population::urban_population_widget', [

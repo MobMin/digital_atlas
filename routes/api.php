@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of Digital Atlas.
  *
@@ -19,8 +20,6 @@
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
  */
-use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Route;
 
 /*
 |--------------------------------------------------------------------------

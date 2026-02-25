@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of Digital Atlas.
  *
@@ -18,6 +19,7 @@
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
  */
+
 namespace App\Widgets\MedianAge\Commands;
 
 use App\Widgets\MedianAge\Models\MedianAge;
@@ -44,7 +46,7 @@ class ImportMedianAgeData extends Command
      * @access protected
      */
     protected $description = 'Import the MedianAge CSV File after running convert_csv command.';
-    
+
     protected $headerRow = 1;
     /**
      * Create a new command instance.
