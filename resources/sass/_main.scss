@@ -15,7 +15,7 @@ body {
         color: #ffffff;
     }
     a:hover {
-        color: theme-color('dark');
+        color: $dark;
     }
 }
 #welcome-text {
@@ -40,7 +40,7 @@ body {
     }
 }
 footer {
-    background-color: theme-color('primary');
+    background-color: $primary;
     text-align: center;
     padding: 1.5rem 0 .85rem;
     width: 100%;
@@ -55,7 +55,7 @@ footer {
         color: #ffffff;
     }
     a:hover {
-        color: theme-color('dark');
+        color: $dark;
     }
 }
 /* Widget code
@@ -63,7 +63,7 @@ footer {
 .widget {
     h3 {
         font-size: 1.25rem;
-        color: theme-color('primary');
+        color: $primary;
         text-transform: uppercase;
     }
 
@@ -101,6 +101,8 @@ form#search-form {
 }
 
 .card-columns {
+    column-gap: 1.25rem;
+
   @include media-breakpoint-only(xl) {
     column-count: 4;
   }
@@ -112,5 +114,14 @@ form#search-form {
   }
   @include media-breakpoint-only(sm) {
     column-count: 2;
+  }
+  @include media-breakpoint-down(sm) {
+    column-count: 1;
+  }
+
+  .card {
+    display: inline-block;
+    width: 100%;
+    margin-bottom: 1.25rem;
   }
 }

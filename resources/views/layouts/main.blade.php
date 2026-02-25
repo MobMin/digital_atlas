@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <title>{{ $title }}</title>
         <meta name="description" content="@lang('main_layout.website_desc')" />
         <meta name="twitter:card" content="summary">
@@ -17,8 +17,7 @@
         <meta property="og:description" content="@lang('main_layout.website_desc')" />
         <meta property="og:site_name" content="@lang('main_layout.website_name')" />
         <meta name="author" content="Mobile Ministry Forum">
-        <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-        <script type="text/javascript" src="{{ asset('js/app.js') }}"></script>
+        @vite(['resources/sass/app.scss', 'resources/js/app.js'])
         @yield('extra-css')
     </head>
     @if (Request::path() == '/')
@@ -28,18 +27,18 @@
     @endif
         <nav class="navbar navbar-expand-md navbar-dark bg-primary fixed-top">
             <a class="navbar-brand" href="/"><img src="{{ asset('files/logo-landscape.png') }}" alt="Digital World Atlas" /></a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="@lang('main_layout.aria_toggle_nav')">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="@lang('main_layout.aria_toggle_nav')">
                 <span class="navbar-toggler-icon"></span>
             </button>
 
             <div class="collapse navbar-collapse" id="navbarsExampleDefault">
-                <ul class="navbar-nav mr-auto">
+                <ul class="navbar-nav me-auto">
                     <li class="nav-item">
                         <a class="nav-link" href="/">@lang('main_layout.nav_home')</a>
                     </li>
                 </ul>
                 @if (Request::path() != '/')
-                    <form id="search-form" class="form-inline my-2 my-lg-0" autocomplete="off">
+                    <form id="search-form" class="d-flex my-2 my-lg-0 position-relative" autocomplete="off">
                         <input autocomplete="false" name="hidden" type="text" class="d-none">
                         <input class="form-control" id="search-countries" type="text" placeholder="{{ ucfirst(__('main_layout.search')) }}" aria-label="@lang('main_layout.search')">
                         <div class="dropdown-menu">
@@ -66,13 +65,13 @@
         <footer class="footer container-fluid">
             <div class="row">
                 <div class="col-12 col-md-6">
-                    <p class="text-center text-md-left">
+                    <p class="text-center text-md-start">
                         @lang('main_layout.website_tagline') <a href="https://mobileministryforum.org/" target="_blank">@lang('main_layout.mmf_long')</a>
                         @yield('extra-footer')
                     </p>
                 </div>
                 <div class="col-12 col-md-6">
-                    <p class="text-center text-md-right">
+                    <p class="text-center text-md-end">
                         <span class="text-success">@lang('main_layout.are_you_developer')</span> <a href="https://github.com/MobMin/digital_atlas" target="_blank">@lang('main_layout.contribute_text') GitHub</a>
                     </p>
                 </div>
