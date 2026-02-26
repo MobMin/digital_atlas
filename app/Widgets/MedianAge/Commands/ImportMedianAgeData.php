@@ -78,6 +78,10 @@ class ImportMedianAgeData extends Command
             return 0;
         }
         $countries = DB::table('countries')->pluck('id', 'numeric_code')->toArray();
+        if (empty($countries)) {
+            $this->error('No countries found in the database. Please import country data first.');
+            return 0;
+        }
         $handle = fopen($file, 'r');
         $count = 1;
         $headers = [];
