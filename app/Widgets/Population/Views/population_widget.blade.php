@@ -37,40 +37,38 @@ $(function() {
                 "data": @json($statData),
                 "fill": false,
                 "borderColor": "{{$lineColor}}",
-                "lineTension": 0.1
+                "tension": 0.1
             }]
         },
         "options": {
-            "tooltips": {
-                "callbacks": {
-                    "label": function(tooltipItems, data) {
-                        return data.labels[tooltipItems.index] + " " + data.datasets[0].data[tooltipItems.index].toLocaleString();
+            "plugins": {
+                "tooltip": {
+                    "callbacks": {
+                        "label": function(context) {
+                            return context.label + " " + context.parsed.y.toLocaleString();
+                        }
                     }
                 }
             },
             "scales": {
-                "xAxes": [
-                    {
-                        "scaleLabel": {
-                            "display": true,
-                            "labelString": "{{ ucwords(trans('widget-population::widget.year')) }}"
+                "x": {
+                    "title": {
+                        "display": true,
+                        "text": "{{ ucwords(trans('widget-population::widget.year')) }}"
+                    }
+                },
+                "y": {
+                    "beginAtZero": false,
+                    "title": {
+                        "display": true,
+                        "text": "{{ ucwords(trans('widget-population::widget.people')) }}"
+                    },
+                    "ticks": {
+                        "callback": function(value, index, values) {
+                          return value.toLocaleString();
                         }
                     }
-                ],
-                "yAxes": [
-                    {
-                        "scaleLabel": {
-                            "display": true,
-                            "labelString": "{{ ucwords(trans('widget-population::widget.people')) }}"
-                        },
-                        "ticks": {
-                            "beginAtZero": false,
-                            "callback": function(value, index, values) {
-                              return value.toLocaleString();
-                            }
-                        }
-                    }
-                ]
+                }
             }
         }
     });

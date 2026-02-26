@@ -6,9 +6,7 @@
             <h1 id="welcome-text">@lang('main_layout.website_welcome')</h1>
             <form id="search-form" class="input-group pt-4" autocomplete="off">
                 <input autocomplete="false" name="hidden" type="text" class="d-none">
-                <div class="input-group-prepend">
-                    <div class="input-group-text">@lang('main_layout.country')</div>
-                </div>
+                <div class="input-group-text">@lang('main_layout.country')</div>
                 <input class="form-control" id="search-countries" type="text" placeholder="@lang('main_layout.search')" aria-label="@lang('main_layout.search')">
                 <div class="dropdown-menu">
                     <i class="no-results d-none">@lang('main_layout.search_no_results')</i>
@@ -27,9 +25,10 @@
 | Photo by <a href="{{ $photo['link'] }}" rel="nofollow" target="_blank">{{ $photo['credit'] }}</a>
 @stop
 @section('extra-js')
-    <script type="text/javascript" src="{{ asset('js/jquery.backstretch.min.js') }}"></script>
     <script type="text/javascript">
-    $(function() {
+    {{-- DOMContentLoaded fires after Vite's deferred module scripts (app.js) execute,
+         ensuring jQuery and jquery-backstretch are available via window.$. --}}
+    document.addEventListener('DOMContentLoaded', function() {
         $.backstretch("{{ asset('files/' . $photo['file_name']) }}");
     });
     </script>

@@ -52,12 +52,14 @@ $(function() {
             ]
         },
         "options": {
-            "tooltips": {
-                "callbacks": {
-                    "label": function(tooltipItems, data) {
-                        var label = data.datasets[tooltipItems.datasetIndex].label;
-                        var value = data.datasets[0].data[tooltipItems.index].toLocaleString();
-                        return label + " " + value + '%';
+            "plugins": {
+                "tooltip": {
+                    "callbacks": {
+                        "label": function(context) {
+                            var label = context.dataset.label;
+                            var value = context.parsed.y.toLocaleString();
+                            return label + " " + value + '%';
+                        }
                     }
                 }
             }
