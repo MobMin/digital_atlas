@@ -21,7 +21,7 @@ App\Widgets\TopSocialPlatforms\TopSocialPlatformsServiceProvider::class
 
 _Docker_
 ```
-docker-compose run --rm da_artisan migrate
+./vendor/bin/sail artisan migrate
 ```
 
 _Manual Installation_
@@ -30,3 +30,35 @@ php artisan migrate
 ```
 
 4. Added the widget to the view file using `@asyncWidget('App\Widgets\TopSocialPlatforms\TopSocialPlatformsWidget', [], $country)`.
+
+## Import Data
+
+It is best to run this on your computer, and then grab the SQL and update the live server. The endpoints seems to block the server. The script takes a significant amount of time to update.
+
+_Docker_
+```
+./vendor/bin/sail artisan import:top-social-stats
+```
+
+_Manual Installation_
+```
+php artisan import:top-social-stats
+```
+
+Once it finishes, you can create a backup of the social media tables with this command:
+
+_Docker_
+```
+./vendor/bin/sail exec mysql mysqldump -u root -p digital_atlas social_platforms platform_stats > top-social-media-bak.sql
+```
+
+_Manual Installation_
+```
+mysqldump -u sail -p digital_atlas social_platforms platform_stats > top-social-media-bak.sql
+```
+
+Now move the file to your server, and update the database:
+
+```
+mysqldump -u USER -p DATABASE < top-social-media-bak.sql
+```
