@@ -21,7 +21,7 @@ App\Widgets\Population\PopulationServiceProvider::class
 
 _Docker_
 ```
-docker-compose run --rm da_artisan migrate
+./vendor/bin/sail artisan migrate
 ```
 
 _Manual Installation_
@@ -37,7 +37,7 @@ To publish the configuration file, simply run the following command:
 
 _Docker_
 ```
-docker-compose run --rm da_artisan vendor:publish
+./vendor/bin/sail artisan vendor:publish
 ```
 
 _Manual Installation_
@@ -51,13 +51,13 @@ Then select **Provider: App\Widgets\Population\PopulationServiceProvider** from 
 
 To import the data:
 
-1. Drop the CSV file from the [UN Website](https://population.un.org/wpp/Download/Standard/CSV/) into the root data folder.
+1. Drop the CSV file from the [UN Website](https://population.un.org/wpp/Download/Standard/CSV/) into the root data folder. _You may need to open the file and delete columns to match the current file in the data directory._
 2. Rename the file to **widget-population.csv** or the name specified in the *config/widgets/population.php* file.
 3. On the terminal, run the following command:
 
 _Docker_
 ```
-docker-compose run --rm da_artisan import:population:data
+./vendor/bin/sail artisan import:population:data
 ```
 
 _Manual Installation_
