@@ -93,6 +93,10 @@ class ImportPopulationData extends Command
         }
         // This creates an array with key numeric_code and value of id
         $countries = DB::table('countries')->pluck('id', 'numeric_code')->toArray();
+        if (empty($countries)) {
+            $this->error('No countries found in the database. Please import country data first.');
+            return 0;
+        }
         $handle = fopen($file, 'r');
         $headerPassed = false;
         $data = [];
