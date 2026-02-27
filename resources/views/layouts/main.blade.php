@@ -40,10 +40,12 @@
                 @if (Request::path() != '/')
                     <form id="search-form" class="d-flex my-2 my-lg-0" autocomplete="off">
                         <input autocomplete="false" name="hidden" type="text" class="d-none">
-                        <input class="form-control" id="search-countries" type="text" placeholder="{{ ucfirst(__('main_layout.search')) }}" aria-label="@lang('main_layout.search')">
-                        <div class="dropdown-menu">
-                            <i class="no-results d-none">@lang('main_layout.search_no_results')</i>
-                            <div class="list-autocomplete"></div>
+                        <div class="position-relative flex-fill">
+                            <input class="form-control w-100" id="search-countries" type="text" placeholder="{{ ucfirst(__('main_layout.search')) }}" aria-label="@lang('main_layout.search')">
+                            <div class="dropdown-menu">
+                                <i class="no-results d-none">@lang('main_layout.search_no_results')</i>
+                                <div class="list-autocomplete"></div>
+                            </div>
                         </div>
                     </form>
                 @endif

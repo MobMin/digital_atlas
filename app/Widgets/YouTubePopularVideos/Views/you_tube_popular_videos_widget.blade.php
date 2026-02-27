@@ -1,7 +1,7 @@
 <div class="card">
     <div class="card-body">
         <h3 class="card-title">{{ ucwords(trans('you-tube-popular-videos::widget.title')) }}</h3>
-        <div class="text-right mb-3">
+        <div class="text-end mb-3">
             <div class="btn-group justify-content-end" role="group" aria-label="Display Type">
                 <button type="button" class="btn btn-primary yt-display-slideshow" title="{{ trans('you-tube-popular-videos::widget.display_slideshow') }}"><i class="fas fa-image"></i></button>
                 <button type="button" class="btn yt-display-list" title="{{ trans('you-tube-popular-videos::widget.display_list') }}"><i class="fas fa-list"></i></button>
@@ -33,7 +33,7 @@
                     </p>
                 </div>
             @endforeach
-            <div class="text-right mb-3">
+            <div class="text-end mb-3">
                 <div class="btn-group justify-content-end" role="group" aria-label="Display Type">
                     <button type="button" class="btn btn-primary yt-display-slideshow" title="{{ trans('you-tube-popular-videos::widget.display_slideshow') }}"><i class="fas fa-image"></i></button>
                     <button type="button" class="btn yt-display-list" title="{{ trans('you-tube-popular-videos::widget.display_list') }}"><i class="fas fa-list"></i></button>
@@ -49,14 +49,14 @@
                         </div>
                     @endforeach
                 </div>
-                <a class="yt-carousel-control-prev carousel-control-prev yt-navigation" href="#" role="button" data-slide="prev">
+                <button class="yt-carousel-control-prev carousel-control-prev yt-navigation" type="button" data-bs-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="sr-only">{{ trans('you-tube-popular-videos::widget.previous') }}</span>
-                </a>
-                <a class="yt-carousel-control-next carousel-control-next yt-navigation" href="#" role="button" data-slide="next">
+                    <span class="visually-hidden">{{ trans('you-tube-popular-videos::widget.previous') }}</span>
+                </button>
+                <button class="yt-carousel-control-next carousel-control-next yt-navigation" type="button" data-bs-slide="next">
                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="sr-only">{{ trans('you-tube-popular-videos::widget.next') }}</span>
-                </a>
+                    <span class="visually-hidden">{{ trans('you-tube-popular-videos::widget.next') }}</span>
+                </button>
             </div>
             <div id="yt-carousel-details"></div>
         </div>
