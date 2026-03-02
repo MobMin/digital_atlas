@@ -5,7 +5,9 @@
             <p>{{ trans('widget-population::widget.missing_data') }}</p>
         </div>
     @else
-        <canvas id="population-chart" class="card-img-top" height="400" styles="width: 100%; height: auto;"></canvas>
+        <div class="chart-container card-img-top">
+            <canvas id="population-chart"></canvas>
+        </div>
         <div class="card-body">
             <h3 class="card-title">{{ $current->year_reported }} {{ ucfirst(trans('widget-population::widget.stats')) }}</h3>
             <dl class="row">
@@ -41,6 +43,7 @@ $(function() {
             }]
         },
         "options": {
+            "maintainAspectRatio": false,
             "plugins": {
                 "tooltip": {
                     "callbacks": {

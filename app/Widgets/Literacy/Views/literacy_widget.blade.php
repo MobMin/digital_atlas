@@ -5,7 +5,9 @@
             <p>{{ trans('literacy::widget.missing_data') }}</p>
         </div>
     @else
-        <canvas id="literacy-chart" class="card-img-top" height="400" styles="width: 100%; height: auto;"></canvas>
+        <div class="chart-container card-img-top">
+            <canvas id="literacy-chart"></canvas>
+        </div>
         <div class="card-body">
             <h3 class="card-title">{{ $current->year_reported }} {{ ucfirst(trans('literacy::widget.title')) }}</h3>
             <dl class="row">
@@ -35,6 +37,7 @@ $(function() {
             }]
         },
         "options": {
+            "maintainAspectRatio": false,
             "plugins": {
                 "tooltip": {
                     "callbacks": {
@@ -44,11 +47,6 @@ $(function() {
                     }
                 }
             },
-            "scales": {
-                "x": {
-                    "title": {
-                        "display": true,
-                        "text": "{{ ucwords(trans('literacy::widget.year')) }}"
                     }
                 },
                 "y": {

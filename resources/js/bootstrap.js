@@ -10,7 +10,8 @@ window._ = _;
 import $ from 'jquery';
 window.$ = window.jQuery = $;
 
-import 'bootstrap';
+import * as bootstrap from 'bootstrap';
+window.bootstrap = bootstrap;
 
 /**
  * We'll load the axios HTTP library which allows us to easily issue requests
