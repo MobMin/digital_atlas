@@ -1,32 +1,27 @@
 {
   "private": true,
   "version": "2.0.2",
+  "type": "module",
   "scripts": {
     "apv": "apv",
-    "dev": "npm run development",
-    "development": "cross-env NODE_OPTIONS=--openssl-legacy-provider NODE_ENV=development node_modules/webpack/bin/webpack.js --progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js",
-    "watch": "npm run development -- --watch",
-    "watch-poll": "npm run watch -- --watch-poll",
-    "hot": "cross-env NODE_ENV=development node_modules/webpack-dev-server/bin/webpack-dev-server.js --inline --hot --disable-host-check --config=node_modules/laravel-mix/setup/webpack.config.js",
-    "prod": "npm run production",
-    "production": "cross-env NODE_OPTIONS=--openssl-legacy-provider NODE_ENV=production node_modules/webpack/bin/webpack.js --no-progress --hide-modules --config=node_modules/laravel-mix/setup/webpack.config.js"
+    "dev": "vite",
+    "build": "vite build",
+    "watch": "vite build --watch"
   },
   "devDependencies": {
+    "@fortawesome/fontawesome-free": "^6.7.2",
+    "@popperjs/core": "^2.11.8",
     "appversion": "^1.7.1",
-    "axios": "^0.19",
-    "bootstrap": "^4.0.0",
-    "cross-env": "^7.0",
+    "axios": "^1.7.9",
+    "bootstrap": "^5.3.8",
+    "chart.js": "^4.5.1",
     "jquery": "^3.2",
+    "jquery-backstretch": "^2.1.18",
     "js-cookie": "^2.2.1",
-    "laravel-mix": "^5.0.1",
+    "laravel-vite-plugin": "^2.1.0",
+    "leaflet": "^1.9.4",
     "lodash": "^4.17.19",
-    "popper.js": "^1.12",
-    "resolve-url-loader": "^3.1.0",
-    "sass": "^1.15.2",
-    "sass-loader": "^8.0.0",
-    "vue-template-compiler": "^2.6.12"
-  },
-  "dependencies": {
-    "@fortawesome/fontawesome-free": "^5.15.3"
+    "sass": "^1.83.4",
+    "vite": "^7.3.1"
   }
 }

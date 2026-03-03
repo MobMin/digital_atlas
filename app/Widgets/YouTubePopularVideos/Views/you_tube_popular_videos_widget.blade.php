@@ -1,7 +1,7 @@
 <div class="card">
     <div class="card-body">
         <h3 class="card-title">{{ ucwords(trans('you-tube-popular-videos::widget.title')) }}</h3>
-        <div class="text-right mb-3">
+        <div class="text-end mb-3">
             <div class="btn-group justify-content-end" role="group" aria-label="Display Type">
                 <button type="button" class="btn btn-primary yt-display-slideshow" title="{{ trans('you-tube-popular-videos::widget.display_slideshow') }}"><i class="fas fa-image"></i></button>
                 <button type="button" class="btn yt-display-list" title="{{ trans('you-tube-popular-videos::widget.display_list') }}"><i class="fas fa-list"></i></button>
@@ -33,7 +33,7 @@
                     </p>
                 </div>
             @endforeach
-            <div class="text-right mb-3">
+            <div class="text-end mb-3">
                 <div class="btn-group justify-content-end" role="group" aria-label="Display Type">
                     <button type="button" class="btn btn-primary yt-display-slideshow" title="{{ trans('you-tube-popular-videos::widget.display_slideshow') }}"><i class="fas fa-image"></i></button>
                     <button type="button" class="btn yt-display-list" title="{{ trans('you-tube-popular-videos::widget.display_list') }}"><i class="fas fa-list"></i></button>
@@ -49,14 +49,14 @@
                         </div>
                     @endforeach
                 </div>
-                <a class="yt-carousel-control-prev carousel-control-prev yt-navigation" href="#" role="button" data-slide="prev">
+                <button class="yt-carousel-control-prev carousel-control-prev yt-navigation" type="button" data-bs-slide="prev">
                     <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                    <span class="sr-only">{{ trans('you-tube-popular-videos::widget.previous') }}</span>
-                </a>
-                <a class="yt-carousel-control-next carousel-control-next yt-navigation" href="#" role="button" data-slide="next">
+                    <span class="visually-hidden">{{ trans('you-tube-popular-videos::widget.previous') }}</span>
+                </button>
+                <button class="yt-carousel-control-next carousel-control-next yt-navigation" type="button" data-bs-slide="next">
                     <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                    <span class="sr-only">{{ trans('you-tube-popular-videos::widget.next') }}</span>
-                </a>
+                    <span class="visually-hidden">{{ trans('you-tube-popular-videos::widget.next') }}</span>
+                </button>
             </div>
             <div id="yt-carousel-details"></div>
         </div>
@@ -86,21 +86,23 @@
 </style>
 <script type="text/javascript">
     /**
-     *  Add the slide details
-     * 
-     * @param  {object} $active - The active JQuery element
+     * Add the slide details using the active carousel item's data attributes.
+     *
+     * @param {HTMLElement} active - The active carousel item element
      *
      * @return void
      */
-    function ytAddSlideDetails($active) {
-        var $template = $('#yt-template-slide-details');
-        $template.find('#yt-template-title > a')
-            .attr('href', 'https://www.youtube.com/watch?v=' + $active.data('yt-id'))
-            .text($active.data('yt-title'));
-        $template.find('#yt-template-channel > a')
-            .attr('href', 'https://www.youtube.com/channel/' + $active.data('yt-channel-id'))
-            .text($active.data('yt-channel-title'));
-        $('#yt-carousel-details').html($template.html());
+    function ytAddSlideDetails(active) {
+        var template = document.getElementById('yt-template-slide-details');
+        template.querySelector('#yt-template-title > a').href =
+            'https://www.youtube.com/watch?v=' + active.dataset.ytId;
+        template.querySelector('#yt-template-title > a').textContent =
+            active.dataset.ytTitle;
+        template.querySelector('#yt-template-channel > a').href =
+            'https://www.youtube.com/channel/' + active.dataset.ytChannelId;
+        template.querySelector('#yt-template-channel > a').textContent =
+            active.dataset.ytChannelTitle;
+        document.getElementById('yt-carousel-details').innerHTML = template.innerHTML;
     }
     $(function() {
         $('#yt-most-popular-list').hide();
@@ -134,21 +136,22 @@
             return false;
         });
         /**
-         * Handle the carousel
+         * Handle the carousel using Bootstrap 5 Carousel API
          */
-        var $slider = $('#yt-most-popular-carousel .carousel').carousel({interval: false});
-        ytAddSlideDetails($slider.find('.carousel-item.active').eq(0));
-        $slider.bind('slid.bs.carousel', function() {
-            ytAddSlideDetails($slider.find('.carousel-item.active').eq(0));
+        var carouselEl = document.querySelector('#yt-most-popular-carousel .carousel');
+        var slider = new bootstrap.Carousel(carouselEl, {interval: false});
+        ytAddSlideDetails(carouselEl.querySelector('.carousel-item.active'));
+        carouselEl.addEventListener('slid.bs.carousel', function() {
+            ytAddSlideDetails(carouselEl.querySelector('.carousel-item.active'));
         });
         $('.yt-carousel-control-next').on('click', function(event) {
             event.stopPropagation();
-            $slider.carousel('next');
+            slider.next();
             return false;
         });
         $('.yt-carousel-control-prev').on('click', function(event) {
             event.stopPropagation();
-            $slider.carousel('prev');
+            slider.prev();
             return false;
         });
     });

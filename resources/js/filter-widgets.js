@@ -1,3 +1,4 @@
+import $ from 'jquery';
 import * as Cookies from 'js-cookie';
 $(() => {
   /**

@@ -1,5 +1,7 @@
 <div class="card">
-    <canvas id="top-social-platforms-chart" class="card-img-top" height="400" styles="width: 100%; height: auto;"></canvas>
+    <div class="chart-container card-img-top">
+        <canvas id="top-social-platforms-chart"></canvas>
+    </div>
     <div class="card-body">
         <h3 class="card-title">{{ ucwords(trans('top-social-platforms::widget.title')) }}</h3>
         @if (!empty($data))
@@ -52,12 +54,15 @@ $(function() {
             ]
         },
         "options": {
-            "tooltips": {
-                "callbacks": {
-                    "label": function(tooltipItems, data) {
-                        var label = data.datasets[tooltipItems.datasetIndex].label;
-                        var value = data.datasets[0].data[tooltipItems.index].toLocaleString();
-                        return label + " " + value + '%';
+            "maintainAspectRatio": false,
+            "plugins": {
+                "tooltip": {
+                    "callbacks": {
+                        "label": function(context) {
+                            var label = context.dataset.label;
+                            var value = context.parsed.y.toLocaleString();
+                            return label + " " + value + '%';
+                        }
                     }
                 }
             }
