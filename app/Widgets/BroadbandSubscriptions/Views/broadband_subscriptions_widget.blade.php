@@ -5,7 +5,9 @@
             <p>{{ trans('broadband-subscriptions::widget.missing_data') }}</p>
         </div>
     @else
-        <canvas id="broadband-subscriptions-chart" class="card-img-top" height="400" styles="width: 100%; height: auto;"></canvas>
+        <div class="chart-container card-img-top">
+            <canvas id="broadband-subscriptions-chart"></canvas>
+        </div>
         <div class="card-body">
             <h3 class="card-title">{{ $current->year_reported }} {{ ucfirst(trans('broadband-subscriptions::widget.title')) }}</h3>
             <dl class="row">
@@ -31,40 +33,39 @@ $(function() {
                 "data": @json($statData),
                 "fill": false,
                 "borderColor": "{{$lineColor}}",
-                "lineTension": 0.1
+                "tension": 0.1
             }]
         },
         "options": {
-            "tooltips": {
-                "callbacks": {
-                    "label": function(tooltipItems, data) {
-                        return data.labels[tooltipItems.index] + " " + data.datasets[0].data[tooltipItems.index].toLocaleString();
+            "maintainAspectRatio": false,
+            "plugins": {
+                "tooltip": {
+                    "callbacks": {
+                        "label": function(context) {
+                            return context.label + " " + context.parsed.y.toLocaleString();
+                        }
                     }
                 }
             },
             "scales": {
-                "xAxes": [
-                    {
-                        "scaleLabel": {
-                            "display": true,
-                            "labelString": "{{ ucwords(trans('broadband-subscriptions::widget.year')) }}"
+                "x": {
+                    "title": {
+                        "display": true,
+                        "text": "{{ ucwords(trans('broadband-subscriptions::widget.year')) }}"
+                    }
+                },
+                "y": {
+                    "beginAtZero": false,
+                    "title": {
+                        "display": true,
+                        "text": "{{ ucwords(trans('broadband-subscriptions::widget.subscriptions')) }}"
+                    },
+                    "ticks": {
+                        "callback": function(value, index, values) {
+                          return value.toLocaleString();
                         }
                     }
-                ],
-                "yAxes": [
-                    {
-                        "scaleLabel": {
-                            "display": true,
-                            "labelString": "{{ ucwords(trans('broadband-subscriptions::widget.subscriptions')) }}"
-                        },
-                        "ticks": {
-                            "beginAtZero": false,
-                            "callback": function(value, index, values) {
-                              return value.toLocaleString();
-                            }
-                        }
-                    }
-                ]
+                }
             }
         }
     });

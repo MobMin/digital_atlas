@@ -15,7 +15,7 @@ body {
         color: #ffffff;
     }
     a:hover {
-        color: theme-color('dark');
+        color: map-get($theme-colors, 'dark');
     }
 }
 #welcome-text {
@@ -40,7 +40,7 @@ body {
     }
 }
 footer {
-    background-color: theme-color('primary');
+    background-color: map-get($theme-colors, 'primary');
     text-align: center;
     padding: 1.5rem 0 .85rem;
     width: 100%;
@@ -55,7 +55,7 @@ footer {
         color: #ffffff;
     }
     a:hover {
-        color: theme-color('dark');
+        color: map-get($theme-colors, 'dark');
     }
 }
 /* Widget code
@@ -63,7 +63,7 @@ footer {
 .widget {
     h3 {
         font-size: 1.25rem;
-        color: theme-color('primary');
+        color: map-get($theme-colors, 'primary');
         text-transform: uppercase;
     }
 
@@ -75,16 +75,45 @@ footer {
 canvas {
     margin: 1rem 0;
 }
+.chart-container {
+    position: relative;
+    height: 300px;
+}
 /*
     Search Form
  */
 form#search-form {
     .dropdown-menu {
         width: 100%;
+        top: 100%;
+        left: 0;
     }
     .no-results {
         padding-left: 1.25rem;
         padding-right: 1.25rem;
+    }
+}
+.navbar form#search-form {
+    .dropdown-menu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        width: 100%;
+        border-radius: 0;
+        border-top: none;
+    }
+}
+// Homepage search bar: fix input-group styling broken by position-relative wrapper
+.home form#search-form.input-group {
+    .input-group-text {
+        background-color: var(--bs-tertiary-bg);
+        color: var(--bs-body-color);
+    }
+    .position-relative > .form-control {
+        border-top-left-radius: 0;
+        border-bottom-left-radius: 0;
+        background-color: #fff;
     }
 }
 
@@ -101,16 +130,24 @@ form#search-form {
 }
 
 .card-columns {
-  @include media-breakpoint-only(xl) {
-    column-count: 4;
-  }
-  @include media-breakpoint-only(lg) {
-    column-count: 3;
-  }
-  @include media-breakpoint-only(md) {
-    column-count: 2;
-  }
-  @include media-breakpoint-only(sm) {
-    column-count: 2;
-  }
+    column-gap: 1.25rem;
+
+    .card {
+        display: inline-block;
+        width: 100%;
+        margin-bottom: 0.75rem;
+    }
+
+    @include media-breakpoint-up(xl) {
+        column-count: 4;
+    }
+    @include media-breakpoint-only(lg) {
+        column-count: 3;
+    }
+    @include media-breakpoint-only(md) {
+        column-count: 2;
+    }
+    @include media-breakpoint-only(sm) {
+        column-count: 2;
+    }
 }

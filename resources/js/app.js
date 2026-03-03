@@ -1,4 +1,12 @@
-require('./bootstrap');
+import './bootstrap';
+import Chart from 'chart.js/auto';
+import L from 'leaflet';
+import 'leaflet/dist/leaflet.css';
+import '@fortawesome/fontawesome-free/css/all.css';
+import 'jquery-backstretch';
+
+window.Chart = Chart;
+window.L = L;
 
 $(function() {
   /**
