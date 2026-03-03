@@ -95,8 +95,8 @@ form#search-form {
 }
 .navbar form#search-form {
     .dropdown-menu {
-        position: fixed;
-        top: 60px;
+        position: absolute;
+        top: 100%;
         left: 0;
         right: 0;
         width: 100%;
