@@ -33,20 +33,25 @@ $(function() {
                 "data": @json($statData),
                 "fill": false,
                 "borderColor": "{{$lineColor}}",
-                "tension": 0.1
+                "lineTension": 0.1
             }]
         },
         "options": {
             "maintainAspectRatio": false,
             "plugins": {
-                "tooltip": {
+                "tooltips": {
                     "callbacks": {
-                        "label": function(context) {
-                            return context.label + " " + context.parsed.y.toLocaleString();
+                        "label": function(tooltipItems, data) {
+                            return data.labels[tooltipItems.index] + " " + data.datasets[0].data[tooltipItems.index].toLocaleString();
                         }
                     }
-                }
+                },
             },
+            "scales": {
+                "x": {
+                    "title": {
+                        "display": true,
+                        "text": "{{ ucwords(trans('literacy::widget.year')) }}"
                     }
                 },
                 "y": {
@@ -57,7 +62,7 @@ $(function() {
                     },
                     "ticks": {
                         "callback": function(value, index, values) {
-                          return value.toLocaleString();
+                            return value.toLocaleString();
                         }
                     }
                 }
