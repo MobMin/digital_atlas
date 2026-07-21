@@ -12,7 +12,7 @@ $(function() {
    * Handle the search bar
    */
   $('#search-countries').on('focus', function() {
-    $(this).select();
+    $(this).trigger('select');
   });
   $('#search-countries').on('keyup', function() {
     var val = $(this).val();
@@ -38,7 +38,7 @@ $(function() {
         for (var i = 0; i < data.length; i++) {
           var $button = $('<button/>').addClass('dropdown-item').text(data[i].name);
           $button.attr('data-url', '/countries/' + data[i].slug);
-          $button.click(function(event) {
+          $button.on('click', function(event) {
             event.stopPropagation();
             window.location.href = $(this).attr('data-url');
             return false;
