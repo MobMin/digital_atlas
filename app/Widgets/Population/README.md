@@ -49,9 +49,19 @@ Then select **Provider: App\Widgets\Population\PopulationServiceProvider** from 
 
 ## Import Data
 
-To import the data:
+To import the data, you will first need to get the data file. To get the file:
 
-1. Drop the CSV file from the [UN Website](https://population.un.org/wpp/Download/Standard/CSV/) into the root data folder. _You may need to open the file and delete columns to match the current file in the data directory._
+1. Visit the [WorldBank](https://databank.worldbank.org/source/population-estimates-and-projections#).
+2. Under database, in the left column, select "Population estimates and projections"
+3. Under country, in the left column, filter the list Countries, and select all.
+4. Under series, in the left column, select these three series: 1. Population, female, 2. Population, male, and 3. Population, total
+5. Under time, in the left column, selects the last 5 years except this year.
+6. Tap Apply.
+7. In the top right, tap "Download Options", and download the CSV.
+
+Now to import the file:
+
+1. Drop the CSV file into the root data folder.
 2. Rename the file to **widget-population.csv** or the name specified in the *config/widgets/population.php* file.
 3. On the terminal, run the following command:
 

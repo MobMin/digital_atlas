@@ -20,20 +20,28 @@
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
  */
-/**
- * Localization strings for the widget.
- */
-return [
-    'loading'           =>  'Loading...',
-    'missing_data'      =>  'Sorry, no data was found.',
-    'population'        =>  'population',
-    'title'             =>  'Population',
-    'stats'             =>  'stats',
-    'total'             =>  'total',
-    'men'               =>  'men',
-    'women'             =>  'women',
-    'provided_by'       =>  'data provided by',
-    'provider'          =>  'World Bank',
-    'people'            =>  'people',
-    'year'              =>  'year',
-];
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
+
+return new class () extends Migration {
+    /**
+     * Run the migrations.
+     */
+    public function up(): void
+    {
+        Schema::table('population', function (Blueprint $table) {
+            $table->dropColumn('density');
+        });
+    }
+
+    /**
+     * Reverse the migrations.
+     */
+    public function down(): void
+    {
+        Schema::table('population', function (Blueprint $table) {
+            $table->integer('density');
+        });
+    }
+};
