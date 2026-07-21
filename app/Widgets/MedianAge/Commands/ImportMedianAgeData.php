@@ -73,45 +73,43 @@ class ImportMedianAgeData extends Command
         }
         $this->info('Importing MedianAge data');
         $file = base_path('data' . DIRECTORY_SEPARATOR . $report);
-        if (!file_exists($file)) {
-            $this->error('Missing file: ' . $file);
+        if (!\file_exists($file)) {
+            $this->error("Missing file: $file");
             return 0;
         }
         $countries = DB::table('countries')->pluck('id', 'numeric_code')->toArray();
-        $handle = fopen($file, 'r');
+        if (empty($countries)) {
+            $this->error('No countries found in the database. Please import country data first.');
+            return 0;
+        }
+        $handle = \fopen($file, 'r');
         $count = 1;
-        $headers = [];
         $data = [];
-        while (($raw = fgets($handle)) != false) {
-            $row = str_getcsv($raw);
-            if ($count < $this->headerRow) {
-                $count++;
-                continue;
-            } elseif ($count == $this->headerRow) {
-                $headers = $row;
+        while (($raw = \fgets($handle)) != false) {
+            $row = \str_getcsv($raw);
+            if ($count <= $this->headerRow) {
                 $count++;
                 continue;
             }
-
-            $countryCode = $row[5];
-            if (!array_key_exists($countryCode, $countries)) {
+            $countryCode = $row[6];
+            if (!\array_key_exists($countryCode, $countries)) {
                 continue;
             }
-            $combined = array_filter(array_combine($headers, $row));
-            // Remove the first items becomes they are not date columns
-            $combined = array_slice($combined, 7, null, true);
-            if (empty($combined)) {
+            $medianAge = \floatval($row[26]);
+            $year = \intval($row[11]);
+            if ($medianAge <= 0 || $year <= 0) {
                 continue;
             }
-            $total = (count($combined) < 7) ? count($combined) : 7;
-            $years = array_slice($combined, -$total, null, true);
-            foreach ($years as $year => $val) {
-                $data[] = [
-                    'country_id'    =>  $countries[$countryCode],
-                    'total'         =>  floatval($val),
-                    'year_reported' =>  intval($year),
-                ];
+            // if year is less than 10 years old, then skip it
+            $currentYear = \intval(date('Y'));
+            if ($year < ($currentYear - 20)) {
+                continue;
             }
+            $data[] = [
+                'country_id'    =>  $countries[$countryCode],
+                'total'         =>  $medianAge,
+                'year_reported' =>  $year,
+            ];
             $count++;
         }
         if (empty($data)) {

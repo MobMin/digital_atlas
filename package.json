@@ -23,5 +23,9 @@
     "lodash": "^4.17.19",
     "sass": "^1.83.4",
     "vite": "^7.3.1"
+  },
+  "allowScripts": {
+    "@parcel/watcher@2.6.0": true,
+    "esbuild@0.28.1": true
   }
 }

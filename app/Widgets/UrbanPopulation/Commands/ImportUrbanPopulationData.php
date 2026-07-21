@@ -87,6 +87,10 @@ class ImportUrbanPopulationData extends Command
         }
         // This creates an array with key alpha_three_code and value of id
         $countries = DB::table('countries')->pluck('id', 'alpha_three_code')->toArray();
+        if (empty($countries)) {
+            $this->error('No countries found in the database. Please import country data first.');
+            return 0;
+        }
         $handle = fopen($file, 'r');
         $count = 1;
         $headers = [];

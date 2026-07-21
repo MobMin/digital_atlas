@@ -53,7 +53,7 @@ class LiteracyWidget extends AbstractWidget
         $statLabels = [];
         $statData = [];
         foreach ($stats as $stat) {
-            $statLabels[] = strval($stat->year_reported);
+            $statLabels[] = \strval($stat->year_reported);
             $statData[] = $stat->total;
         }
         $lineColor = config('widgets.literacy.graph.line_color');

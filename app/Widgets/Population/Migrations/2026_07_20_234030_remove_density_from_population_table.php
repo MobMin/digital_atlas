@@ -16,21 +16,32 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
+ * @author Johnathan Pulos <johnathan@missionaldigerati.org>
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
  */
-/**
- * Configuration for the Twitter widget
- *
- * @var array
- */
-return [
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
-    'api' =>  [
-        'consumer_key' => "",
-        'consumer_secret' => "",
-        'oauth_access_token' => "",
-        'oauth_access_token_secret' => ""
-    ],
+return new class () extends Migration {
+    /**
+     * Run the migrations.
+     */
+    public function up(): void
+    {
+        Schema::table('population', function (Blueprint $table) {
+            $table->dropColumn('density');
+        });
+    }
 
-];
+    /**
+     * Reverse the migrations.
+     */
+    public function down(): void
+    {
+        Schema::table('population', function (Blueprint $table) {
+            $table->integer('density');
+        });
+    }
+};

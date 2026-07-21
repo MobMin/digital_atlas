@@ -90,13 +90,17 @@ class ImportTopSocialStats extends Command
     {
         // This creates an array with key alpha_two_code and value of id
         $countries = DB::table('countries')->pluck('id', 'alpha_two_code')->toArray();
+        if (empty($countries)) {
+            $this->error('No countries found in the database. Please import country data first.');
+            return 0;
+        }
         $countryData = [];
         foreach ($countries as $code => $id) {
             $this->info('Importing ' . $code . ' stats.');
             $statUrl = $this->getUrl($code);
             try {
                 $fileData = fopen($statUrl, 'r');
-            } catch (Exception $e) {
+            } catch (\Exception $e) {
                 $this->error('Unable to retrieve file for ' . $code . '.');
                 continue;
             }

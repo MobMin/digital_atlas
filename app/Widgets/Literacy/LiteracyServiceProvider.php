@@ -24,6 +24,7 @@
 namespace App\Widgets\Literacy;
 
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Console\Scheduling\Schedule;
 
 class LiteracyServiceProvider extends ServiceProvider
 {
