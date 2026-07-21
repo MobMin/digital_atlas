@@ -1,5 +1,5 @@
 import $ from 'jquery';
-import * as Cookies from 'js-cookie';
+import Cookies from 'js-cookie';
 $(() => {
   /**
    * An array holding all the widgets available and there state.
