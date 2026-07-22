@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of Digital Atlas.
  *
@@ -18,6 +19,7 @@
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
  */
+
 namespace App\Widgets\MobileSubscriptions\Commands;
 
 use App\Widgets\MobileSubscriptions\Models\MobileSubscription;
@@ -84,6 +86,10 @@ class ImportMobileSubscriptionsData extends Command
         }
         // This creates an array with key alpha_three_code and value of id
         $countries = DB::table('countries')->pluck('id', 'alpha_three_code')->toArray();
+        if (empty($countries)) {
+            $this->error('No countries found in the database. Please import country data first.');
+            return 0;
+        }
         $handle = fopen($file, 'r');
         $count = 1;
         $headers = [];

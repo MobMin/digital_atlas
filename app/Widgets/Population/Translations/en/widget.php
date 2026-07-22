@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of Digital Atlas.
  *
@@ -31,9 +32,8 @@ return [
     'total'             =>  'total',
     'men'               =>  'men',
     'women'             =>  'women',
-    'density'           =>  'density',
     'provided_by'       =>  'data provided by',
-    'united_nations'    =>  'United Nations',
+    'provider'          =>  'World Bank',
     'people'            =>  'people',
     'year'              =>  'year',
 ];

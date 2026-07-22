@@ -5,9 +5,11 @@
             <p>{{ trans('widget-population::widget.missing_data') }}</p>
         </div>
     @else
-        <canvas id="population-chart" class="card-img-top" height="400" styles="width: 100%; height: auto;"></canvas>
+        <div class="chart-container card-img-top">
+            <canvas id="population-chart"></canvas>
+        </div>
         <div class="card-body">
-            <h3 class="card-title">{{ $current->year_reported }} {{ ucfirst(trans('widget-population::widget.stats')) }}</h3>
+            <h3 class="card-title">{{ $current->year_reported }} {{ ucfirst(trans('widget-population::widget.title')) }}</h3>
             <dl class="row">
                 <dt class="col-sm-3">{{ ucfirst(trans('widget-population::widget.total')) }}</dt>
                 <dd class="col-sm-9">{{ number_format($current->total) }} <span class="text-dark">(@readableInt($current->total))</span></dd>
@@ -15,13 +17,11 @@
                 <dd class="col-sm-9">{{ number_format($current->men) }} <span class="text-dark">(@readableInt($current->men))</span></dd>
                 <dt class="col-sm-3">{{ ucfirst(trans('widget-population::widget.women')) }}</dt>
                 <dd class="col-sm-9">{{ number_format($current->women) }} <span class="text-dark">(@readableInt($current->women))</span></dd>
-                <dt class="col-sm-3">{{ ucfirst(trans('widget-population::widget.density')) }}</dt>
-                <dd class="col-sm-9">{{ number_format($current->density) }}</dd>
             </dl>
         </div>
     @endif
     <div class="card-footer text-muted">
-        <p class="credit">{{ ucfirst(trans('widget-population::widget.provided_by')) }} <a href="https://www.un.org/" target="_blank" rel="nofollow">{{ trans('widget-population::widget.united_nations') }}</a></p>
+        <p class="credit">{{ ucfirst(trans('widget-population::widget.provided_by')) }} <a href="https://databank.worldbank.org/source/population-estimates-and-projections" target="_blank" rel="nofollow">{{ trans('widget-population::widget.provider') }}</a></p>
     </div>
 </div>
 <script type="text/javascript">
@@ -37,40 +37,39 @@ $(function() {
                 "data": @json($statData),
                 "fill": false,
                 "borderColor": "{{$lineColor}}",
-                "lineTension": 0.1
+                "tension": 0.1
             }]
         },
         "options": {
-            "tooltips": {
-                "callbacks": {
-                    "label": function(tooltipItems, data) {
-                        return data.labels[tooltipItems.index] + " " + data.datasets[0].data[tooltipItems.index].toLocaleString();
+            "maintainAspectRatio": false,
+            "plugins": {
+                "tooltip": {
+                    "callbacks": {
+                        "label": function(context) {
+                            return context.label + " " + context.parsed.y.toLocaleString();
+                        }
                     }
                 }
             },
             "scales": {
-                "xAxes": [
-                    {
-                        "scaleLabel": {
-                            "display": true,
-                            "labelString": "{{ ucwords(trans('widget-population::widget.year')) }}"
+                "x": {
+                    "title": {
+                        "display": true,
+                        "text": "{{ ucwords(trans('widget-population::widget.year')) }}"
+                    }
+                },
+                "y": {
+                    "beginAtZero": false,
+                    "title": {
+                        "display": true,
+                        "text": "{{ ucwords(trans('widget-population::widget.people')) }}"
+                    },
+                    "ticks": {
+                        "callback": function(value, index, values) {
+                          return value.toLocaleString();
                         }
                     }
-                ],
-                "yAxes": [
-                    {
-                        "scaleLabel": {
-                            "display": true,
-                            "labelString": "{{ ucwords(trans('widget-population::widget.people')) }}"
-                        },
-                        "ticks": {
-                            "beginAtZero": false,
-                            "callback": function(value, index, values) {
-                              return value.toLocaleString();
-                            }
-                        }
-                    }
-                ]
+                }
             }
         }
     });

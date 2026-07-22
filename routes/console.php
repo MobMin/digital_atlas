@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of Digital Atlas.
  *
@@ -19,9 +20,7 @@
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
  */
-use Illuminate\Foundation\Inspiring;
 use Illuminate\Support\Facades\Artisan;
-use Symfony\Component\Process\Exception\ProcessFailedException;
 use Symfony\Component\Process\Process;
 
 /*
@@ -35,7 +34,7 @@ use Symfony\Component\Process\Process;
 |
 */
 Artisan::command('lint', function () {
-    $process = new Process(['./vendor/bin/phpcs', '.']);
+    $process = new Process(['./vendor/bin/pint']);
     $process->run();
     echo $process->getOutput();
 })->describe('Run syntax linting on all developed code.');

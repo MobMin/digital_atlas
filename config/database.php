@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of Digital Atlas.
  *
@@ -21,6 +22,7 @@
  */
 use Illuminate\Support\Str;
 
+$sslCaConstant = defined('Pdo\Mysql::ATTR_SSL_CA') ? \Pdo\Mysql::ATTR_SSL_CA : \PDO::MYSQL_ATTR_SSL_CA;
 return [
 
     /*
@@ -78,7 +80,7 @@ return [
             'strict' => true,
             'engine' => null,
             'options' => extension_loaded('pdo_mysql') ? array_filter([
-                PDO::MYSQL_ATTR_SSL_CA => env('MYSQL_ATTR_SSL_CA'),
+                $sslCaConstant => env('MYSQL_ATTR_SSL_CA'),
             ]) : [],
         ],
         'test_mysql' => [
@@ -97,7 +99,7 @@ return [
             'strict' => true,
             'engine' => null,
             'options' => extension_loaded('pdo_mysql') ? array_filter([
-                PDO::MYSQL_ATTR_SSL_CA => env('MYSQL_ATTR_SSL_CA'),
+                $sslCaConstant => env('MYSQL_ATTR_SSL_CA'),
             ]) : [],
         ],
 

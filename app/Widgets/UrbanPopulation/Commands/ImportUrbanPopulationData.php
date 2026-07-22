@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of Digital Atlas.
  *
@@ -19,6 +20,7 @@
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
  */
+
 namespace App\Widgets\UrbanPopulation\Commands;
 
 use App\Widgets\UrbanPopulation\Models\UrbanPopulation;
@@ -45,7 +47,7 @@ class ImportUrbanPopulationData extends Command
      * @access protected
      */
     protected $description = 'Imports the UrbanPopulation CSV file.' .
-    ' (drop widget-urban-population.csv in data directory in the root)';
+        ' (drop widget-urban-population.csv in data directory in the root)';
 
     /**
      * What is the row number for the header row (We skip all rows before it)
@@ -85,6 +87,10 @@ class ImportUrbanPopulationData extends Command
         }
         // This creates an array with key alpha_three_code and value of id
         $countries = DB::table('countries')->pluck('id', 'alpha_three_code')->toArray();
+        if (empty($countries)) {
+            $this->error('No countries found in the database. Please import country data first.');
+            return 0;
+        }
         $handle = fopen($file, 'r');
         $count = 1;
         $headers = [];

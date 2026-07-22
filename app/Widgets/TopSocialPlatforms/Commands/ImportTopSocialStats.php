@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of Digital Atlas.
  *
@@ -19,6 +20,7 @@
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
  */
+
 namespace App\Widgets\TopSocialPlatforms\Commands;
 
 use App\Widgets\TopSocialPlatforms\Models\PlatformStat;
@@ -47,7 +49,7 @@ class ImportTopSocialStats extends Command
      * @access protected
      */
     protected $description = 'Import the top social media platforms for a specific country.' .
-    ' (Warning: time consuming)';
+        ' (Warning: time consuming)';
 
     /**
      * The url where to retrieve the data. The following parameters will be replaced:
@@ -61,11 +63,11 @@ class ImportTopSocialStats extends Command
      * @access protected
      */
     protected $url = 'https://gs.statcounter.com/social-media-stats/all/chart.php?device=' .
-    'Desktop%20%26%20Mobile%20%26%20Tablet%20%26%20Console&device_hidden=desktop%2Bmobile' .
-    '%2Btablet%2Bconsole&multi-device=true&statType_hidden=social_media&region_hidden={{REGION}}' .
-    '&granularity=monthly&statType=Social%20Media&fromInt={{START_YR}}{{START_MTH}}&' .
-    'toInt={{END_YR}}{{END_MTH}}&fromMonthYear={{START_YR}}-{{START_MTH}}&toMonthYear={{END_YR}}' .
-    '-{{END_MTH}}&csv=1';
+        'Desktop%20%26%20Mobile%20%26%20Tablet%20%26%20Console&device_hidden=desktop%2Bmobile' .
+        '%2Btablet%2Bconsole&multi-device=true&statType_hidden=social_media&region_hidden={{REGION}}' .
+        '&granularity=monthly&statType=Social%20Media&fromInt={{START_YR}}{{START_MTH}}&' .
+        'toInt={{END_YR}}{{END_MTH}}&fromMonthYear={{START_YR}}-{{START_MTH}}&toMonthYear={{END_YR}}' .
+        '-{{END_MTH}}&csv=1';
 
     /**
      * Create a new command instance.
@@ -88,13 +90,17 @@ class ImportTopSocialStats extends Command
     {
         // This creates an array with key alpha_two_code and value of id
         $countries = DB::table('countries')->pluck('id', 'alpha_two_code')->toArray();
+        if (empty($countries)) {
+            $this->error('No countries found in the database. Please import country data first.');
+            return 0;
+        }
         $countryData = [];
         foreach ($countries as $code => $id) {
             $this->info('Importing ' . $code . ' stats.');
             $statUrl = $this->getUrl($code);
             try {
                 $fileData = fopen($statUrl, 'r');
-            } catch (Exception $e) {
+            } catch (\Exception $e) {
                 $this->error('Unable to retrieve file for ' . $code . '.');
                 continue;
             }

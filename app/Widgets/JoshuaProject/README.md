@@ -22,7 +22,7 @@ App\Widgets\JoshuaProject\JoshuaProjectServiceProvider::class
 
 _Docker_
 ```
-docker-compose run --rm da_artisan migrate
+./vendor/bin/sail artisan migrate
 ```
 
 _Manual Installation_
@@ -40,7 +40,7 @@ To publish the configuration file, simply run the following command:
 
 _Docker_
 ```
-docker-compose run --rm da_artisan vendor:publish
+./vendor/bin/sail artisan vendor:publish
 ```
 
 _Manual Installation_
@@ -56,7 +56,7 @@ To import the data, simply run the following command:
 
 _Docker_
 ```
-docker-compose run --rm da_artisan import:joshuaproject:data
+./vendor/bin/sail artisan import:joshuaproject:data
 ```
 
 _Manual Installation_

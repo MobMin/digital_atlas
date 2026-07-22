@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of Digital Atlas.
  *
@@ -19,6 +20,7 @@
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
  */
+
 namespace App\Widgets\Population\Commands;
 
 use App\Widgets\Population\Models\Population;
@@ -26,18 +28,10 @@ use Illuminate\Console\Command;
 use Illuminate\Support\Facades\DB;
 
 /**
- * Imports the UN population data from a CSV in the data directory in the root folder.
- * The CSV can be retrieved at:
- * @link https://population.un.org/wpp/Download/Standard/Population/
+ * Imports the World Bank population data from a CSV in the data directory in the root folder.
  */
 class ImportPopulationData extends Command
 {
-    /**
-     * A multiplier provided by the UN that all stats should be mulltiplied by
-     *
-     * @var integer
-     */
-    protected $populationMultiplier = 1000;
     /**
      * The name and signature of the console command.
      *
@@ -54,6 +48,17 @@ class ImportPopulationData extends Command
      */
     protected $description = 'Imports the UN population CSV file.' .
         ' (drop widget-population.csv in data directory in the root)';
+
+    /**
+     * The key references for the various series codes
+     *
+     * @var array
+     */
+    private $seriesCodes = [
+        'SP.POP.TOTL' => 'total',
+        'SP.POP.TOTL.MA.IN' => 'men',
+        'SP.POP.TOTL.FE.IN' => 'women',
+    ];
 
     /**
      * Create a new command instance.
@@ -74,11 +79,6 @@ class ImportPopulationData extends Command
      */
     public function handle()
     {
-        /**
-         * We get last year because this year is an estimate.
-         */
-        $thisYear = date('Y') - 1;
-        $earliestYear = $thisYear-4;
         $this->info('Importing population data.');
         $report = config('widgets.population.report_filename');
         if ($report == null) {
@@ -90,43 +90,62 @@ class ImportPopulationData extends Command
             return 0;
         }
         // This creates an array with key numeric_code and value of id
-        $countries = DB::table('countries')->pluck('id', 'numeric_code')->toArray();
+        $countries = DB::table('countries')->pluck('id', 'alpha_three_code')->toArray();
+        if (empty($countries)) {
+            $this->error('No countries found in the database. Please import country data first.');
+            return 0;
+        }
         $handle = fopen($file, 'r');
         $headerPassed = false;
         $data = [];
+        $years = [];
         while (($raw = fgets($handle)) != false) {
+            $row = str_getcsv($raw);
             if (!$headerPassed) {
+                // This gives the list of years from the CSV header starting from the 5th column. But we need to extract
+                // the years from those headers which look like this: 2021 [YR2021]
+                $years = \array_map(function ($header) {
+                    \preg_match('/(\d{4})/', $header, $matches);
+                    return $matches[1] ?? null;
+                }, \array_slice($row, 4));
                 $headerPassed = true;
                 continue;
             }
 
-            $row = str_getcsv($raw);
-            $year = intval($row[4]);
-            if (($year < $earliestYear) || ($year > $thisYear)) {
-                continue;
-            }
-
-            $numericCode = intval($row[0]);
-            if (array_key_exists($numericCode, $countries)) {
-                $popMen = round(floatval($row[6]) * $this->populationMultiplier);
-                $popWomen = round(floatval($row[7]) * $this->populationMultiplier);
-                $popTotal = round(floatval($row[8]) * $this->populationMultiplier);
-                $data[] = [
-                    'men' => intval($popMen),
-                    'women' => intval($popWomen),
-                    'total' => intval($popTotal),
-                    'density' => intval(round(floatval($row[9]))),
-                    'year_reported' => $year,
-                    'country_id' => $countries[$numericCode],
-                ];
+            $countryCode = \strval($row[1]);
+            $seriesCode = \strval($row[3]);
+            $populationValues = \array_slice($row, 4);
+            if (\array_key_exists($countryCode, $countries)) {
+                // We are working with country specific data
+                if (!\array_key_exists($countryCode, $data)) {
+                    $data[$countryCode] = [];
+                }
+                $key = $this->seriesCodes[$seriesCode] ?? null;
+                if ($key === null) {
+                    continue;
+                }
+                $data[$countryCode][$key] = $populationValues;
             }
         }
         if (empty($data)) {
             $this->error('The file has no data to import.');
             return 0;
         }
+        // Create the array of data for the database
+        $dbData = [];
+        foreach ($data as $countryCode => $populationData) {
+            foreach ($years as $index => $year) {
+                $dbData[] = [
+                    'country_id' => $countries[$countryCode],
+                    'year_reported' => $year,
+                    'total' => \intval($populationData['total'][$index]) ?? 0,
+                    'men' => \intval($populationData['men'][$index]) ?? 0,
+                    'women' => \intval($populationData['women'][$index]) ?? 0,
+                ];
+            }
+        }
         Population::truncate();
-        Population::insert($data);
+        Population::insert($dbData);
         $this->info('Import is complete.');
         return 0;
     }

@@ -1,4 +1,5 @@
 /node_modules
+/public/build
 /public/hot
 /public/storage
 /storage/*.key
@@ -13,3 +14,4 @@ yarn-error.log
 /config/widgets/joshua_project.php
 /config/widgets/twitter.php
 /config/widgets/you_tube_popular_videos.php
+.phpunit.cache

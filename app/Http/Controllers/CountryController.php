@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of Digital Atlas.
  *
@@ -19,10 +20,13 @@
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
  */
+
 namespace App\Http\Controllers;
 
 use App\Models\Country;
 use Illuminate\Http\Request;
+use Illuminate\Http\JsonResponse;
+use Illuminate\View\View;
 
 /**
  * Our Country controller
@@ -32,9 +36,9 @@ class CountryController extends Controller
     /**
      * Show all countries
      *
-     * @return Response
+     * @return View
      */
-    public function index()
+    public function index(): View
     {
         $photos = config('home_photos');
         $random = array_rand($photos);
@@ -45,9 +49,9 @@ class CountryController extends Controller
      * Show a specific country
      *
      * @param  string $slug The country slug
-     * @return Response
+     * @return View
      */
-    public function show($slug)
+    public function show(string $slug): View
     {
         $country = Country::where('slug', $slug)->first();
         if ($country == null) {
@@ -60,16 +64,13 @@ class CountryController extends Controller
      * Fetch all the countries for a specific query
      *
      * @param  Request $request The request object
-     * @return Response         The JSON response
+     * @return JsonResponse         The JSON response
      */
-    public function fetch(Request $request)
+    public function fetch(Request $request): JsonResponse
     {
-        $query = $request->get('query');
-        if ($query) {
-            $countries = Country::where('name', 'LIKE', "{$query}%")->get();
-        } else {
-            $countries = Country::get();
-        }
+        $query = $request->input('query', '');
+        $countries = ($query) ? Country::where('name', 'LIKE', "{$query}%")->get() : Country::get();
+
         return response()->json($countries);
     }
 }

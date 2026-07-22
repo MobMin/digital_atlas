@@ -1,7 +1,7 @@
 {
   "name": "mobmin/digital_atlas",
   "type": "project",
-  "version": "2.0.2",
+  "version": "2.1.0",
   "description": "This tool provides a detailed overview of the digital landscape for the countries of the world.",
   "keywords": [
     "framework",
@@ -9,22 +9,21 @@
   ],
   "license": "MIT",
   "require": {
-    "php": "^8.1",
+    "php": "^8.3",
     "arrilot/laravel-widgets": "^3.14",
     "google/apiclient": "^2.15",
-    "guzzlehttp/guzzle": "^7.2",
-    "j7mbo/twitter-api-php": "^1.0",
-    "laravel/framework": "^10.10",
-    "laravel/sanctum": "^3.3",
-    "laravel/tinker": "^2.8"
+    "guzzlehttp/guzzle": "^7.15",
+    "laravel/framework": "^13.0",
+    "laravel/tinker": "^3.0"
   },
   "require-dev": {
     "fakerphp/faker": "^1.9.1",
-    "laravel/pint": "^1.0",
+    "laravel/pint": "^1.27",
     "laravel/sail": "^1.18",
     "mockery/mockery": "^1.4.4",
-    "nunomaduro/collision": "^7.0",
-    "phpunit/phpunit": "^10.1",
+    "nunomaduro/collision": "^8.1",
+    "pestphp/pest": "^4.0",
+    "phpunit/phpunit": "^12.0",
     "spatie/laravel-ignition": "^2.0"
   },
   "autoload": {

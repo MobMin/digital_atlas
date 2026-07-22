@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of Digital Atlas.
  *
@@ -15,28 +16,32 @@
  * You should have received a copy of the GNU General Public License
  * along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *
+ * @author Johnathan Pulos <johnathan@missionaldigerati.org>
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
  */
-namespace App\Widgets\Twitter\Models;
+use Illuminate\Database\Migrations\Migration;
+use Illuminate\Database\Schema\Blueprint;
+use Illuminate\Support\Facades\Schema;
 
-use Illuminate\Database\Eloquent\Model;
-
-class Twitter extends Model
-{
+return new class () extends Migration {
     /**
-     * The table associated with the model.
-     *
-     * @var string
+     * Run the migrations.
      */
-    protected $table = 'trending_on_twitter';
+    public function up(): void
+    {
+        Schema::table('population', function (Blueprint $table) {
+            $table->dropColumn('density');
+        });
+    }
 
     /**
-     * @var array
+     * Reverse the migrations.
      */
-    protected $fillable = [
-        'tweet_name',
-        'tweet_count',
-        'country_id',
-    ];
-}
+    public function down(): void
+    {
+        Schema::table('population', function (Blueprint $table) {
+            $table->integer('density');
+        });
+    }
+};

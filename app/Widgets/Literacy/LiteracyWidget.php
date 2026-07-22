@@ -1,4 +1,5 @@
 <?php
+
 /**
  * This file is part of Digital Atlas.
  *
@@ -19,6 +20,7 @@
  * @license http://opensource.org/licenses/gpl-license.php GNU Public License
  *
  */
+
 namespace App\Widgets\Literacy;
 
 use App\Widgets\Literacy\Models\Literacy;
@@ -51,11 +53,11 @@ class LiteracyWidget extends AbstractWidget
         $statLabels = [];
         $statData = [];
         foreach ($stats as $stat) {
-            $statLabels[] = strval($stat->year_reported);
+            $statLabels[] = \strval($stat->year_reported);
             $statData[] = $stat->total;
         }
         $lineColor = config('widgets.literacy.graph.line_color');
-        if ($lineColor==null) {
+        if ($lineColor == null) {
             $lineColor = '#000000';
         }
         return view('literacy::literacy_widget', [

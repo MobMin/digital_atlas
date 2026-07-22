@@ -5,7 +5,9 @@
             <p>{{ trans('literacy::widget.missing_data') }}</p>
         </div>
     @else
-        <canvas id="literacy-chart" class="card-img-top" height="400" styles="width: 100%; height: auto;"></canvas>
+        <div class="chart-container card-img-top">
+            <canvas id="literacy-chart"></canvas>
+        </div>
         <div class="card-body">
             <h3 class="card-title">{{ $current->year_reported }} {{ ucfirst(trans('literacy::widget.title')) }}</h3>
             <dl class="row">
@@ -35,36 +37,35 @@ $(function() {
             }]
         },
         "options": {
-            "tooltips": {
-                "callbacks": {
-                    "label": function(tooltipItems, data) {
-                        return data.labels[tooltipItems.index] + " " + data.datasets[0].data[tooltipItems.index].toLocaleString();
+            "maintainAspectRatio": false,
+            "plugins": {
+                "tooltips": {
+                    "callbacks": {
+                        "label": function(tooltipItems, data) {
+                            return data.labels[tooltipItems.index] + " " + data.datasets[0].data[tooltipItems.index].toLocaleString();
+                        }
                     }
-                }
+                },
             },
             "scales": {
-                "xAxes": [
-                    {
-                        "scaleLabel": {
-                            "display": true,
-                            "labelString": "{{ ucwords(trans('literacy::widget.year')) }}"
+                "x": {
+                    "title": {
+                        "display": true,
+                        "text": "{{ ucwords(trans('literacy::widget.year')) }}"
+                    }
+                },
+                "y": {
+                    "beginAtZero": false,
+                    "title": {
+                        "display": true,
+                        "text": "{{ ucwords(trans('literacy::widget.rates')) }}"
+                    },
+                    "ticks": {
+                        "callback": function(value, index, values) {
+                            return value.toLocaleString();
                         }
                     }
-                ],
-                "yAxes": [
-                    {
-                        "scaleLabel": {
-                            "display": true,
-                            "labelString": "{{ ucwords(trans('literacy::widget.rates')) }}"
-                        },
-                        "ticks": {
-                            "beginAtZero": false,
-                            "callback": function(value, index, values) {
-                              return value.toLocaleString();
-                            }
-                        }
-                    }
-                ]
+                }
             }
         }
     });

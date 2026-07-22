@@ -22,7 +22,7 @@ App\Widgets\YouTubePopularVideos\YouTubePopularVideosServiceProvider::class
 
 _Docker_
 ```
-docker-compose run --rm da_artisan migrate
+./vendor/bin/sail artisan migrate
 ```
 
 _Manual Installation_
@@ -38,7 +38,7 @@ To publish the configuration file, simply run the following command:
 
 _Docker_
 ```
-docker-compose run --rm da_artisan vendor:publish
+./vendor/bin/sail artisan vendor:publish
 ```
 
 _Manual Installation_
@@ -54,7 +54,7 @@ In order to use this widget, you must retrieve an API key for the [YouTube API](
 
 _Docker_
 ```
-docker-compose run --rm da_artisan import:youtube-popular-videos
+./vendor/bin/sail artisan import:youtube-popular-videos
 ```
 
 _Manual Installation_
