@@ -6,7 +6,7 @@ Welcome to the [Digital World Atlas](https://digitalworldatlas.com) project!  Th
 
 | Develop Branch | Master Branch | Repository |
 | -------------- | ------------- | ---------- |
-| [![CI](https://github.com/MobMin/digital_atlas/actions/workflows/ci.yml/badge.svg?branch=develop)](https://github.com/MobMin/digital_atlas/actions/workflows/ci.yml) | [![CI](https://github.com/MobMin/digital_atlas/actions/workflows/ci.yml/badge.svg?branch=master)](https://github.com/MobMin/digital_atlas/actions/workflows/ci.yml) | [![AppVersion-version](https://img.shields.io/badge/AppVersion-2.0.2-brightgreen.svg?style=flat)](https://github.com/delvedor/appversion?#version) |
+| [![CI](https://github.com/MobMin/digital_atlas/actions/workflows/ci.yml/badge.svg?branch=develop)](https://github.com/MobMin/digital_atlas/actions/workflows/ci.yml) | [![CI](https://github.com/MobMin/digital_atlas/actions/workflows/ci.yml/badge.svg?branch=master)](https://github.com/MobMin/digital_atlas/actions/workflows/ci.yml) | [![AppVersion-version](https://img.shields.io/badge/AppVersion-2.1.0-brightgreen.svg?style=flat)](https://github.com/delvedor/appversion?#version) |
 
 ## Development
 
