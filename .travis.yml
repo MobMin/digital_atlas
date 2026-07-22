@@ -2,13 +2,13 @@
 language: php
 
 php:
-  - 7.3
-  - 7.4
+  - 8.3
+  - 8.4
 
 os: linux
 
 addons:
-  mariadb: 10.4
+  mariadb: 10.11
 
 cache:
   directories:
@@ -29,4 +29,4 @@ before_script:
   - php artisan migrate --no-interaction -vvv
 
 script:
-  - vendor/bin/phpunit
+  - vendor/bin/pest
