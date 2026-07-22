@@ -1,0 +1,7 @@
+body.home {
+    background-image: var(--home-bg);
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-attachment: fixed;
+    background-size: cover;
+}

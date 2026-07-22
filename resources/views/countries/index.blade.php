@@ -23,15 +23,14 @@
         </div>
     </div>
 @stop
+@section('extra-css')
+    <style type="text/css">
+        :root {
+            --home-bg: url("{{ asset('files/' . $photo['file_name']) }}");
+        }
+    </style>
+@stop
+
 @section('extra-footer')
 | Photo by <a href="{{ $photo['link'] }}" rel="nofollow" target="_blank">{{ $photo['credit'] }}</a>
-@stop
-@section('extra-js')
-    <script type="text/javascript">
-    {{-- DOMContentLoaded fires after Vite's deferred module scripts (app.js) execute,
-         ensuring jQuery and jquery-backstretch are available via window.$. --}}
-    document.addEventListener('DOMContentLoaded', function() {
-        $.backstretch("{{ asset('files/' . $photo['file_name']) }}");
-    });
-    </script>
 @stop
