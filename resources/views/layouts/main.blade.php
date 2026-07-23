@@ -17,6 +17,7 @@
         <meta property="og:description" content="@lang('main_layout.website_desc')" />
         <meta property="og:site_name" content="@lang('main_layout.website_name')" />
         <meta name="author" content="Mobile Ministry Forum">
+        <script src="https://code.jquery.com/jquery-4.0.0.min.js" integrity="sha256-OaVG6prZf4v69dPg6PhVattBXkcOWQB62pdZ3ORyrao=" crossorigin="anonymous"></script>
         @vite(['resources/css/app.css', 'resources/js/app.js', 'resources/sass/app.scss'])
         @yield('extra-css')
     </head>
