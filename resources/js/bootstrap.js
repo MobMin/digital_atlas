@@ -7,8 +7,7 @@ window._ = _;
  * code may be modified to fit the specific needs of your application.
  */
 
-import $ from 'jquery';
-window.$ = window.jQuery = $;
+window.$ = window.jQuery = jQuery;
 
 import * as bootstrap from 'bootstrap';
 window.bootstrap = bootstrap;
